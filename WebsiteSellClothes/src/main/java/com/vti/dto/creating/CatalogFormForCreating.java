@@ -1,4 +1,4 @@
-package com.vti.dto;
+package com.vti.dto.creating;
 
 import com.vti.entity.Catalog;
 import com.vti.entity.Group;

@@ -1,4 +1,4 @@
-package com.vti.dto;
+package com.vti.dto.updating;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

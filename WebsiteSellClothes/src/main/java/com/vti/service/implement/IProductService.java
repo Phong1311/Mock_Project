@@ -1,7 +1,7 @@
 package com.vti.service.implement;
 
-import com.vti.dto.ProductFormForCreating;
-import com.vti.dto.ProductFormForUpdating;
+import com.vti.dto.creating.ProductFormForCreating;
+import com.vti.dto.updating.ProductFormForUpdating;
 import com.vti.dto.filter.ProductFilter;
 import com.vti.entity.Group;
 import com.vti.entity.Product;

@@ -1,8 +1,6 @@
 package com.vti.specification;
 
-import com.vti.dto.filter.GroupFilter;
 import com.vti.entity.Catalog;
-import com.vti.entity.Group;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
@@ -14,7 +12,7 @@ public class CatalogSpecificationBuilder {
     }
 
     @SuppressWarnings("deprecation")
-    public Specification<Group> build() {
+    public Specification<Catalog> build() {
 
         SearchCriteria seachCriteria = new SearchCriteria("name", "Like", search);
 
@@ -24,7 +22,6 @@ public class CatalogSpecificationBuilder {
         if (!StringUtils.isEmpty(search)) {
             where = new CatalogSpecification(seachCriteria);
         }
-
 
         return where;
     }

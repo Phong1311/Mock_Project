@@ -68,3 +68,29 @@ public class GroupController {
 		return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
 	}
 }
+//	@GetMapping()
+//	public List<Department> getAllDepartments() {
+//		return service.getAllDepartments();
+//	}
+//
+//	@GetMapping(value = "/{id}")
+//	public Department getDepartmentByID(@PathVariable(name = "id") int id) {
+//		return service.getDepartmentByID(id);
+//	}
+//
+//	@PostMapping()
+//	public void createDepartment(@RequestBody DepartmentForm form) {
+//		service.createDepartment(form.toEntity());
+//	}
+//
+//	@PutMapping(value = "/{id}")
+//	public void updateDepartment(@PathVariable(name = "id") int id, @RequestBody DepartmentForm form) {
+//		Department department = form.toEntity();
+//		department.setId(id);
+//		service.updateDepartment(department);
+//	}
+//
+//	@DeleteMapping(value = "/{id}")
+//	public void deleteDepartment(@PathVariable(name = "id") int id) {
+//		service.deleteDepartment(id);
+//	}

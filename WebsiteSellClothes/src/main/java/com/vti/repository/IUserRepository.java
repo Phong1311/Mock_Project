@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import com.vti.entity.User;
 import com.vti.entity.UserStatus;
 
-public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
+public interface IUserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
 	public boolean existsByUserName(String userName);
 

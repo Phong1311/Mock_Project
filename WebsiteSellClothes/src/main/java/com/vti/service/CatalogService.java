@@ -1,22 +1,15 @@
 package com.vti.service;
 
-import com.vti.dto.CatalogFormForCreating;
-import com.vti.dto.CatalogFormForUpdating;
-import com.vti.dto.GroupFormForCreating;
-import com.vti.dto.GroupFormForUpdating;
-import com.vti.dto.filter.GroupFilter;
+import com.vti.dto.creating.CatalogFormForCreating;
+import com.vti.dto.updating.CatalogFormForUpdating;
 import com.vti.entity.Catalog;
-import com.vti.entity.Group;
-import com.vti.repository.CatalogRepository;
-import com.vti.repository.GroupRepository;
+import com.vti.repository.ICatalogRepository;
 import com.vti.service.implement.ICatalogService;
 import com.vti.specification.CatalogSpecificationBuilder;
-import com.vti.specification.GroupSpecificationBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -24,14 +17,14 @@ import java.util.List;
 public class CatalogService implements ICatalogService {
 
 	@Autowired
-	private CatalogRepository repository;
+	private ICatalogRepository repository;
 
 	@Override
-	public List<Catalog> getAllCatalogs(String search) {
+	public Page<Catalog> getAllCatalogs(Pageable pageable, String search) {
 
 		CatalogSpecificationBuilder specification = new CatalogSpecificationBuilder(search);
 
-		return repository.findAll(specification.build());
+		return repository.findAll(specification.build(),pageable);
 	}
 
 	@Override

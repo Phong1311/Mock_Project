@@ -1,20 +1,14 @@
 package com.vti.service.implement;
 
-import com.vti.dto.CatalogFormForCreating;
-import com.vti.dto.CatalogFormForUpdating;
-import com.vti.dto.GroupFormForCreating;
-import com.vti.dto.GroupFormForUpdating;
-import com.vti.dto.filter.GroupFilter;
+import com.vti.dto.creating.CatalogFormForCreating;
+import com.vti.dto.updating.CatalogFormForUpdating;
 import com.vti.entity.Catalog;
-import com.vti.entity.Group;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-
 public interface ICatalogService {
 
-	List<Catalog> getAllCatalogs(String search);
+	Page<Catalog> getAllCatalogs(Pageable pageable, String search);
 
 	Catalog getCatalogByID(int id);
 

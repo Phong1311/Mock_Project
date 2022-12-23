@@ -20,14 +20,14 @@ import com.vti.event.OnResetPasswordViaEmailEvent;
 import com.vti.event.OnSendRegistrationUserConfirmViaEmailEvent;
 import com.vti.repository.RegistrationUserTokenRepository;
 import com.vti.repository.ResetPasswordTokenRepository;
-import com.vti.repository.UserRepository;
+import com.vti.repository.IUserRepository;
 
 @Component
 @Transactional
 public class UserService implements IUserService {
 
 	@Autowired
-	private UserRepository userRepository;
+	private IUserRepository IUserRepository;
 
 	@Autowired
 	private RegistrationUserTokenRepository registrationUserTokenRepository;
@@ -48,7 +48,7 @@ public class UserService implements IUserService {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 
 		// create user
-		userRepository.save(user);
+		IUserRepository.save(user);
 
 		// create new user registration token
 		createNewRegistrationUserToken(user);
@@ -73,22 +73,22 @@ public class UserService implements IUserService {
 
 	@Override
 	public User findUserByEmail(String email) {
-		return userRepository.findByEmail(email);
+		return IUserRepository.findByEmail(email);
 	}
 
 	@Override
 	public User findUserByUserName(String username) {
-		return userRepository.findByUserName(username);
+		return IUserRepository.findByUserName(username);
 	}
 
 	@Override
 	public boolean existsUserByEmail(String email) {
-		return userRepository.existsByEmail(email);
+		return IUserRepository.existsByEmail(email);
 	}
 
 	@Override
 	public boolean existsUserByUserName(String userName) {
-		return userRepository.existsByUserName(userName);
+		return IUserRepository.existsByUserName(userName);
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class UserService implements IUserService {
 		// active user
 		User user = registrationUserToken.getUser();
 		user.setStatus(UserStatus.ACTIVE);
-		userRepository.save(user);
+		IUserRepository.save(user);
 
 		// remove Registration User Token
 		registrationUserTokenRepository.deleteById(registrationUserToken.getId());
@@ -154,7 +154,7 @@ public class UserService implements IUserService {
 		// change password
 		User user = resetPasswordToken.getUser();
 		user.setPassword(passwordEncoder.encode(newPassword));
-		userRepository.save(user);
+		IUserRepository.save(user);
 
 		// remove Reset Password
 		resetPasswordTokenRepository.deleteById(resetPasswordToken.getId());
@@ -175,10 +175,10 @@ public class UserService implements IUserService {
 
 	@Override
 	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
-		User user = userRepository.findByUserName(username);
+		User user = IUserRepository.findByUserName(username);
 
 		user.setAvatarUrl(dto.getAvatarUrl());
-		userRepository.save(user);
+		IUserRepository.save(user);
 
 		// TODO other field
 	}
