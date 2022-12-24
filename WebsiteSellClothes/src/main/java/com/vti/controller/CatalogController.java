@@ -1,8 +1,8 @@
 package com.vti.controller;
 
 import com.vti.dto.CatalogDTO;
-import com.vti.dto.creating.CatalogFormForCreating;
-import com.vti.dto.updating.CatalogFormForUpdating;
+import com.vti.form.creating.CatalogFormForCreating;
+import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.entity.Catalog;
 import com.vti.service.implement.ICatalogService;
 import org.modelmapper.ModelMapper;
@@ -15,7 +15,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -42,16 +41,23 @@ public class CatalogController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> getCatalogByID(@PathVariable(name = "id") int id) {
+
+        Catalog catalog = service.getCatalogByID(id);
+
+        CatalogDTO catalogDTO = modelMapper.map(catalog, CatalogDTO.class);
+
+        return new ResponseEntity<>(catalogDTO, HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<?> createCatalog(@RequestBody CatalogFormForCreating form) {
         service.createCatalog(form);
         return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<?> getCatalogByID(@PathVariable(name = "id") int id) {
-        return new ResponseEntity<>(service.getCatalogByID(id), HttpStatus.OK);
-    }
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<?> updateCatalog(@PathVariable(name = "id") short id, @RequestBody CatalogFormForUpdating form) {

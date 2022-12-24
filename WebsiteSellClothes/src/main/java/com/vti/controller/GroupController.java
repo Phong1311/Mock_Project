@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vti.dto.GroupFormForCreating;
-import com.vti.dto.GroupFormForUpdating;
-import com.vti.dto.filter.GroupFilter;
+import com.vti.form.GroupFormForCreating;
+import com.vti.form.GroupFormForUpdating;
+import com.vti.form.filter.GroupFilter;
 import com.vti.entity.Group;
 import com.vti.service.implement.IGroupService;
 

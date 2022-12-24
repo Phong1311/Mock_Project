@@ -131,6 +131,11 @@ public class UserService implements IUserService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return null;
 	}
+
+	@Override
+	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
+
+	}
 //
 //	@Override
 //	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
@@ -173,14 +178,14 @@ public class UserService implements IUserService {
 //				AuthorityUtils.createAuthorityList(user.getRole()));
 //	}
 
-	@Override
-	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
-		User user = IUserRepository.findByUserName(username);
-
-		user.setAvatarUrl(dto.getAvatarUrl());
-		IUserRepository.save(user);
-
-		// TODO other field
-	}
+//	@Override
+//	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
+//		User user = IUserRepository.findByUserName(username);
+//
+//		user.setAvatarUrl(dto.getAvatarUrl());
+//		IUserRepository.save(user);
+//
+//		// TODO other field
+//	}
 
 }

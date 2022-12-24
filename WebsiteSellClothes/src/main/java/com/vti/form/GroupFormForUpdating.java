@@ -1,6 +1,6 @@
-package com.vti.dto.updating;
+package com.vti.form;
 
-public class ProductFormForUpdating {
+public class GroupFormForUpdating {
 
 	private String name;
 

@@ -1,4 +1,4 @@
-package com.vti.dto.creating;
+package com.vti.form.creating;
 
 import com.vti.entity.Catalog;
 import com.vti.entity.Group;
@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class CatalogFormForCreating {
 
 	private String name;

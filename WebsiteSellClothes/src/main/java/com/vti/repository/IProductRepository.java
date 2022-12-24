@@ -25,5 +25,5 @@ public interface IProductRepository extends JpaRepository<Product, Integer>, Jpa
 //
 //    boolean existsByName(String name);
 //
-//    void deleteByIdIn(List<Short> ids);
+    void deleteByIdIn(List<Integer> ids);
 }

@@ -1,4 +1,4 @@
-package com.vti.dto;
+package com.vti.form;
 
 import com.vti.entity.Group;
 

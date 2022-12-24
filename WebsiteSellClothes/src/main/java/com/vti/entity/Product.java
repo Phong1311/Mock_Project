@@ -3,11 +3,13 @@ package com.vti.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -50,8 +52,13 @@ public class Product implements Serializable {
     private int salePrice;
 
     @CreatedDate
-    @Column(name = "creatDate")
-    private LocalDateTime creatDate;
+    @Column(name = "createDate")
+    private LocalDateTime createDate;
+
+//    @Column(name = "createDate")
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @CreationTimestamp
+//    private Date createdDate;
 
     @OneToMany(mappedBy = "product")
     private List<Image> image;
@@ -61,4 +68,15 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "product")
     private List<OderDetail> oderDetails;
+
+    public Product(String name, Catalog catalog, String describe, String size, short amount, int purchasePrice, int price, int salePrice) {
+        this.name = name;
+        this.catalog = catalog;
+        this.describe = describe;
+        this.size = size;
+        this.amount = amount;
+        this.purchasePrice = purchasePrice;
+        this.price = price;
+        this.salePrice = salePrice;
+    }
 }

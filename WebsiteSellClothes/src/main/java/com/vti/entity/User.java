@@ -52,8 +52,6 @@ public class User implements Serializable {
     @Column(name = "`status`", nullable = false)
     private UserStatus status = UserStatus.NOT_ACTIVE;
 
-    @Column(name = "avatarUrl")
-    private String avatarUrl;
     @OneToMany(mappedBy = "user")
     private List<OderList> oderLists;
 

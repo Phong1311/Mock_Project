@@ -3,7 +3,7 @@ package com.vti.specification;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;
 
-import com.vti.dto.filter.GroupFilter;
+import com.vti.form.filter.GroupFilter;
 import com.vti.entity.Group;
 
 public class GroupSpecificationBuilder {

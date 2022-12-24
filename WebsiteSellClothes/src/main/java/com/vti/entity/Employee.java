@@ -35,8 +35,6 @@ public class Employee implements Serializable {
     @Enumerated(EnumType.ORDINAL)
     private UserStatus status = UserStatus.NOT_ACTIVE;
 
-    @Column(name = "avatarUrl")
-    private String avatarUrl;
     public enum Role {
         ADMIN, STAFF;
     }

@@ -109,27 +109,27 @@ public class UserController {
 
 	@GetMapping("/profile")
 	// validate: check exists, check not expired
-	public ResponseEntity<?> getUserProfile(Authentication authentication) {
-		
-		// get username from token
-		String username = authentication.getName();
-		
-		// get user info
-		User user = userService.findUserByUserName(username);
-		
-        // convert user entity to user dto
-		ProfileDTO profileDto = new ProfileDTO(
-        		user.getUserName(), 
-        		user.getEmail(), 
-        		user.getFirstName(), 
-        		user.getLastName(),
-        		user.getPhoneNumber(),
-				user.getAddress(),
-        		user.getStatus().toString(),
-        		user.getAvatarUrl());
-
-		return new ResponseEntity<>(profileDto, HttpStatus.OK);
-	}
+//	public ResponseEntity<?> getUserProfile(Authentication authentication) {
+//
+//		// get username from token
+//		String username = authentication.getName();
+//
+//		// get user info
+//		User user = userService.findUserByUserName(username);
+//
+//        // convert user entity to user dto
+//		ProfileDTO profileDto = new ProfileDTO(
+//        		user.getUserName(),
+//        		user.getEmail(),
+//        		user.getFirstName(),
+//        		user.getLastName(),
+//        		user.getPhoneNumber(),
+//				user.getAddress(),
+//        		user.getStatus().toString()
+//        		);
+//
+//		return new ResponseEntity<>(profileDto, HttpStatus.OK);
+//	}
 	
 	@PutMapping("/profile")
 	// validate: check exists, check not expired

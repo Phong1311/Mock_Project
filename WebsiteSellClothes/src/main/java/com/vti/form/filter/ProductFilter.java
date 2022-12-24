@@ -1,4 +1,4 @@
-package com.vti.dto.updating;
+package com.vti.form.filter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CatalogFormForUpdating {
+public class ProductFilter {
 
-    private String name;
+    private int minSalePrice;
+
+    private int maxSalePrice;
+
 
 }

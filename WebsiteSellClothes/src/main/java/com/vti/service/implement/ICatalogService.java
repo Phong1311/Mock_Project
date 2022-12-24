@@ -1,7 +1,7 @@
 package com.vti.service.implement;
 
-import com.vti.dto.creating.CatalogFormForCreating;
-import com.vti.dto.updating.CatalogFormForUpdating;
+import com.vti.form.creating.CatalogFormForCreating;
+import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.entity.Catalog;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

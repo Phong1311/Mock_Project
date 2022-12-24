@@ -1,7 +1,7 @@
 package com.vti.dto;
 
-import com.vti.entity.Catalog;
-import com.vti.entity.Image;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -37,11 +37,23 @@ public class ProductDTO {
     private int salePrice;
 
     @NonNull
-    private LocalDateTime creatDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDateTime createDate;
 
     @NonNull
     private String catalogName;
 
     @NonNull
     private List<ImageDTO> image;
+
+    @Data
+    @NoArgsConstructor
+    static class ImageDTO {
+
+        @JsonProperty("imageId")
+        private int id;
+
+        private String imageUrl;
+
+    }
 }

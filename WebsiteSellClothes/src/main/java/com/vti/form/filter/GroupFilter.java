@@ -1,4 +1,4 @@
-package com.vti.dto.filter;
+package com.vti.form.filter;
 
 public class GroupFilter {
 

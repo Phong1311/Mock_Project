@@ -13,7 +13,7 @@ import com.vti.utils.FileManager;
 public class FileService implements IFileService {
 
 	private FileManager fileManager = new FileManager();
-	private String linkFolder = "C:\\Users\\pc\\Desktop\\Avatar";
+	private String linkFolder = "C:\\Users\\user\\Downloads\\avatar";
 
 	@Override
 	public String uploadImage(MultipartFile image) throws IOException {

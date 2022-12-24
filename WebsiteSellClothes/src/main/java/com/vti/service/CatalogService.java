@@ -1,7 +1,7 @@
 package com.vti.service;
 
-import com.vti.dto.creating.CatalogFormForCreating;
-import com.vti.dto.updating.CatalogFormForUpdating;
+import com.vti.form.creating.CatalogFormForCreating;
+import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.entity.Catalog;
 import com.vti.repository.ICatalogRepository;
 import com.vti.service.implement.ICatalogService;
@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CatalogService implements ICatalogService {

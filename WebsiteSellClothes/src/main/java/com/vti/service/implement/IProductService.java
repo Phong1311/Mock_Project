@@ -1,9 +1,8 @@
 package com.vti.service.implement;
 
-import com.vti.dto.creating.ProductFormForCreating;
-import com.vti.dto.updating.ProductFormForUpdating;
-import com.vti.dto.filter.ProductFilter;
-import com.vti.entity.Group;
+import com.vti.form.creating.ProductFormForCreating;
+import com.vti.form.updating.ProductFormForUpdating;
+import com.vti.form.filter.ProductFilter;
 import com.vti.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,16 +11,14 @@ import java.util.List;
 
 public interface IProductService {
 
-	Page<Product> getAllGroups(Pageable pageable, ProductFilter filter, String search);
+	Page<Product> getAllProducts(Pageable pageable, ProductFilter filter, String search);
 
-	boolean isProductExistsByName(String name);
+	Product getProductByID(int id);
 
 	void createProduct(ProductFormForCreating form);
 
-	Group getProductByID(short id);
+	void updateProduct(int id, ProductFormForUpdating form);
 
-	void updateProduct(short id, ProductFormForUpdating form);
-
-	void deleteProduct(List<Short> ids);
+	void deleteProduct(List<Integer> ids);
 
 }
