@@ -25,9 +25,9 @@ public class Product implements Serializable {
     private int id;
 
     @Column(name = "productName", nullable = false, length = 30)
-    private String productName;
+    private String name;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "catalogId", referencedColumnName = "id")
     private Catalog catalog;
 

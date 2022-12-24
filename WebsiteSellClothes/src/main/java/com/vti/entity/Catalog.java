@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "Catalog")
@@ -24,8 +25,8 @@ public class Catalog implements Serializable {
     @Column(name = "`name`", nullable = false, length = 30)
     private String name;
 
-    @OneToOne(mappedBy = "catalog")
-    private Product product;
+    @OneToMany(mappedBy = "catalog")
+    private List<Product> product;
 
     public Catalog(String name) {
         this.name = name;

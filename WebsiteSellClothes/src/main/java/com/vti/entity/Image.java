@@ -1,5 +1,6 @@
 package com.vti.entity;
 
+import com.vti.dto.CatalogDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

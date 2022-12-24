@@ -7,14 +7,12 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.vti.dto.LoginInfoEmployee;
-import com.vti.entity.Employee;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.vti.dto.LoginInfoUser;
+import com.vti.dto.login.LoginInfoUser;
 import com.vti.entity.User;
 import com.vti.entity.UserStatus;
 

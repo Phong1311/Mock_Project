@@ -11,14 +11,14 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class CatalogDTO {
+public class ImageDTO {
 
     @NonNull
     private int id;
 
     @NonNull
-    private String name;
+    private String imageUrl;
 
     @NonNull
-    private List<ProductDTO> product;
+    private String productId;
 }

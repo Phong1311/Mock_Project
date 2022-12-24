@@ -1,4 +1,4 @@
-package com.vti.dto;
+package com.vti.dto.login;
 
 import com.vti.entity.Employee;
 import lombok.AllArgsConstructor;

@@ -21,9 +21,9 @@ public interface IProductRepository extends JpaRepository<Product, Integer>, Jpa
 //
 //	public User findByEmail(String email);
 
-    Product findByProductName(String name);
-
-    boolean existsByProductName(String name);
-
-    void deleteByIdIn(List<Short> ids);
+//    Product findByName(String name);
+//
+//    boolean existsByName(String name);
+//
+//    void deleteByIdIn(List<Short> ids);
 }
