@@ -14,13 +14,13 @@ public class CatalogSpecificationBuilder {
     @SuppressWarnings("deprecation")
     public Specification<Catalog> build() {
 
-        SearchCriteria seachCriteria = new SearchCriteria("name", "Like", search);
+        SearchCriteria searchCriteria = new SearchCriteria("name", "Like", search);
 
         Specification<Catalog> where = null;
 
         // search
         if (!StringUtils.isEmpty(search)) {
-            where = new CatalogSpecification(seachCriteria);
+            where = new CatalogSpecification(searchCriteria);
         }
 
         return where;

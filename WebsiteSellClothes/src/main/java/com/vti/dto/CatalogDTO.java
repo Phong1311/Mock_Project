@@ -19,6 +19,4 @@ public class CatalogDTO {
     @NonNull
     private String name;
 
-    @NonNull
-    private List<ProductDTO> product;
 }
