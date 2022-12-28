@@ -3,20 +3,19 @@ package com.vti.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name = "Product")
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "Product")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -30,7 +29,7 @@ public class Product implements Serializable {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "catalogId", referencedColumnName = "id")
+    @JoinColumn(name = "catalogId")
     private Catalog catalog;
 
     @Column(name = "`describe`", nullable = false, length = 1000)
@@ -51,23 +50,25 @@ public class Product implements Serializable {
     @Column(name = "salePrice")
     private int salePrice;
 
+    @Column(name = "review")
+    private String review;
+
     @CreatedDate
     @Column(name = "createDate")
     private LocalDateTime createDate;
 
-//    @Column(name = "createDate")
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @CreationTimestamp
-//    private Date createdDate;
-
     @OneToMany(mappedBy = "product")
     private List<Image> image;
 
-    @ManyToMany(mappedBy = "productList")
-    private List<User> users;
 
     @OneToMany(mappedBy = "product")
     private List<OderDetail> oderDetails;
+
+    @OneToMany(mappedBy = "product")
+    private List<GioHang> gioHangs;
+
+    @OneToMany(mappedBy = "product")
+    private List<CreatorProduct> creatorProducts;
 
     public Product(String name, Catalog catalog, String describe, String size, short amount, int purchasePrice, int price, int salePrice) {
         this.name = name;

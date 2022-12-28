@@ -8,28 +8,24 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "Catalog")
-public class Catalog implements Serializable {
+@Table(name = "`Role`")
+public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "id")
+    @Column(name = "roleId")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Short id;
 
-    @Column(name = "`name`", nullable = false, length = 30)
-    private String name;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "roleName", unique = true)
+    private ERole eRole = ERole.USER;
 
-    @OneToMany(mappedBy = "catalog")
-    private List<Product> product;
-
-    public Catalog(String name) {
-        this.name = name;
-    }
+    @OneToMany(mappedBy = "role")
+    private List<User> users;
 }

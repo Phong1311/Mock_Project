@@ -36,12 +36,13 @@ public class JWTTokenService {
         // convert user entity to user dto
         LoginInfoUser userDto = new LoginInfoUser(
         		user.getStatus().equals(UserStatus.ACTIVE) ? JWT : null, 
-        		user.getUserName(), 
+        		user.getUserName(),
         		user.getEmail(), 
         		user.getFirstName(), 
         		user.getLastName(),
                 user.getPhoneNumber(),
                 user.getAddress(),
+                user.getRole().getERole().toString(),
         		user.getStatus().toString());
         
         // convert object to json
@@ -53,28 +54,7 @@ public class JWTTokenService {
         response.getWriter().write(json);
     }
 
-//    public static void addJWTTokenAndEmployeeInfoToBody(HttpServletResponse response, Employee employee) throws IOException {
-//        String JWT = Jwts.builder()
-//                .setSubject(employee.getEmployeeName())
-//                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-//                .signWith(SignatureAlgorithm.HS512, SECRET)
-//                .compact();
-//
-//        // convert user entity to user dto
-//        LoginInfoEmployee employeeDto = new LoginInfoEmployee(
-//                employee.getStatus().equals(UserStatus.ACTIVE) ? JWT : null,
-//                employee.getEmployeeName(),
-//                employee.getRole(),
-//                employee.getStatus().toString());
-//
-//        // convert object to json
-//        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-//        String json = ow.writeValueAsString(employeeDto);
-//
-//        // return json
-//        response.setContentType("application/json;charset=UTF-8");
-//        response.getWriter().write(json);
-//    }
+
 
     public static Authentication parseTokenToUserInformation(HttpServletRequest request) {
         String token = request.getHeader(AUTHORIZATION);
@@ -95,22 +75,5 @@ public class JWTTokenService {
                 null;
     }
 
-//    public static Authentication parseTokenToEmployeeInformation(HttpServletRequest request) {
-//        String token = request.getHeader(AUTHORIZATION);
-//
-//        if (token == null) {
-//            return null;
-//        }
-//
-//        // parse the token
-//        String employeeName = Jwts.parser()
-//                .setSigningKey(SECRET)
-//                .parseClaimsJws(token.replace(PREFIX_TOKEN, ""))
-//                .getBody()
-//                .getSubject();
-//
-//        return employeeName != null ?
-//                new UsernamePasswordAuthenticationToken(employeeName, null, Collections.emptyList()) :
-//                null;
-//    }
+
 }

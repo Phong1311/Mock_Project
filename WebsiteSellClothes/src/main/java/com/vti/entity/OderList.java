@@ -10,11 +10,12 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-@Table(name = "OderList")
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "OderList")
 public class OderList implements Serializable {
 
     private static final long serialVersionUID = 1L;

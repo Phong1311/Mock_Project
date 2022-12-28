@@ -37,6 +37,9 @@ public class ProductDTO {
     private int salePrice;
 
     @NonNull
+    private String review;
+
+    @NonNull
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime createDate;
 

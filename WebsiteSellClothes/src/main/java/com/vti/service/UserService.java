@@ -1,10 +1,17 @@
 package com.vti.service;
 
+import java.util.List;
 import java.util.UUID;
 
+import com.vti.entity.Product;
+import com.vti.form.creating.ProductFormForCreating;
+import com.vti.form.filter.ProductFilter;
+import com.vti.form.updating.ProductFormForUpdating;
 import com.vti.service.implement.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -40,6 +47,31 @@ public class UserService implements IUserService {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+
+	@Override
+	public Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search) {
+		return null;
+	}
+
+	@Override
+	public Product getUserByID(int id) {
+		return null;
+	}
+
+	@Override
+	public void createUser(ProductFormForCreating form) {
+
+	}
+
+	@Override
+	public void updateUser(int id, ProductFormForUpdating form) {
+
+	}
+
+	@Override
+	public void deleteUser(List<Integer> ids) {
+
+	}
 
 	@Override
 	public void createUser(User user) {
@@ -129,7 +161,9 @@ public class UserService implements IUserService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return null;
+		User user =IUserRepository.findByUserName(username);
+
+		return UserDetail.build(user);
 	}
 
 	@Override

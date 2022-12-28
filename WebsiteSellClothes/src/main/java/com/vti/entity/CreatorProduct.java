@@ -12,18 +12,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "GioHang")
-public class GioHang implements Serializable {
+@Table(name = "CreatorProduct")
+public class CreatorProduct implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
 
     @EmbeddedId
-    private GioHangKey id;
+    private CreatorProductKey id;
 
     @ManyToOne
-    @MapsId("userId")
-    @JoinColumn(name = "userId")
+    @MapsId("staffId")
+    @JoinColumn(name = "staffId")
     private User user;
 
     @ManyToOne
@@ -32,16 +32,17 @@ public class GioHang implements Serializable {
     private Product product;
 
 
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
     @Embeddable
-    public static class GioHangKey implements Serializable {
+    public static class CreatorProductKey implements Serializable {
 
         private static final long serialVersionUID = 1L;
 
-        @Column(name = "userId")
-        private int userId;
+        @Column(name = "staffId")
+        private int staffId;
 
         @Column(name = "productId")
         private int productId;

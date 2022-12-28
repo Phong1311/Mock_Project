@@ -1,5 +1,6 @@
 package com.vti.dto.login;
 
+import com.vti.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +24,8 @@ public class LoginInfoUser {
 
     private String address;
 
-    private String status;
+    private String role;
 
+    private String status;
 
 }

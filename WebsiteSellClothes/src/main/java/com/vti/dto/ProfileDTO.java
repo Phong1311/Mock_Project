@@ -23,7 +23,6 @@ public class ProfileDTO {
 
     private String status;
 
-    private String avatarUrl;
 
 
 }

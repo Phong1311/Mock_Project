@@ -1,5 +1,11 @@
 package com.vti.service.implement;
 
+import com.vti.entity.Product;
+import com.vti.form.creating.ProductFormForCreating;
+import com.vti.form.filter.ProductFilter;
+import com.vti.form.updating.ProductFormForUpdating;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -7,7 +13,19 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.vti.dto.ChangePublicProfileDTO;
 import com.vti.entity.User;
 
+import java.util.List;
+
 public interface IUserService extends UserDetailsService {
+
+	Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search);
+
+	Product getUserByID(int id);
+
+	void createUser(ProductFormForCreating form);
+
+	void updateUser(int id, ProductFormForUpdating form);
+
+	void deleteUser(List<Integer> ids);
 
 	void createUser(User user);
 

@@ -20,9 +20,9 @@ import com.vti.service.implement.IUserService;
 import com.vti.service.JWTTokenService;
 
 public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
-	
+
 	private IUserService userService;
-	
+
     public JWTAuthenticationFilter(String url, AuthenticationManager authManager, IUserService userService) {
         super(new AntPathRequestMatcher(url));
         setAuthenticationManager(authManager);
@@ -31,10 +31,10 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
 
     @Override
     public Authentication attemptAuthentication(
-    		HttpServletRequest request, 
-    		HttpServletResponse response) 
+    		HttpServletRequest request,
+    		HttpServletResponse response)
     		throws AuthenticationException, IOException, ServletException {
-        
+
         return getAuthenticationManager().authenticate(
                 new UsernamePasswordAuthenticationToken(
                 		request.getParameter("username"),
@@ -46,13 +46,13 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
 
     @Override
     protected void successfulAuthentication(
-    		HttpServletRequest request, 
-    		HttpServletResponse response, 
-    		FilterChain chain, 
+    		HttpServletRequest request,
+    		HttpServletResponse response,
+    		FilterChain chain,
     		Authentication authResult) throws IOException, ServletException {
     	// infor user
     	User user = userService.findUserByUserName(authResult.getName());
-    	
+
         JWTTokenService.addJWTTokenAndUserInfoToBody(response, user);
     }
 }

@@ -1,10 +1,9 @@
 package com.vti.event;
 
+import com.vti.service.implement.IEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
-
-import com.vti.service.implement.IEmailService;
 
 @Component
 public class ResetPasswordViaEmailListener implements ApplicationListener<OnResetPasswordViaEmailEvent> {

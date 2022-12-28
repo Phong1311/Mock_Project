@@ -3,65 +3,66 @@ package com.vti.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
-@Table(name = "`User`")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "`User`")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "userId")
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "userName", nullable = false, length = 50, unique = true)
-    private  String userName;
+    private String userName;
 
-    @Column(name = "email", nullable = false, length = 50, unique = true)
-    private  String email;
+    @Column(name = "email", length = 50, unique = true)
+    private String email;
 
     @Column(name = "`password`", nullable = false, length = 800)
-    private  String password;
+    private String password;
 
-    @Column(name = "firstName", nullable = false, length = 50)
-    private  String firstName;
+    @Column(name = "firstName", length = 50)
+    private String firstName;
 
-    @Column(name = "lastName", nullable = false, length = 50)
-    private  String lastName;
+    @Column(name = "lastName", length = 50)
+    private String lastName;
 
     @Formula("concat(firstName, ' ', lastName)")
     private String fullName;
 
-    @Column(name = "phoneNumber", nullable = false, length = 20)
+    @Column(name = "phoneNumber", length = 20)
     private String phoneNumber;
 
-    @Column(name = "address", nullable = false, length = 300)
+    @Column(name = "address", length = 300)
     private String address;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "`status`", nullable = false)
     private UserStatus status = UserStatus.NOT_ACTIVE;
 
+    @ManyToOne
+    @JoinColumn(name = "roleId")
+    private Role role;
+
     @OneToMany(mappedBy = "user")
     private List<OderList> oderLists;
 
-    @ManyToMany
-    @JoinTable(
-            name = "GioHang",
-            joinColumns = {@JoinColumn(name = "userId")},
-            inverseJoinColumns = {@JoinColumn(name = "productId")}
-    )
-    private List<Product> productList;
+    @OneToMany(mappedBy = "user")
+    private List<GioHang> gioHangs;
+
+    @OneToMany(mappedBy = "user")
+    private List<CreatorProduct> creatorProducts;
 
     public User(String userName, String email, String password, String firstName, String lastName) {
         this.userName = userName;
@@ -70,4 +71,5 @@ public class User implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
 }

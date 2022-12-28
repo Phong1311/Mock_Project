@@ -8,11 +8,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "`Image`")
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "`Image`")
 public class Image implements Serializable {
 
     private static final long serialVersionUID = 1L;

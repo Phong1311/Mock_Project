@@ -7,11 +7,12 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
-@Table(name = "OderDetail")
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "OderDetail")
 public class OderDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
