@@ -3,7 +3,7 @@ package com.vti.service;
 import java.util.List;
 import java.util.UUID;
 
-import com.vti.entity.Product;
+import com.vti.entity.*;
 import com.vti.form.creating.ProductFormForCreating;
 import com.vti.form.filter.ProductFilter;
 import com.vti.form.updating.ProductFormForUpdating;
@@ -21,8 +21,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.vti.dto.ChangePublicProfileDTO;
 import com.vti.entity.token.RegistrationUserToken;
 import com.vti.entity.token.ResetPasswordToken;
-import com.vti.entity.User;
-import com.vti.entity.UserStatus;
 import com.vti.event.OnResetPasswordViaEmailEvent;
 import com.vti.event.OnSendRegistrationUserConfirmViaEmailEvent;
 import com.vti.repository.RegistrationUserTokenRepository;
@@ -80,6 +78,12 @@ public class UserService implements IUserService {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 
 		// create user
+		if (user.getRole() == null) {
+			Role role = new Role();
+			role.setId((short) 3);
+			role.setERole(Role.ERole.USER);
+			user.setRole(role);
+		}
 		IUserRepository.save(user);
 
 		// create new user registration token

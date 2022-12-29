@@ -28,4 +28,9 @@ public class Role implements Serializable {
 
     @OneToMany(mappedBy = "role")
     private List<User> users;
+
+    public enum ERole {
+        ADMIN, STAFF, USER;
+    }
+
 }

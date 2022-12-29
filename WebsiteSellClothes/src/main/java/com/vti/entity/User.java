@@ -59,7 +59,7 @@ public class User implements Serializable {
     private List<OderList> oderLists;
 
     @OneToMany(mappedBy = "user")
-    private List<GioHang> gioHangs;
+    private List<ShoppingCart> shoppingCarts;
 
     @OneToMany(mappedBy = "user")
     private List<CreatorProduct> creatorProducts;
@@ -71,5 +71,6 @@ public class User implements Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
 
 }

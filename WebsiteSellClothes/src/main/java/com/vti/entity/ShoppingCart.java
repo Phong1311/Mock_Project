@@ -12,14 +12,14 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "GioHang")
-public class GioHang implements Serializable {
+@Table(name = "ShoppingCart")
+public class ShoppingCart implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
 
     @EmbeddedId
-    private GioHangKey id;
+    private ShoppingCartKey id;
 
     @ManyToOne
     @MapsId("userId")
@@ -36,7 +36,7 @@ public class GioHang implements Serializable {
     @NoArgsConstructor
     @AllArgsConstructor
     @Embeddable
-    public static class GioHangKey implements Serializable {
+    public static class ShoppingCartKey implements Serializable {
 
         private static final long serialVersionUID = 1L;
 
