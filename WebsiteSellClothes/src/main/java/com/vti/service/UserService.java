@@ -31,177 +31,177 @@ import com.vti.repository.IUserRepository;
 @Transactional
 public class UserService implements IUserService {
 
-	@Autowired
-	private IUserRepository IUserRepository;
+    @Autowired
+    private IUserRepository IUserRepository;
 
-	@Autowired
-	private RegistrationUserTokenRepository registrationUserTokenRepository;
+    @Autowired
+    private RegistrationUserTokenRepository registrationUserTokenRepository;
 
-	@Autowired
-	private ResetPasswordTokenRepository resetPasswordTokenRepository;
+    @Autowired
+    private ResetPasswordTokenRepository resetPasswordTokenRepository;
 
-	@Autowired
-	private ApplicationEventPublisher eventPublisher;
+    @Autowired
+    private ApplicationEventPublisher eventPublisher;
 
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-	@Override
-	public Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search) {
-		return null;
-	}
+    @Override
+    public Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search) {
+        return null;
+    }
 
-	@Override
-	public Product getUserByID(int id) {
-		return null;
-	}
+    @Override
+    public Product getUserByID(int id) {
+        return null;
+    }
 
-	@Override
-	public void createUser(ProductFormForCreating form) {
+    @Override
+    public void createUser(ProductFormForCreating form) {
 
-	}
+    }
 
-	@Override
-	public void updateUser(int id, ProductFormForUpdating form) {
+    @Override
+    public void updateUser(int id, ProductFormForUpdating form) {
 
-	}
+    }
 
-	@Override
-	public void deleteUser(List<Integer> ids) {
+    @Override
+    public void deleteUser(List<Integer> ids) {
 
-	}
+    }
 
-	@Override
-	public void createUser(User user) {
+    @Override
+    public void createUser(User user) {
 
-		// encode password
-		user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // encode password
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-		// create user
-		if (user.getRole() == null) {
-			Role role = new Role();
-			role.setId((short) 3);
-			role.setERole(Role.ERole.USER);
-			user.setRole(role);
-		}
-		IUserRepository.save(user);
+        // create user
+        if (user.getRole() == null) {
+            Role role = new Role();
+            role.setId((short) 3);
+            role.setERole(Role.ERole.USER);
+            user.setRole(role);
+        }
+        IUserRepository.save(user);
 
-		// create new user registration token
-		createNewRegistrationUserToken(user);
+        // create new user registration token
+        createNewRegistrationUserToken(user);
 
-		// send email to confirm
-		sendConfirmUserRegistrationViaEmail(user.getEmail());
-	}
+        // send email to confirm
+        sendConfirmUserRegistrationViaEmail(user.getEmail());
+    }
 
-	private void createNewRegistrationUserToken(User user) {
+    private void createNewRegistrationUserToken(User user) {
 
-		// create new token for confirm Registration
-		final String newToken = UUID.randomUUID().toString();
-		RegistrationUserToken token = new RegistrationUserToken(newToken, user);
+        // create new token for confirm Registration
+        final String newToken = UUID.randomUUID().toString();
+        RegistrationUserToken token = new RegistrationUserToken(newToken, user);
 
-		registrationUserTokenRepository.save(token);
-	}
+        registrationUserTokenRepository.save(token);
+    }
 
-	@Override
-	public void sendConfirmUserRegistrationViaEmail(String email) {
-		eventPublisher.publishEvent(new OnSendRegistrationUserConfirmViaEmailEvent(email));
-	}
+    @Override
+    public void sendConfirmUserRegistrationViaEmail(String email) {
+        eventPublisher.publishEvent(new OnSendRegistrationUserConfirmViaEmailEvent(email));
+    }
 
-	@Override
-	public User findUserByEmail(String email) {
-		return IUserRepository.findByEmail(email);
-	}
+    @Override
+    public User findUserByEmail(String email) {
+        return IUserRepository.findByEmail(email);
+    }
 
-	@Override
-	public User findUserByUserName(String username) {
-		return IUserRepository.findByUserName(username);
-	}
+    @Override
+    public User findUserByUserName(String username) {
+        return IUserRepository.findByUsername(username);
+    }
 
-	@Override
-	public boolean existsUserByEmail(String email) {
-		return IUserRepository.existsByEmail(email);
-	}
+    @Override
+    public boolean existsUserByEmail(String email) {
+        return IUserRepository.existsByEmail(email);
+    }
 
-	@Override
-	public boolean existsUserByUserName(String userName) {
-		return IUserRepository.existsByUserName(userName);
-	}
+    @Override
+    public boolean existsUserByUserName(String userName) {
+        return IUserRepository.existsByUsername(userName);
+    }
 
-	@Override
-	public void activeUser(String token) {
+    @Override
+    public void activeUser(String token) {
 
-		// get token
-		RegistrationUserToken registrationUserToken = registrationUserTokenRepository.findByToken(token);
+        // get token
+        RegistrationUserToken registrationUserToken = registrationUserTokenRepository.findByToken(token);
 
-		// active user
-		User user = registrationUserToken.getUser();
-		user.setStatus(UserStatus.ACTIVE);
-		IUserRepository.save(user);
+        // active user
+        User user = registrationUserToken.getUser();
+        user.setStatus(UserStatus.ACTIVE);
+        IUserRepository.save(user);
 
-		// remove Registration User Token
-		registrationUserTokenRepository.deleteById(registrationUserToken.getId());
-	}
+        // remove Registration User Token
+        registrationUserTokenRepository.deleteById(registrationUserToken.getId());
+    }
 
-	@Override
-	public void resetPasswordViaEmail(String email) {
+    @Override
+    public void resetPasswordViaEmail(String email) {
 
-		// find user by email
-		User user = findUserByEmail(email);
+        // find user by email
+        User user = findUserByEmail(email);
 
-		// remove token token if exists
-		resetPasswordTokenRepository.deleteByUserId(user.getId());
+        // remove token token if exists
+        resetPasswordTokenRepository.deleteByUserId(user.getId());
 
-		// create new reset password token
-		createNewResetPasswordToken(user);
+        // create new reset password token
+        createNewResetPasswordToken(user);
 
-		// send email
-		sendResetPasswordViaEmail(email);
-	}
+        // send email
+        sendResetPasswordViaEmail(email);
+    }
 
-	@Override
-	public void sendResetPasswordViaEmail(String email) {
-		eventPublisher.publishEvent(new OnResetPasswordViaEmailEvent(email));
-	}
+    @Override
+    public void sendResetPasswordViaEmail(String email) {
+        eventPublisher.publishEvent(new OnResetPasswordViaEmailEvent(email));
+    }
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user =IUserRepository.findByUserName(username);
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = IUserRepository.findByUsername(username);
 
-		return UserDetail.build(user);
-	}
+        return UserDetail.build(user);
+    }
 
-	@Override
-	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
+    @Override
+    public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
 
-	}
+    }
 //
 //	@Override
 //	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
 //
 //	}
 
-	private void createNewResetPasswordToken(User user) {
+    private void createNewResetPasswordToken(User user) {
 
-		// create new token for Reseting password
-		final String newToken = UUID.randomUUID().toString();
-		ResetPasswordToken token = new ResetPasswordToken(newToken, user);
+        // create new token for Reseting password
+        final String newToken = UUID.randomUUID().toString();
+        ResetPasswordToken token = new ResetPasswordToken(newToken, user);
 
-		resetPasswordTokenRepository.save(token);
-	}
+        resetPasswordTokenRepository.save(token);
+    }
 
-	@Override
-	public void resetPassword(String token, String newPassword) {
-		// get token
-		ResetPasswordToken resetPasswordToken = resetPasswordTokenRepository.findByToken(token);
+    @Override
+    public void resetPassword(String token, String newPassword) {
+        // get token
+        ResetPasswordToken resetPasswordToken = resetPasswordTokenRepository.findByToken(token);
 
-		// change password
-		User user = resetPasswordToken.getUser();
-		user.setPassword(passwordEncoder.encode(newPassword));
-		IUserRepository.save(user);
+        // change password
+        User user = resetPasswordToken.getUser();
+        user.setPassword(passwordEncoder.encode(newPassword));
+        IUserRepository.save(user);
 
-		// remove Reset Password
-		resetPasswordTokenRepository.deleteById(resetPasswordToken.getId());
-	}
+        // remove Reset Password
+        resetPasswordTokenRepository.deleteById(resetPasswordToken.getId());
+    }
 
 //	@Override
 //	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

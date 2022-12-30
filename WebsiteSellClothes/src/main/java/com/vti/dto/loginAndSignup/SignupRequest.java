@@ -1,14 +1,17 @@
-package com.vti.dto;
+package com.vti.dto.loginAndSignup;
 
 import com.vti.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class SignupRequest {
+
 
     // check not null, check length, check exists, check format (regex)...
     private String username;
@@ -26,7 +29,10 @@ public class UserDTO {
     // check not null, check length, check format (regex)...
     private String lastName;
 
+    private List<String> role;
+
     public User toEntity() {
         return new User(username, email, password);
     }
+
 }

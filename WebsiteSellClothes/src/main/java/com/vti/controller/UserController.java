@@ -50,13 +50,13 @@ public class UserController {
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
 
-	@PostMapping()
-	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO dto) {
-		// create User
-		userService.createUser(dto.toEntity());
-
-		return new ResponseEntity<>("We have sent an email. Please check email to active account!", HttpStatus.OK);
-	}
+//	@PostMapping()
+//	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO dto) {
+//		// create User
+//		userService.createUser(dto.toEntity());
+//
+//		return new ResponseEntity<>("We have sent an email. Please check email to active account!", HttpStatus.OK);
+//	}
 
 	@GetMapping("/activeUser")
 	// validate: check exists, check not expired
@@ -119,7 +119,7 @@ public class UserController {
 
         // convert user entity to user dto
 		ProfileDTO profileDto = new ProfileDTO(
-        		user.getUserName(),
+        		user.getUsername(),
         		user.getEmail(),
         		user.getFirstName(),
         		user.getLastName(),

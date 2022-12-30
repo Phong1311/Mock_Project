@@ -24,7 +24,7 @@ public class User implements Serializable {
     private int id;
 
     @Column(name = "userName", nullable = false, length = 50, unique = true)
-    private String userName;
+    private String username;
 
     @Column(name = "email", length = 50, unique = true)
     private String email;
@@ -64,13 +64,17 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private List<CreatorProduct> creatorProducts;
 
-    public User(String userName, String email, String password, String firstName, String lastName) {
-        this.userName = userName;
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String username, String email, String password, String firstName, String lastName) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
-
-
 }
