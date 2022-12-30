@@ -12,8 +12,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "ShoppingCart")
-public class ShoppingCart implements Serializable {
+@Table(name = "Cart")
+public class Cart implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -31,6 +31,8 @@ public class ShoppingCart implements Serializable {
     @JoinColumn(name = "productId")
     private Product product;
 
+    @Column(name = "quantum", nullable = false)
+    private int quantum;
 
     @Data
     @NoArgsConstructor

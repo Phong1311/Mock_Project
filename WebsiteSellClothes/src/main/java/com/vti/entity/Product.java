@@ -65,7 +65,7 @@ public class Product implements Serializable {
     private List<OderDetail> oderDetails;
 
     @OneToMany(mappedBy = "product")
-    private List<ShoppingCart> shoppingCarts;
+    private List<Cart> carts;
 
     @OneToMany(mappedBy = "product")
     private List<CreatorProduct> creatorProducts;

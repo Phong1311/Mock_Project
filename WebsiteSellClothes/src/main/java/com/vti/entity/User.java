@@ -59,7 +59,7 @@ public class User implements Serializable {
     private List<OderList> oderLists;
 
     @OneToMany(mappedBy = "user")
-    private List<ShoppingCart> shoppingCarts;
+    private List<Cart> carts;
 
     @OneToMany(mappedBy = "user")
     private List<CreatorProduct> creatorProducts;
