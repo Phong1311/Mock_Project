@@ -31,8 +31,8 @@ public class Cart implements Serializable {
     @JoinColumn(name = "productId")
     private Product product;
 
-    @Column(name = "quantum", nullable = false)
-    private int quantum;
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
 
     @Data
     @NoArgsConstructor

@@ -6,14 +6,16 @@ import com.vti.form.updating.CartFormForUpdating;
 import com.vti.repository.ICartRepository;
 import com.vti.service.implement.ICartService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class CartService implements ICartService {
 
     @Autowired
@@ -31,14 +33,16 @@ public class CartService implements ICartService {
         return repository.findAllByUserId(pageable, userId);
     }
 
+//    @Override
+//    public void createCart(CartFormForCreating form) {
+//
+//    }
+
     @Override
-    public void createCart(CartFormForCreating form) {
-
-    }
-
-    @Override
-    public void updateCart(int productId, CartFormForUpdating form) {
-
+    public void updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
+        Cart entity = repository.findProductByProductIdAndUserId(productId, userId);
+        entity.setQuantity(form.getQuantity());
+        repository.save(entity);
     }
 
     @Override
@@ -46,43 +50,36 @@ public class CartService implements ICartService {
 
     }
 
-//    @Override
-//    public void createCart(ProductFormForCreating form) {
-//        // omit id field
-//        TypeMap<ProductFormForCreating, Product> typeMap = modelMapper.getTypeMap(ProductFormForCreating.class, Product.class);
-//        if (typeMap == null) { // if not already added
-//            // skip field
-//            modelMapper.addMappings(new PropertyMap<ProductFormForCreating, Product>() {
-//                @Override
-//                protected void configure() {
-//                    skip(destination.getId());
-//                }
-//            });
-//        }
-//        // convert form to entity
-//        Product product = modelMapper.map(form, Product.class);
-//
-//        repository.save(product);
-//
-//    }
+    @Override
+    public void deleteCartByUserId(int userId) {
+        repository.deleteCartByUserId(userId);
+    }
 
-//    @Override
-//    public void updateCart(int id, ProductFormForUpdating form) {
-//        Product entity = repository.findById(id).get();
-//        entity.setName(form.getName());
-//        entity.setDescribe(form.getDescribe());
-//        entity.setSize(form.getSize());
-//        entity.setAmount(form.getAmount());
-//        entity.setPurchasePrice(form.getPurchasePrice());
-//        entity.setPrice(form.getPrice());
-//        entity.setSalePrice(form.getSalePrice());
-//        repository.save(entity);
-//    }
+    @Override
+    public void deleteProductInCartByProductId(int userId) {
+        repository.deleteProductInCartByProductId(userId);
+    }
 
 
-//    @Override
-//    public void deleteCartByProductId(List<Integer> ids) {
-//        repository.deleteByIdIn(ids);
-//
-//    }
+    @Override
+    public void createCart(CartFormForCreating form) {
+        // omit id field
+        TypeMap<CartFormForCreating, Cart> typeMap = modelMapper.getTypeMap(CartFormForCreating.class, Cart.class);
+        if (typeMap == null) { // if not already added
+            // skip field
+            modelMapper.addMappings(new PropertyMap<CartFormForCreating, Cart>() {
+                @Override
+                protected void configure() {
+                    skip(destination.getId());
+                }
+            });
+        }
+        // convert form to entity
+        Cart cart = modelMapper.map(form, Cart.class);
+
+        repository.save(cart);
+
+    }
+
+
 }

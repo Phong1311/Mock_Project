@@ -1,14 +1,11 @@
 package com.vti.controller;
 
 import com.vti.dto.CartDTO;
-import com.vti.dto.ProductDTO;
 import com.vti.entity.Cart;
-import com.vti.entity.Product;
-import com.vti.form.creating.ProductFormForCreating;
-import com.vti.form.filter.ProductFilter;
-import com.vti.form.updating.ProductFormForUpdating;
+import com.vti.form.creating.CartFormForCreating;
+import com.vti.form.updating.CartFormForUpdating;
 import com.vti.service.implement.ICartService;
-import com.vti.service.implement.IProductService;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +29,7 @@ public class CartController {
     private ModelMapper modelMapper;
 
     @GetMapping()
-    public ResponseEntity<?> getAllProducts(
-            Pageable pageable) {
+    public ResponseEntity<?> getAllProducts(Pageable pageable) {
         Page<Cart> entities = service.getAllCarts(pageable);
 
         // convert entities --> dtos
@@ -45,8 +41,9 @@ public class CartController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/userId/{id}")
-    public ResponseEntity<?> getCartByUserId(Pageable pageable, @PathVariable(name = "id") int userId) {
+    // get toàn bộ sản phẩm(giỏ hàng) của user
+    @GetMapping(value = "/userId/{userId}")
+    public ResponseEntity<?> getCartByUserId(Pageable pageable, @PathVariable(name = "userId") int userId) {
 
         Page<Cart> cart = service.getCartByUserId(pageable, userId);
 
@@ -56,28 +53,37 @@ public class CartController {
 
         Page<CartDTO> dtoPages = new PageImpl<>(dtos, pageable, cart.getTotalElements());
 
-//        CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
-
-
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
-//
-//    @PostMapping()
-//    public ResponseEntity<?> createProduct(@RequestBody ProductFormForCreating form) {
-//        service.createProduct(form);
-//        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
-//    }
-//
-//
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<?> updateProduct(@PathVariable(name = "id") int id, @RequestBody ProductFormForUpdating form) {
-//        service.updateProduct(id, form);
-//        return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
-//    }
-//
-//    @DeleteMapping(value = "/{ids}")
-//    public ResponseEntity<?> deleteProducts(@PathVariable(name = "ids") List<Integer> ids) {
-//        service.deleteProduct(ids);
-//        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
-//    }
+
+
+    @PostMapping()
+    public ResponseEntity<?> createCart(@RequestBody CartFormForCreating form) {
+        service.createCart(form);
+        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
+    }
+
+
+    // update số lượng sản phẩm
+    @PutMapping()
+    public ResponseEntity<?> updateQuantityInCart(@Parameter(name = "id") int productId, @Parameter(name = "id") int userId, @RequestBody CartFormForUpdating form) {
+        service.updateQuantityInCart(productId, userId, form);
+        return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
+    }
+
+    // delete toàn bộ sản phẩm(giỏ hàng) của user
+    @DeleteMapping(value = "/userId/{userId}")
+    public ResponseEntity<?> deleteCartByUserId(@PathVariable(name = "userId") int userId) {
+        service.deleteCartByUserId(userId);
+        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
+    }
+
+    // delete 1 sản phẩm
+    @DeleteMapping(value = "/productId/{productId}")
+    public ResponseEntity<?> deleteProductInCartByProductId(@PathVariable(name = "productId") int productId) {
+        service.deleteProductInCartByProductId(productId);
+        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
+    }
+
+
 }

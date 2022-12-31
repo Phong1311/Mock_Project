@@ -19,8 +19,12 @@ public interface ICartService {
 
 	void createCart(CartFormForCreating form);
 
-	void updateCart(int productId, CartFormForUpdating form);
+	void updateQuantityInCart(int productId, int userId, CartFormForUpdating form);
 
 	void deleteCartByProductId(int productId);
+
+	void deleteCartByUserId(int userId);
+
+	void deleteProductInCartByProductId(int userId);
 
 }

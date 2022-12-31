@@ -27,7 +27,7 @@ public class CartDTO {
     private String productSize;
 
     @NonNull
-    private int quantum;
+    private int quantity;
 
     @NonNull
     private int productPrice;

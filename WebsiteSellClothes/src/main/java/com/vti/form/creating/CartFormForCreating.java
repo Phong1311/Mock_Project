@@ -12,7 +12,7 @@ public class CartFormForCreating {
 
     private int productId;
 
-    private int quantum;
+    private int quantity;
 
 
 }

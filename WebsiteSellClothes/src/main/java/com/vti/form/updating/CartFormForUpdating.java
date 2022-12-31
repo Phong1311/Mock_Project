@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CartFormForUpdating {
 
-    private int quantum;
+    private int quantity;
 
 }
