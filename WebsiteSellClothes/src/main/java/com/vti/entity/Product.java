@@ -20,7 +20,7 @@ public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "productId")
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -57,8 +57,8 @@ public class Product implements Serializable {
     @Column(name = "createDate")
     private LocalDateTime createDate;
 
-    @OneToMany(mappedBy = "product")
-    private List<Image> image;
+    @OneToOne(mappedBy = "product")
+    private Image image;
 
 
     @OneToMany(mappedBy = "product")

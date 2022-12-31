@@ -1,12 +1,9 @@
 package com.vti.dto;
 
-import com.vti.entity.Product;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -18,5 +15,8 @@ public class CatalogDTO {
 
     @NonNull
     private String name;
+
+    @NonNull
+    private String image;
 
 }

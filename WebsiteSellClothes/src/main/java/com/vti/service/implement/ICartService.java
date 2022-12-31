@@ -1,21 +1,26 @@
 package com.vti.service.implement;
 
+import com.vti.entity.Cart;
 import com.vti.entity.Catalog;
+import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.creating.CatalogFormForCreating;
+import com.vti.form.updating.CartFormForUpdating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface ICartService {
 
-	Page<Catalog> getAllCatalogs(Pageable pageable, String search);
+	Page<Cart> getAllCarts(Pageable pageable);
 
-	Catalog getCatalogByID(int id);
+	Page<Cart> getCartByUserId(Pageable pageable, int userId);
 
-	void createCatalog(CatalogFormForCreating form);
+	void createCart(CartFormForCreating form);
 
-	void updateCatalog(int id, CatalogFormForUpdating form);
+	void updateCart(int productId, CartFormForUpdating form);
 
-	void deleteCatalog(int id);
+	void deleteCartByProductId(int productId);
 
 }

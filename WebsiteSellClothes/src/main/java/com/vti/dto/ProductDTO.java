@@ -2,6 +2,7 @@ package com.vti.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.vti.entity.Image;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -47,7 +48,7 @@ public class ProductDTO {
     private String catalogName;
 
     @NonNull
-    private List<ImageDTO> image;
+    private ImageDTO image;
 
     @Data
     @NoArgsConstructor
@@ -56,7 +57,17 @@ public class ProductDTO {
         @JsonProperty("imageId")
         private int id;
 
-        private String imageUrl;
+        private String image1;
+
+        private String image2;
+
+        private String image3;
+
+        private String image4;
+
+        private String image5;
+
+        private String image6;
 
     }
 }

@@ -1,12 +1,9 @@
 package com.vti.dto;
 
-import com.vti.entity.Product;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -17,7 +14,22 @@ public class ImageDTO {
     private int id;
 
     @NonNull
-    private String imageUrl;
+    private String image1;
+
+    @NonNull
+    private String image2;
+
+    @NonNull
+    private String image3;
+
+    @NonNull
+    private String image4;
+
+    @NonNull
+    private String image5;
+
+    @NonNull
+    private String image6;
 
     @NonNull
     private String productId;

@@ -1,4 +1,4 @@
-package com.vti.dto.loginAndSignup;
+package com.vti.dto.SiginAndSignup;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

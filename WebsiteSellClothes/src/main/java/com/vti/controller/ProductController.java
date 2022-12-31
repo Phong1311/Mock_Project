@@ -55,9 +55,9 @@ public class ProductController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> getProductByID(@PathVariable(name = "id") short id) {
 
-        Product catalog = service.getProductByID(id);
+        Product product = service.getProductByID(id);
 
-        ProductDTO productDTO = modelMapper.map(catalog, ProductDTO.class);
+        ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
 
 
         return new ResponseEntity<>(productDTO, HttpStatus.OK);

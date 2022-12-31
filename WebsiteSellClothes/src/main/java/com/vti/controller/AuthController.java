@@ -1,8 +1,8 @@
 package com.vti.controller;
 
 
-import com.vti.dto.loginAndSignup.LoginRequest;
-import com.vti.dto.loginAndSignup.SignupRequest;
+import com.vti.dto.SiginAndSignup.LoginRequest;
+import com.vti.dto.SiginAndSignup.SignupRequest;
 import com.vti.entity.Role;
 import com.vti.entity.User;
 import com.vti.entity.UserStatus;
@@ -81,7 +81,10 @@ public class AuthController {
         List<String> role = userDetails.getAuthorities().stream().map(item -> item.getAuthority())
                 .collect(Collectors.toList());
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-                .body(new UserInfoResponse(userDetails.getStatus().equals(UserStatus.ACTIVE) ? jwt : null, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(),
+                .body(new UserInfoResponse(
+
+                        userDetails.getStatus().equals(UserStatus.ACTIVE) ? null : jwt
+                        , userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(),
                         role.toString(), userDetails.getFirstName(), userDetails.getLastName(), userDetails.getPhoneNumber(), userDetails.getAddress(), userDetails.getStatus()));
     }
 

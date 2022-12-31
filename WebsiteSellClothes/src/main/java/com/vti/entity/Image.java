@@ -1,6 +1,5 @@
 package com.vti.entity;
 
-import com.vti.dto.CatalogDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,16 +17,31 @@ public class Image implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "imageId")
+    @Column(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "productId", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "productId", referencedColumnName = "id", nullable = false)
     private Product product;
 
-    @Column(name = "imageUrl", nullable = false, length = 100)
-    private String imageUrl;
+    @Column(name = "image1", length = 100)
+    private String image1;
+
+    @Column(name = "image2", length = 100)
+    private String image2;
+
+    @Column(name = "image3", length = 100)
+    private String image3;
+
+    @Column(name = "image4", length = 100)
+    private String image4;
+
+    @Column(name = "image5", length = 100)
+    private String image5;
+
+    @Column(name = "image6", length = 100)
+    private String image6;
 
 }
