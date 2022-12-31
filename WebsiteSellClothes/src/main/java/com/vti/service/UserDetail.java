@@ -42,7 +42,7 @@ public class UserDetail implements UserDetails {
 
     private String role;
 
-    private String status;
+    private UserStatus status;
     private Collection<? extends GrantedAuthority> authorities;
 
 
@@ -56,7 +56,7 @@ public class UserDetail implements UserDetails {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.address = address;
-        this.status = String.valueOf(status);
+        this.status = status;
         this.authorities = authorities;
     }
 

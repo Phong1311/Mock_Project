@@ -82,10 +82,10 @@ public class AuthController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
                 .body(new UserInfoResponse(
-
-                        userDetails.getStatus().equals(UserStatus.ACTIVE) ? null : jwt
+//                        (userDetails.getStatus() == UserStatus.ACTIVE) ? jwt : null
+                        userDetails.getStatus().equals(UserStatus.ACTIVE) ? jwt : null
                         , userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(),
-                        role.toString(), userDetails.getFirstName(), userDetails.getLastName(), userDetails.getPhoneNumber(), userDetails.getAddress(), userDetails.getStatus()));
+                        role.toString(), userDetails.getFirstName(), userDetails.getLastName(), userDetails.getPhoneNumber(), userDetails.getAddress(), userDetails.getStatus().toString()));
     }
 
 	@PostMapping("/signup")

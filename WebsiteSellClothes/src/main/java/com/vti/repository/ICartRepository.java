@@ -12,8 +12,13 @@ import java.util.List;
 
 public interface ICartRepository extends JpaRepository<Cart, Integer>, JpaSpecificationExecutor<Cart> {
 
-
+    //getProductByUserId
     @Query(value = "SELECT * FROM CART WHERE userId = :idParameter", nativeQuery = true)
     Page<Cart> findAllByUserId(Pageable pageable, @Param("idParameter") int userId);
+
+    //  delete cart
+//    @Query(value = "DELETE from CART where userId = :idParameter", nativeQuery = true)
+//    Page<Cart> findAllByUserId(Pageable pageable, @Param("idParameter") int userId);
+
 
 }
