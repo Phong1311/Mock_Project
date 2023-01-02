@@ -73,7 +73,7 @@ public class CartController {
     }
 
     // add san pham vao user
-    @PostMapping("/user/{userId}/productId")
+//    @PostMapping("/user/{userId}/productId")
 //    public ResponseEntity<?> createCart(@PathVariable(value = "userId") int userId, @RequestBody Product product) {
 //        Product entity = userRepository.findById(userId).map(user -> {
 //            int productid = product.getId();
