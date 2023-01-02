@@ -33,37 +33,13 @@ public class CartService implements ICartService {
         return repository.findAllByUserId(pageable, userId);
     }
 
-//    @Override
-//    public void createCart(CartFormForCreating form) {
-//
-//    }
-
-    @Override
-    public void updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
-        Cart entity = repository.findProductByProductIdAndUserId(productId, userId);
-        entity.setQuantity(form.getQuantity());
-        repository.save(entity);
-    }
-
-    @Override
-    public void deleteCartByProductId(int productId) {
-
-    }
-
-    @Override
-    public void deleteCartByUserId(int userId) {
-        repository.deleteCartByUserId(userId);
-    }
-
-    @Override
-    public void deleteProductInCartByProductId(int userId) {
-        repository.deleteProductInCartByProductId(userId);
-    }
-
-
     @Override
     public void createCart(CartFormForCreating form) {
         // omit id field
+
+        Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
+
+
         TypeMap<CartFormForCreating, Cart> typeMap = modelMapper.getTypeMap(CartFormForCreating.class, Cart.class);
         if (typeMap == null) { // if not already added
             // skip field
@@ -76,9 +52,27 @@ public class CartService implements ICartService {
         }
         // convert form to entity
         Cart cart = modelMapper.map(form, Cart.class);
+        cart.setId(shoppingCartKey);
 
         repository.save(cart);
+    }
 
+    @Override
+    public void updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
+        Cart entity = repository.findProductByProductIdAndUserId(productId, userId);
+        entity.setQuantity(form.getQuantity());
+        repository.save(entity);
+    }
+
+
+    @Override
+    public void deleteCartByUserId(int userId) {
+        repository.deleteCartByUserId(userId);
+    }
+
+    @Override
+    public void deleteProductInCartByProductId(int userId) {
+        repository.deleteProductInCartByProductId(userId);
     }
 
 

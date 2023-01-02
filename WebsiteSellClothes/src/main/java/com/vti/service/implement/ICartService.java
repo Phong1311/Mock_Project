@@ -21,8 +21,6 @@ public interface ICartService {
 
 	void updateQuantityInCart(int productId, int userId, CartFormForUpdating form);
 
-	void deleteCartByProductId(int productId);
-
 	void deleteCartByUserId(int userId);
 
 	void deleteProductInCartByProductId(int userId);
