@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface ICartRepository extends JpaRepository<Cart, Integer>, JpaSpecificationExecutor<Cart> {
+public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKey>, JpaSpecificationExecutor<Cart> {
 
     //getProductByUserId
     @Query(value = "SELECT * FROM CART WHERE userId = :idParameter", nativeQuery = true)

@@ -2,8 +2,11 @@ package com.vti.controller;
 
 import com.vti.dto.CartDTO;
 import com.vti.entity.Cart;
+import com.vti.entity.Product;
 import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
+import com.vti.repository.IProductRepository;
+import com.vti.repository.IUserRepository;
 import com.vti.service.implement.ICartService;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
@@ -24,6 +27,12 @@ public class CartController {
 
     @Autowired
     private ICartService service;
+
+    @Autowired
+    private IUserRepository userRepository;
+
+    @Autowired
+    private IProductRepository productRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -62,6 +71,28 @@ public class CartController {
         service.createCart(form);
         return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
     }
+
+    // add san pham vao user
+    @PostMapping("/user/{userId}/productId")
+//    public ResponseEntity<?> createCart(@PathVariable(value = "userId") int userId, @RequestBody Product product) {
+//        Product entity = userRepository.findById(userId).map(user -> {
+//            int productid = product.getId();
+//
+//            // tag is existed
+//            if (productid != 0L) {
+//                Product product1 = productRepository.findById(productid).get();
+//                user.add(product1);
+//                tutorialRepository.save(tutorial);
+//                return _tag;
+//            }
+//
+//            // add and create new Tag
+//            tutorial.addTag(tagRequest);
+//            return tagRepository.save(tagRequest);
+//        }).orElseThrow(() -> new ResourceNotFoundException("Not found Tutorial with id = " + tutorialId));
+//
+//        return new ResponseEntity<>(tag, HttpStatus.CREATED);
+//    }
 
 
     // update số lượng sản phẩm

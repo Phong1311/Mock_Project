@@ -85,7 +85,7 @@ public class AuthController {
 //                        (userDetails.getStatus() == UserStatus.ACTIVE) ? jwt : null
                         userDetails.getStatus().equals(UserStatus.ACTIVE) ? jwt : null
                         , userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(),
-                        role.toString(), userDetails.getFirstName(), userDetails.getLastName(), userDetails.getPhoneNumber(), userDetails.getAddress(), userDetails.getStatus().toString()));
+                        role.toString(), userDetails.getFirstName(), userDetails.getLastName(), userDetails.getStatus().toString()));
     }
 
 	@PostMapping("/signup")

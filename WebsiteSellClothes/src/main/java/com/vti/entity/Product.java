@@ -68,7 +68,10 @@ public class Product implements Serializable {
     private List<Cart> carts;
 
     @OneToMany(mappedBy = "product")
-    private List<CreatorProduct> creatorProducts;
+    private List<Comment> comments;
+
+    @ManyToMany(mappedBy = "products")
+    private List<User> users;
 
     public Product(String name, Catalog catalog, String describe, String size, short amount, int purchasePrice, int price, int salePrice) {
         this.name = name;

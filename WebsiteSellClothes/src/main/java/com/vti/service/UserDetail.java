@@ -36,17 +36,13 @@ public class UserDetail implements UserDetails {
 
     private String lastName;
 
-    private String phoneNumber;
-
-    private String address;
-
     private String role;
 
     private UserStatus status;
     private Collection<? extends GrantedAuthority> authorities;
 
 
-    public UserDetail(int id, String username, String email, String password, String firstName, String lastName, String phoneNumber, String address, UserStatus status, Collection<? extends GrantedAuthority> authorities
+    public UserDetail(int id, String username, String email, String password, String firstName, String lastName, UserStatus status, Collection<? extends GrantedAuthority> authorities
     ) {
         this.id = id;
         this.userName = username;
@@ -54,8 +50,6 @@ public class UserDetail implements UserDetails {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
         this.status = status;
         this.authorities = authorities;
     }
@@ -65,7 +59,7 @@ public class UserDetail implements UserDetails {
         listRole.add(user.getRole());
         List<GrantedAuthority> authorities = listRole.stream()
                 .map(role -> new SimpleGrantedAuthority(role.getERole().name())).collect(Collectors.toList());
-        return new UserDetail(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(),user.getFirstName(), user.getLastName(), user.getPhoneNumber(), user.getAddress(), user.getStatus(), authorities);
+        return new UserDetail(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(),user.getFirstName(), user.getLastName(), user.getStatus(), authorities);
     }
 
 

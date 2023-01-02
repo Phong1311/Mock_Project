@@ -18,13 +18,9 @@ public class UserInfoResponse {
 
     private String lastName;
 
-    private String phoneNumber;
-
-    private String address;
-
     private String status;
 
-    public UserInfoResponse(String accessToken, int id, String username, String email, String role, String firstName, String lastName, String phoneNumber, String address, String status) {
+    public UserInfoResponse(String accessToken, int id, String username, String email, String role, String firstName, String lastName, String status) {
         this.token = accessToken;
         this.id = id;
         this.username = username;
@@ -32,8 +28,6 @@ public class UserInfoResponse {
         this.role = role;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
         this.status = status;
     }
 

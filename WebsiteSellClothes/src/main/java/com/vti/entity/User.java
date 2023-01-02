@@ -62,7 +62,15 @@ public class User implements Serializable {
     private List<Cart> carts;
 
     @OneToMany(mappedBy = "user")
-    private List<CreatorProduct> creatorProducts;
+    private List<Comment> comments;
+
+    @ManyToMany
+    @JoinTable(
+            name = "CreatorProduct",
+            joinColumns = {@JoinColumn(name = "staffId")},
+            inverseJoinColumns = {@JoinColumn(name = "productId")}
+    )
+    private List<Product> products;
 
     public User(String username, String email, String password) {
         this.username = username;
