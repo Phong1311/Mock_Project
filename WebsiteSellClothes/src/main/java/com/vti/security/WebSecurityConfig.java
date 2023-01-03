@@ -65,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/v1/auth/signup").anonymous()
                 .antMatchers("/api/v1/auth/signin").anonymous()
-                .antMatchers("/api/v1/users/**").anonymous()
+                .antMatchers("/api/v1/users/**").authenticated()
                 .antMatchers("/api/v1/catalogs/**").anonymous()
                 .antMatchers("/api/v1/products/**").anonymous()
                 .antMatchers("/api/v1/carts/**").anonymous()

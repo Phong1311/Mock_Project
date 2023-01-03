@@ -1,12 +1,12 @@
 package com.vti.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.vti.entity.Role;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
+@Setter
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class ProfileDTO {
 
     private String userName;
@@ -17,7 +17,7 @@ public class ProfileDTO {
 
     private String lastName;
 
-    private String role;
+    private Role.ERole role;
 
     private String phoneNumber;
 

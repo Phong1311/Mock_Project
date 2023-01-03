@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,26 +31,26 @@ import com.vti.service.implement.IUserService;
 @Validated
 public class UserController {
 
-	@Autowired
-	private IUserService userService;
+    @Autowired
+    private IUserService userService;
 
-	@GetMapping(value = "/email/{email}")
-	public ResponseEntity<?> existsUserByEmail(@PathVariable(name = "email") String email) {
-		// get entity
-		boolean result = userService.existsUserByEmail(email);
+    @GetMapping(value = "/email/{email}")
+    public ResponseEntity<?> existsUserByEmail(@PathVariable(name = "email") String email) {
+        // get entity
+        boolean result = userService.existsUserByEmail(email);
 
-		// return result
-		return new ResponseEntity<>(result, HttpStatus.OK);
-	}
+        // return result
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 
-	@GetMapping(value = "/userName/{userName}")
-	public ResponseEntity<?> existsUserByUserName(@PathVariable(name = "userName") String userName) {
-		// get entity
-		boolean result = userService.existsUserByUserName(userName);
+    @GetMapping(value = "/userName/{userName}")
+    public ResponseEntity<?> existsUserByUserName(@PathVariable(name = "userName") String userName) {
+        // get entity
+        boolean result = userService.existsUserByUserName(userName);
 
-		// return result
-		return new ResponseEntity<>(result, HttpStatus.OK);
-	}
+        // return result
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 
 //	@PostMapping()
 //	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO dto) {
@@ -58,90 +60,92 @@ public class UserController {
 //		return new ResponseEntity<>("We have sent an email. Please check email to active account!", HttpStatus.OK);
 //	}
 
-	@GetMapping("/activeUser")
-	// validate: check exists, check not expired
-	public ResponseEntity<?> activeUserViaEmail(@RequestParam String token) {
-		// active user
-		userService.activeUser(token);
+    @GetMapping("/activeUser")
+    // validate: check exists, check not expired
+    public ResponseEntity<?> activeUserViaEmail(@RequestParam String token) {
+        // active user
+        userService.activeUser(token);
 
-		return new ResponseEntity<>("Active success!", HttpStatus.OK);
-	}
+        return new ResponseEntity<>("Active success!", HttpStatus.OK);
+    }
 
-	// resend confirm
-	@GetMapping("/userRegistrationConfirmRequest")
-	// validate: email exists, email not active
-	public ResponseEntity<?> resendConfirmRegistrationViaEmail(@RequestParam String email) {
+    // resend confirm
+    @GetMapping("/userRegistrationConfirmRequest")
+    // validate: email exists, email not active
+    public ResponseEntity<?> resendConfirmRegistrationViaEmail(@RequestParam String email) {
 
-		userService.sendConfirmUserRegistrationViaEmail(email);
+        userService.sendConfirmUserRegistrationViaEmail(email);
 
-		return new ResponseEntity<>("We have sent an email. Please check email to active account!", HttpStatus.OK);
-	}
+        return new ResponseEntity<>("We have sent an email. Please check email to active account!", HttpStatus.OK);
+    }
 
-	// reset password confirm
-	@GetMapping("/resetPasswordRequest")
-	// validate: email exists, email not active
-	public ResponseEntity<?> sendResetPasswordViaEmail(@RequestParam String email) {
+    // reset password confirm
+    @GetMapping("/resetPasswordRequest")
+    // validate: email exists, email not active
+    public ResponseEntity<?> sendResetPasswordViaEmail(@RequestParam String email) {
 
-		userService.resetPasswordViaEmail(email);
+        userService.resetPasswordViaEmail(email);
 
-		return new ResponseEntity<>("We have sent an email. Please check email to reset password!", HttpStatus.OK);
-	}
+        return new ResponseEntity<>("We have sent an email. Please check email to reset password!", HttpStatus.OK);
+    }
 
-	// resend reset password
-	@GetMapping("/resendResetPassword")
-	// validate: email exists, email not active
-	public ResponseEntity<?> resendResetPasswordViaEmail(@RequestParam String email) {
+    // resend reset password
+    @GetMapping("/resendResetPassword")
+    // validate: email exists, email not active
+    public ResponseEntity<?> resendResetPasswordViaEmail(@RequestParam String email) {
 
-		userService.sendResetPasswordViaEmail(email);
+        userService.sendResetPasswordViaEmail(email);
 
-		return new ResponseEntity<>("We have sent an email. Please check email to reset password!", HttpStatus.OK);
-	}
+        return new ResponseEntity<>("We have sent an email. Please check email to reset password!", HttpStatus.OK);
+    }
 
-	@GetMapping("/resetPassword")
-	// validate: check exists, check not expired
-	public ResponseEntity<?> resetPasswordViaEmail(@RequestParam String token, @RequestParam String newPassword) {
+    @GetMapping("/resetPassword")
+    // validate: check exists, check not expired
+    public ResponseEntity<?> resetPasswordViaEmail(@RequestParam String token, @RequestParam String newPassword) {
 
-		// reset password
-		userService.resetPassword(token, newPassword);
+        // reset password
+        userService.resetPassword(token, newPassword);
 
-		return new ResponseEntity<>("Reset Password success!", HttpStatus.OK);
-	}
+        return new ResponseEntity<>("Reset Password success!", HttpStatus.OK);
+    }
 
-	@GetMapping("/profile")
-	// validate: check exists, check not expired
-	public ResponseEntity<?> getUserProfile(Authentication authentication) {
+    @GetMapping("/profile")
+    // validate: check exists, check not expired
+    public ResponseEntity<?> getUserProfile() {
 
-		// get username from token
-		String username = authentication.getName();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+        // get username from token
+//		String username = authentication.getName();
 
-		// get user info
-		User user = userService.findUserByUserName(username);
+        // get user info
+        User user = userService.findUserByUserName(userDetails.getUsername());
 
         // convert user entity to user dto
-		ProfileDTO profileDto = new ProfileDTO(
-        		user.getUsername(),
-        		user.getEmail(),
-        		user.getFirstName(),
-        		user.getLastName(),
-				user.getRole().toString(),
-        		user.getPhoneNumber(),
-				user.getAddress(),
-        		user.getStatus().toString()
-        		);
+        ProfileDTO profileDto = new ProfileDTO(
+                user.getUsername(),
+                user.getEmail(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getRole().getERole(),
+                user.getPhoneNumber(),
+                user.getAddress(),
+                user.getStatus().toString()
+        );
 
-		return new ResponseEntity<>(profileDto, HttpStatus.OK);
-	}
-	
-	@PutMapping("/profile")
-	// validate: check exists, check not expired
-	public ResponseEntity<?> changeUserProfile(Authentication authentication, @RequestBody ChangePublicProfileDTO dto) {
-		
-		// get username from token
-		String username = authentication.getName();
-		
-		userService.changeUserProfile(username, dto);
-		
-		return new ResponseEntity<>("Change Profile Successfully!", HttpStatus.OK);
-	}
+        return new ResponseEntity<>(profileDto, HttpStatus.OK);
+    }
+
+    @PutMapping("/profile")
+    // validate: check exists, check not expired
+    public ResponseEntity<?> changeUserProfile(Authentication authentication, @RequestBody ChangePublicProfileDTO dto) {
+
+        // get username from token
+        String username = authentication.getName();
+
+        userService.changeUserProfile(username, dto);
+
+        return new ResponseEntity<>("Change Profile Successfully!", HttpStatus.OK);
+    }
 
 }

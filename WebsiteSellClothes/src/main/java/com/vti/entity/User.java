@@ -1,17 +1,16 @@
 package com.vti.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
+@Setter
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "`User`")
 public class User implements Serializable {
