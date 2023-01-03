@@ -17,6 +17,8 @@ public class ProfileDTO {
 
     private String lastName;
 
+    private String role;
+
     private String phoneNumber;
 
     private String address;

@@ -123,6 +123,7 @@ public class UserController {
         		user.getEmail(),
         		user.getFirstName(),
         		user.getLastName(),
+				user.getRole().toString(),
         		user.getPhoneNumber(),
 				user.getAddress(),
         		user.getStatus().toString()

@@ -25,68 +25,79 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
-		// securedEnabled = true,
-		// jsr250Enabled = true,
-		prePostEnabled = true)
+        // securedEnabled = true,
+        // jsr250Enabled = true,
+        prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
-	@Autowired
-	UserService userDetailsService;
+    @Autowired
+    UserService userDetailsService;
 
-	@Autowired
-	private AuthEntryPointJwt unauthorizedHandler;
+    @Autowired
+    private AuthEntryPointJwt unauthorizedHandler;
 
-	@Bean
-	public AuthTokenFilter authenticationJwtTokenFilter() {
-		return new AuthTokenFilter();
-	}
+    @Bean
+    public AuthTokenFilter authenticationJwtTokenFilter() {
+        return new AuthTokenFilter();
+    }
 
-	@Override
-	public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-	}
+    @Override
+    public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    }
 
-	@Bean
-	@Override
-	public AuthenticationManager authenticationManagerBean() throws Exception {
-		return super.authenticationManagerBean();
-	}
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-//				.antMatchers("/api/auth/**").permitAll()
-				.antMatchers("/api/v1/auth/signup").anonymous()
-				.antMatchers("/api/v1/auth/signin").anonymous()
-				.antMatchers("/api/v1/users/**").anonymous()
-				.antMatchers("/api/v1/catalogs/**").anonymous()
-				.antMatchers("/api/v1/products/**").anonymous()
-				.antMatchers("/api/v1/carts/**").anonymous()
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
+                .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/v1/auth/signup").anonymous()
+                .antMatchers("/api/v1/auth/signin").anonymous()
+                .antMatchers("/api/v1/users/**").anonymous()
+                .antMatchers("/api/v1/catalogs/**").anonymous()
+                .antMatchers("/api/v1/products/**").anonymous()
+                .antMatchers("/api/v1/carts/**").anonymous()
 
-				.antMatchers("/api/v1/user/username/**").anonymous()
-				.antMatchers("/api/v1/user/email/**").anonymous()
-				.antMatchers("/api/test/user").hasAnyAuthority("USER", "STAFF", "ADMIN")
-				.antMatchers("/api/test/admin").hasAnyAuthority("ADMIN")
-				.anyRequest().authenticated();
+                .antMatchers("/api/v1/user/username/**").anonymous()
+                .antMatchers("/api/v1/user/email/**").anonymous()
+//				.antMatchers("/api/test/user").hasAnyAuthority("USER", "STAFF", "ADMIN")
+//				.antMatchers("/api/test/admin").hasAnyAuthority("ADMIN")
+                .antMatchers("/api/v1/users/profile").authenticated()
+                .antMatchers("/api/v1/users/profile").hasAnyAuthority("USER")
 
-		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
-	}
 
-//	    @Bean
-//		CorsConfigurationSource corsConfigurationSource() {
-//        final CorsConfiguration configuration = new CorsConfiguration();
-//        configuration.setAllowedMethods(ImmutableList.of("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
-//        configuration.applyPermitDefaultValues();
-//
-//        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        source.registerCorsConfiguration("/**", configuration);
-//        return source;
-//    }
+                .anyRequest().authenticated()
+                .and()
+                .httpBasic()
+                .and()
+                .cors()
+                .and()
+                .csrf().disable()
+        ;
+
+        http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+    }
+
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        final CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedMethods(ImmutableList.of("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
+        configuration.applyPermitDefaultValues();
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 }
