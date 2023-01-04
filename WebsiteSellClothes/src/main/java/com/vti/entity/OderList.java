@@ -29,17 +29,17 @@ public class OderList implements Serializable {
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-    @CreatedDate
-    @Column(name = "oderDate")
-    private LocalDateTime oderDate;
 
     @Column(name = "oderValue", nullable = false)
     private int describe;
 
     @Column(name = "`status`", nullable = false)
     @Convert(converter = OderListStatusConvert.class)
-    private Status status;
+    private Status status = Status.WAITING;
 
+    @CreatedDate
+    @Column(name = "oderDate")
+    private LocalDateTime oderDate;
 
     public enum Status {
         WAITING("WAITING"), DELIVERY("DELIVERY"), DELIVERED("DELIVERED"), CANCELED("CANCELED");

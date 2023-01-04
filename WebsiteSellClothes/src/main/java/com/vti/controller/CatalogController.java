@@ -38,6 +38,7 @@ public class CatalogController {
 
         Page<CatalogDTO> dtoPages = new PageImpl<>(dtos, pageable, entities.getTotalElements());
 
+
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 

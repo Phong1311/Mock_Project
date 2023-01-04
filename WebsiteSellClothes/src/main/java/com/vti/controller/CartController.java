@@ -2,7 +2,6 @@ package com.vti.controller;
 
 import com.vti.dto.CartDTO;
 import com.vti.entity.Cart;
-import com.vti.entity.Product;
 import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
 import com.vti.repository.IProductRepository;

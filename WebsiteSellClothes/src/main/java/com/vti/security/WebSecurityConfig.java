@@ -62,20 +62,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-                .antMatchers("/api/auth/**").permitAll()
+//                .antMatchers("/api/auth/**").permitAll()
                 .antMatchers("/api/v1/auth/signup").anonymous()
                 .antMatchers("/api/v1/auth/signin").anonymous()
                 .antMatchers("/api/v1/users/**").authenticated()
                 .antMatchers("/api/v1/catalogs/**").anonymous()
                 .antMatchers("/api/v1/products/**").anonymous()
                 .antMatchers("/api/v1/carts/**").anonymous()
+                .antMatchers("/api/v1/oderLists/**").authenticated()
+                .antMatchers("/api/v1/oderLists/**").hasAuthority("USER")
 
                 .antMatchers("/api/v1/user/username/**").anonymous()
                 .antMatchers("/api/v1/user/email/**").anonymous()
 //				.antMatchers("/api/test/user").hasAnyAuthority("USER", "STAFF", "ADMIN")
 //				.antMatchers("/api/test/admin").hasAnyAuthority("ADMIN")
-                .antMatchers("/api/v1/users/profile").authenticated()
-                .antMatchers("/api/v1/users/profile").hasAnyAuthority("USER")
+                .antMatchers("/api/v1/users/profile").hasRole("USER")
 
 
                 .anyRequest().authenticated()
