@@ -48,6 +48,9 @@ public class ProductDTO {
     private String catalogName;
 
     @NonNull
+    private String catalogId;
+
+    @NonNull
     private ImageDTO image;
 
     @Data

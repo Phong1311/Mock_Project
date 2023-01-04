@@ -3,6 +3,7 @@ package com.vti.service;
 import java.util.List;
 import java.util.UUID;
 
+import com.vti.dto.ChangePublicAddrAndPhoneDTO;
 import com.vti.entity.*;
 import com.vti.form.creating.ProductFormForCreating;
 import com.vti.form.filter.ProductFilter;
@@ -46,52 +47,52 @@ public class UserService implements IUserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Override
-    public Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search) {
-        return null;
-    }
-
-    @Override
-    public Product getUserByID(int id) {
-        return null;
-    }
-
-    @Override
-    public void createUser(ProductFormForCreating form) {
-
-    }
-
-    @Override
-    public void updateUser(int id, ProductFormForUpdating form) {
-
-    }
-
-    @Override
-    public void deleteUser(List<Integer> ids) {
-
-    }
-
-    @Override
-    public void createUser(User user) {
-
-        // encode password
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-
-        // create user
-        if (user.getRole() == null) {
-            Role role = new Role();
-            role.setId((short) 3);
-            role.setERole(Role.ERole.USER);
-            user.setRole(role);
-        }
-        IUserRepository.save(user);
-
-        // create new user registration token
-        createNewRegistrationUserToken(user);
-
-        // send email to confirm
-        sendConfirmUserRegistrationViaEmail(user.getEmail());
-    }
+//    @Override
+//    public Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Product getUserByID(int id) {
+//        return null;
+//    }
+//
+//    @Override
+//    public void createUser(ProductFormForCreating form) {
+//
+//    }
+//
+//    @Override
+//    public void updateUser(int id, ProductFormForUpdating form) {
+//
+//    }
+//
+//    @Override
+//    public void deleteUser(List<Integer> ids) {
+//
+//    }
+//
+//    @Override
+//    public void createUser(User user) {
+//
+//        // encode password
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//
+//        // create user
+//        if (user.getRole() == null) {
+//            Role role = new Role();
+//            role.setId((short) 3);
+//            role.setERole(Role.ERole.USER);
+//            user.setRole(role);
+//        }
+//        IUserRepository.save(user);
+//
+//        // create new user registration token
+//        createNewRegistrationUserToken(user);
+//
+//        // send email to confirm
+//        sendConfirmUserRegistrationViaEmail(user.getEmail());
+//    }
 
     private void createNewRegistrationUserToken(User user) {
 
@@ -170,16 +171,6 @@ public class UserService implements IUserService {
         return UserDetail.build(user);
     }
 
-    @Override
-    public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
-
-    }
-//
-//	@Override
-//	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
-//
-//	}
-
     private void createNewResetPasswordToken(User user) {
 
         // create new token for Reseting password
@@ -216,14 +207,28 @@ public class UserService implements IUserService {
 //				AuthorityUtils.createAuthorityList(user.getRole()));
 //	}
 
-//	@Override
-//	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
-//		User user = IUserRepository.findByUserName(username);
-//
-//		user.setAvatarUrl(dto.getAvatarUrl());
-//		IUserRepository.save(user);
-//
-//		// TODO other field
-//	}
+	@Override
+	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
+		User user = IUserRepository.findByUsername(username);
+
+		user.setFirstName(dto.getFirstName());
+        user.setLastName(dto.getLastName());
+        user.setAddress(dto.getAddress());
+        user.setPhoneNumber(dto.getPhoneNumber());
+        IUserRepository.save(user);
+
+		// TODO other field
+	}
+
+    @Override
+    public void changeAddrAndPhone(String username, ChangePublicAddrAndPhoneDTO dto) {
+        User user = IUserRepository.findByUsername(username);
+
+        user.setAddress(dto.getAddress());
+        user.setPhoneNumber(dto.getPhoneNumber());
+        IUserRepository.save(user);
+
+        // TODO other field
+    }
 
 }

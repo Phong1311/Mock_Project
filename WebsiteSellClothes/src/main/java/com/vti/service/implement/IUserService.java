@@ -1,5 +1,6 @@
 package com.vti.service.implement;
 
+import com.vti.dto.ChangePublicAddrAndPhoneDTO;
 import com.vti.entity.Product;
 import com.vti.form.creating.ProductFormForCreating;
 import com.vti.form.filter.ProductFilter;
@@ -17,38 +18,39 @@ import java.util.List;
 
 public interface IUserService extends UserDetailsService {
 
-	Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search);
+//	Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search);
+//
+//	Product getUserByID(int id);
+//
+//	void createUser(ProductFormForCreating form);
+//
+//	void updateUser(int id, ProductFormForUpdating form);
+//
+//	void deleteUser(List<Integer> ids);
+//
+//	void createUser(User user);
 
-	Product getUserByID(int id);
+    User findUserByEmail(String email);
 
-	void createUser(ProductFormForCreating form);
+    User findUserByUserName(String username);
 
-	void updateUser(int id, ProductFormForUpdating form);
+    void activeUser(String token);
 
-	void deleteUser(List<Integer> ids);
+    void sendConfirmUserRegistrationViaEmail(String email);
 
-	void createUser(User user);
+    boolean existsUserByEmail(String email);
 
-	User findUserByEmail(String email);
+    boolean existsUserByUserName(String userName);
 
-	User findUserByUserName(String username);
+    void resetPasswordViaEmail(String email);
 
-	void activeUser(String token);
+    void resetPassword(String token, String newPassword);
 
-	void sendConfirmUserRegistrationViaEmail(String email);
+    void sendResetPasswordViaEmail(String email);
 
-	boolean existsUserByEmail(String email);
+    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
-	boolean existsUserByUserName(String userName);
+    void changeUserProfile(String username, ChangePublicProfileDTO dto);
 
-	void resetPasswordViaEmail(String email);
-
-	void resetPassword(String token, String newPassword);
-
-	void sendResetPasswordViaEmail(String email);
-
-	UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
-	
-	void changeUserProfile(String username, ChangePublicProfileDTO dto);
-
+    void changeAddrAndPhone(String username, ChangePublicAddrAndPhoneDTO dto);
 }

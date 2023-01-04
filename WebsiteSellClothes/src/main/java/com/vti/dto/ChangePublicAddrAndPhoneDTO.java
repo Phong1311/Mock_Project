@@ -8,22 +8,14 @@ import lombok.RequiredArgsConstructor;
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class ChangePublicProfileDTO {
+public class ChangePublicAddrAndPhoneDTO {
 
-
-    @NonNull
-    private String firstName;
-
-    @NonNull
-    private String lastName;
 
     @NonNull
     private String address;
 
     @NonNull
     private String phoneNumber;
-
-
 
 
 }

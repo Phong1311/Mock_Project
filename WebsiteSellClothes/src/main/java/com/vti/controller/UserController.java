@@ -2,6 +2,7 @@ package com.vti.controller;
 
 import javax.validation.Valid;
 
+import com.vti.dto.ChangePublicAddrAndPhoneDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,13 +53,6 @@ public class UserController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-//	@PostMapping()
-//	public ResponseEntity<?> createUser(@Valid @RequestBody UserDTO dto) {
-//		// create User
-//		userService.createUser(dto.toEntity());
-//
-//		return new ResponseEntity<>("We have sent an email. Please check email to active account!", HttpStatus.OK);
-//	}
 
     @GetMapping("/activeUser")
     // validate: check exists, check not expired
@@ -136,14 +130,34 @@ public class UserController {
         return new ResponseEntity<>(profileDto, HttpStatus.OK);
     }
 
-    @PutMapping("/profile")
+    // in profile
+    @PutMapping("/fullProfile")
     // validate: check exists, check not expired
-    public ResponseEntity<?> changeUserProfile(Authentication authentication, @RequestBody ChangePublicProfileDTO dto) {
+    public ResponseEntity<?> changeUserProfile(@RequestBody ChangePublicProfileDTO dto) {
 
-        // get username from token
-        String username = authentication.getName();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
 
-        userService.changeUserProfile(username, dto);
+//        get username from token
+//        String username = authentication.getName();
+
+        userService.changeUserProfile(userDetails.getUsername(), dto);
+
+        return new ResponseEntity<>("Change Profile Successfully!", HttpStatus.OK);
+    }
+
+    // in payment
+    @PutMapping("/paymentProfile")
+    // validate: check exists, check not expired
+    public ResponseEntity<?> changeAddrAndPhone(@RequestBody ChangePublicAddrAndPhoneDTO dto) {
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+
+//        get username from token
+//        String username = authentication.getName();
+
+        userService.changeAddrAndPhone(userDetails.getUsername(), dto);
 
         return new ResponseEntity<>("Change Profile Successfully!", HttpStatus.OK);
     }

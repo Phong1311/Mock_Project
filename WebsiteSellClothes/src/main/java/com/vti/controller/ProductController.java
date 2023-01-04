@@ -1,17 +1,10 @@
 package com.vti.controller;
 
-import com.vti.dto.CatalogDTO;
 import com.vti.dto.ProductDTO;
-import com.vti.entity.Catalog;
-import com.vti.entity.Group;
 import com.vti.entity.Product;
-import com.vti.form.GroupFormForCreating;
-import com.vti.form.GroupFormForUpdating;
 import com.vti.form.creating.ProductFormForCreating;
-import com.vti.form.filter.GroupFilter;
 import com.vti.form.filter.ProductFilter;
 import com.vti.form.updating.ProductFormForUpdating;
-import com.vti.service.implement.IGroupService;
 import com.vti.service.implement.IProductService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
