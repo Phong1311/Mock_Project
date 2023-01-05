@@ -13,9 +13,11 @@ public interface IOderListService {
 
 //	Page<Catalog> getAllCatalogs(Pageable pageable, String search);
 
-	Page<OderList> getOderListByUsername(Pageable pageable, String username);
+    Page<OderList> getOderListByUsername(Pageable pageable, String username);
 
-//	void createCatalog(CatalogFormForCreating form);
+    Page<OderList> getOderListByUsernameAndStatus(Pageable pageable, String username, OderList.Status status);
+
+    //	void createCatalog(CatalogFormForCreating form);
 //
 //	void updateCatalog(int id, CatalogFormForUpdating form);
 //

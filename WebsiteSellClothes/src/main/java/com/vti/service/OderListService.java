@@ -58,4 +58,9 @@ public class OderListService implements IOderListService {
     public Page<OderList> getOderListByUsername(Pageable pageable, String username) {
         return repository.findByUserUsername(pageable, username);
     }
+
+    @Override
+    public Page<OderList> getOderListByUsernameAndStatus(Pageable pageable, String username, OderList.Status status) {
+        return repository.findByUserUsernameAndStatus(pageable, username, status);
+    }
 }

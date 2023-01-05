@@ -1,8 +1,6 @@
 package com.vti.form.creating;
 
 import com.vti.entity.Catalog;
-import com.vti.entity.Group;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

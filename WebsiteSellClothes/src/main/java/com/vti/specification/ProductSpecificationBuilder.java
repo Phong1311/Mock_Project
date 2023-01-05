@@ -1,8 +1,6 @@
 package com.vti.specification;
 
-import com.vti.entity.Group;
 import com.vti.entity.Product;
-import com.vti.form.filter.GroupFilter;
 import com.vti.form.filter.ProductFilter;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.StringUtils;

@@ -8,6 +8,7 @@ import com.vti.form.creating.CatalogFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.IOderListService;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,21 +35,8 @@ public class OderListController {
     @Autowired
     private ModelMapper modelMapper;
 
-//    @GetMapping()
-//    public ResponseEntity<?> getAllCatalogs(Pageable pageable, @RequestParam(name = "search", required = false) String search) {
-//        Page<Catalog> entities = service.getAllCatalogs(pageable, search);
-//
-//        // convert entities --> dtos
-//        List<CatalogDTO> dtos = modelMapper.map(entities.getContent(), new TypeToken<List<CatalogDTO>>() {
-//        }.getType());
-//
-//        Page<CatalogDTO> dtoPages = new PageImpl<>(dtos, pageable, entities.getTotalElements());
-//
-//        return new ResponseEntity<>(dtoPages, HttpStatus.OK);
-//    }
 
-
-    @GetMapping(value = "/oderList")
+    @GetMapping(value = "/username")
     public ResponseEntity<?> getOderListByUsername(Pageable pageable) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -64,22 +52,21 @@ public class OderListController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
-//    @PostMapping()
-//    public ResponseEntity<?> createCatalog(@RequestBody CatalogFormForCreating form) {
-//        service.createCatalog(form);
-//        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
-//    }
-//
-//
-//    @PutMapping(value = "/{id}")
-//    public ResponseEntity<?> updateCatalog(@PathVariable(name = "id") short id, @RequestBody CatalogFormForUpdating form) {
-//        service.updateCatalog(id, form);
-//        return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
-//    }
+    @GetMapping(value = "/username/{status}")
+    public ResponseEntity<?> getOderListByUsernameAndStatus(Pageable pageable, @PathVariable(name = "status") OderList.Status status) {
 
-//    @DeleteMapping(value = "/{id}")
-//    public ResponseEntity<?> deleteCatalog(@PathVariable(name = "id") int id) {
-//        service.deleteCatalog(id);
-//        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
-//    }
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = (UserDetails) auth.getPrincipal();
+
+        Page<OderList> oderLists = service.getOderListByUsernameAndStatus(pageable, userDetails.getUsername(), status);
+
+        List<OderListDTO> dtos = modelMapper.map(oderLists.getContent(), new TypeToken<List<OderListDTO>>() {
+        }.getType());
+
+        Page<OderListDTO> dtoPages = new PageImpl<>(dtos, pageable, oderLists.getTotalElements());
+
+        return new ResponseEntity<>(dtoPages, HttpStatus.OK);
+    }
+
+
 }

@@ -42,7 +42,7 @@ public class OderList implements Serializable {
     private LocalDateTime oderDate;
 
     public enum Status {
-        WAITING("WAITING"), DELIVERY("DELIVERY"), DELIVERED("DELIVERED"), CANCELED("CANCELED");
+        WAITING("WAITING"), DELIVERING("DELIVERING"), DELIVERED("DELIVERED"), CANCELED("CANCELED");
 
         private String value;
 

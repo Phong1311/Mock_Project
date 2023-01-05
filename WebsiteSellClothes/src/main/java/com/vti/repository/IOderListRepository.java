@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface IOderListRepository extends JpaRepository<OderList, Integer>, JpaSpecificationExecutor<OderList> {
 
-
     Page<OderList> findByUserUsername(Pageable pageable, String username);
+
+    Page<OderList> findByUserUsernameAndStatus(Pageable pageable, String username, OderList.Status status);
+
 }

@@ -1,6 +1,5 @@
 package com.vti.specification;
 
-import com.vti.entity.Group;
 import com.vti.entity.Product;
 import org.springframework.data.jpa.domain.Specification;
 
