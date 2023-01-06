@@ -88,19 +88,19 @@ public class AuthController {
                         role.toString(), userDetails.getFirstName(), userDetails.getLastName(), userDetails.getStatus().toString()));
     }
 
-	@PostMapping("/signup")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
-		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
-		}
+    @PostMapping("/signup")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
+        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
+            return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
+        }
 
-		if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
-		}
+        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+            return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
+        }
 
-		// Create new user's account
-		User  user = new User(signUpRequest.getUsername(), signUpRequest.getEmail(),
-				encoder.encode(signUpRequest.getPassword()) ,signUpRequest.getFirstName(), signUpRequest.getLastName() );
+        // Create new user's account
+        User user = new User(signUpRequest.getUsername(), signUpRequest.getEmail(),
+                encoder.encode(signUpRequest.getPassword()), signUpRequest.getFirstName(), signUpRequest.getLastName());
 
 
         if (user.getRole() == null) {
@@ -121,15 +121,14 @@ public class AuthController {
         return ResponseEntity.ok(new MessageResponse("We have sent an email. Please check email to active account!"));
 
 
+    }
 
-	}
-
-	@PostMapping("/signout")
-	public ResponseEntity<?> logoutUser() {
-		ResponseCookie cookie = jwtUtils.clearJwtCookie();
-		return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
-				.body(new MessageResponse("You've been signed out!"));
-	}
+    @PostMapping("/signout")
+    public ResponseEntity<?> logoutUser() {
+        ResponseCookie cookie = jwtUtils.clearJwtCookie();
+        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
+                .body(new MessageResponse("You've been signed out!"));
+    }
 
     private void createNewRegistrationUserToken(User user) {
 

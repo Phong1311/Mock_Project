@@ -62,16 +62,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
-//                .antMatchers("/api/auth/**").permitAll()
-                .antMatchers("/api/v1/auth/signup").anonymous()
-                .antMatchers("/api/v1/auth/signin").anonymous()
-                .antMatchers("/api/v1/users/**").hasAuthority("USER")
+                .antMatchers("/api/v1/auth/**").anonymous()
+//                .antMatchers("/api/v1/auth/signup").anonymous()
+//                .antMatchers("/api/v1/auth/signin").anonymous()
+                .antMatchers("/api/v1/users/activeUser").anonymous()
+                .antMatchers("/api/v1/users/profile").hasAuthority("USER")
+                .antMatchers("/api/v1/users/fullProfile").hasAuthority("USER")
+                .antMatchers("/api/v1/users/paymentProfile").hasAuthority("USER")
                 .antMatchers("/api/v1/catalogs/**").anonymous()
                 .antMatchers("/api/v1/products/**").anonymous()
                 .antMatchers("/api/v1/carts/**").anonymous()
                 .antMatchers("/api/v1/comments/**").anonymous()
                 .antMatchers("/api/v1/oderLists/**").anonymous()
-
                 .antMatchers("/api/v1/user/username/**").anonymous()
                 .antMatchers("/api/v1/user/email/**").anonymous()
 
