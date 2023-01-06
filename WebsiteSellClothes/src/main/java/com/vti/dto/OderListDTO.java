@@ -18,7 +18,7 @@ public class OderListDTO {
     private int id;
 
     @NonNull
-    private int describe;
+    private int totalPayment;
 
     @NonNull
     private String status;

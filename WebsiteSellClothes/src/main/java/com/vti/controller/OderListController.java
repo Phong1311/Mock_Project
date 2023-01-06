@@ -4,7 +4,9 @@ import com.vti.dto.CatalogDTO;
 import com.vti.dto.OderListDTO;
 import com.vti.entity.Catalog;
 import com.vti.entity.OderList;
+import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.creating.CatalogFormForCreating;
+import com.vti.form.creating.OderListFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.IOderListService;
@@ -66,6 +68,12 @@ public class OderListController {
         Page<OderListDTO> dtoPages = new PageImpl<>(dtos, pageable, oderLists.getTotalElements());
 
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
+    }
+
+    @PostMapping()
+    public ResponseEntity<?> createOderList(@Parameter(name = "userId") int userId, @RequestBody OderListFormForCreating form) {
+        service.createOderList(userId, form);
+        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
     }
 
 

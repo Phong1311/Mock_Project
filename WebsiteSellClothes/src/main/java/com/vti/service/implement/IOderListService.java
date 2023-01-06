@@ -3,6 +3,7 @@ package com.vti.service.implement;
 import com.vti.entity.Catalog;
 import com.vti.entity.OderList;
 import com.vti.form.creating.CatalogFormForCreating;
+import com.vti.form.creating.OderListFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,7 @@ public interface IOderListService {
 
     Page<OderList> getOderListByUsernameAndStatus(Pageable pageable, String username, OderList.Status status);
 
-    //	void createCatalog(CatalogFormForCreating form);
+    void createOderList(int userId, OderListFormForCreating form);
 //
 //	void updateCatalog(int id, CatalogFormForUpdating form);
 //

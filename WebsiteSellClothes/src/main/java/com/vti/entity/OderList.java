@@ -31,14 +31,14 @@ public class OderList implements Serializable {
 
 
     @Column(name = "oderValue", nullable = false)
-    private int describe;
+    private int totalPayment;
 
     @Column(name = "`status`", nullable = false)
     @Convert(converter = OderListStatusConvert.class)
     private Status status = Status.WAITING;
 
     @CreatedDate
-    @Column(name = "oderDate", insertable = false)
+    @Column(name = "oderDate", insertable = false, updatable = false)
     private LocalDateTime oderDate;
 
     public enum Status {

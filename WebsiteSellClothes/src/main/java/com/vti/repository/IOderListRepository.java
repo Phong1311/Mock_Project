@@ -15,8 +15,5 @@ public interface IOderListRepository extends JpaRepository<OderList, Integer>, J
 
     Page<OderList> findByUserUsernameAndStatus(Pageable pageable, String username, OderList.Status status);
 
-    @Query(value = "SELECT * FROM CART WHERE productId = :proIdParameter AND userId = :useIdParameter", nativeQuery = true)
-    int findProductByProductIdAndUserId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId);
-
 
 }

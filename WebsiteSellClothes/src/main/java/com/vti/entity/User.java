@@ -58,6 +58,9 @@ public class User implements Serializable {
     private List<OderList> oderLists;
 
     @OneToMany(mappedBy = "user")
+    private List<Pay> pays;
+
+    @OneToMany(mappedBy = "user")
     private List<Cart> carts;
 
     @OneToMany(mappedBy = "user")
@@ -83,5 +86,10 @@ public class User implements Serializable {
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public User setId(int id) {
+        this.id = id;
+        return null;
     }
 }

@@ -1,9 +1,13 @@
 package com.vti.service;
 
 import com.vti.entity.Cart;
+import com.vti.entity.Pay;
+import com.vti.entity.User;
 import com.vti.form.creating.CartFormForCreating;
+import com.vti.form.creating.PayFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
 import com.vti.repository.ICartRepository;
+import com.vti.repository.IPayRepository;
 import com.vti.service.implement.ICartService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -21,16 +25,20 @@ public class CartService implements ICartService {
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
-    private ICartRepository repository;
+    private ICartRepository cartRepository;
+
+    @Autowired
+    private IPayRepository payRepository;
+
 
     @Override
     public Page<Cart> getAllCarts(Pageable pageable) {
-        return repository.findAll(pageable);
+        return cartRepository.findAll(pageable);
     }
 
     @Override
     public Page<Cart> getCartByUserId(Pageable pageable, int userId) {
-        return repository.findAllByUserId(pageable, userId);
+        return cartRepository.findAllByUserId(pageable, userId);
     }
 
     @Override
@@ -51,30 +59,35 @@ public class CartService implements ICartService {
         Cart cart = modelMapper.map(form, Cart.class);
         cart.setId(shoppingCartKey);
         cart.setQuantity(1);
-        repository.save(cart);
+        cartRepository.save(cart);
     }
 
     @Override
     public void updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
-        Cart entity = repository.findProductByProductIdAndUserId(productId, userId);
+        Cart entity = cartRepository.findProductByProductIdAndUserId(productId, userId);
         entity.setQuantity(form.getQuantity());
-        repository.save(entity);
+        cartRepository.save(entity);
     }
 
 
     @Override
     public void deleteCartByUserId(int userId) {
-        repository.deleteCartByUserId(userId);
+        cartRepository.deleteCartByUserId(userId);
     }
 
     @Override
     public void deleteProductInCartByProductId(int productId) {
-        repository.deleteProductInCartByProductId(productId);
+        cartRepository.deleteProductInCartByProductId(productId);
     }
 
     @Override
     public int total(int userId) {
-        int sum = repository.total(userId);
+        PayFormForCreating form = new PayFormForCreating();
+        int sum = cartRepository.total(userId);
+        form.setUserId(userId);
+        form.setTotal(sum);
+        Pay pay = modelMapper.map(form, Pay.class);
+        payRepository.save(pay);
         return sum;
     }
 

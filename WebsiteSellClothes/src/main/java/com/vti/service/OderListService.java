@@ -1,17 +1,18 @@
 package com.vti.service;
 
 import com.vti.entity.OderList;
-import com.vti.entity.User;
+import com.vti.form.creating.OderListFormForCreating;
+import com.vti.repository.ICartRepository;
 import com.vti.repository.IOderListRepository;
-import com.vti.repository.IUserRepository;
+import com.vti.repository.IPayRepository;
+import com.vti.service.implement.ICartService;
 import com.vti.service.implement.IOderListService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional
@@ -21,10 +22,19 @@ public class OderListService implements IOderListService {
     private IOderListRepository repository;
 
     @Autowired
-    private IUserRepository IUserRepository;
+    private ICartRepository cartRepository;
+
+    @Autowired
+    private IPayRepository payRepository;
+
+    @Autowired
+    private ICartService cartService;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
 
-//	@Override
+    //	@Override
 //	public Page<Catalog> getAllCatalogs(Pageable pageable, String search) {
 //
 //		CatalogSpecificationBuilder specification = new CatalogSpecificationBuilder(search);
@@ -37,11 +47,29 @@ public class OderListService implements IOderListService {
 //		return repository.findById(id).get();
 //	}
 //
-//	@Override
-//	public void createCatalog(CatalogFormForCreating form) {
-//		repository.save(form.toEntity());
-//
-//	}
+    @Override
+    public void createOderList(int userId, OderListFormForCreating form) {
+
+        int total = cartService.total(userId);
+
+        form.setUserId(userId);
+
+        if (form.getTotalPayment() == null) {
+            form.setTotalPayment(total);
+        }
+
+        if (form.getStatus() == null) {
+            form.setStatus(OderList.Status.WAITING);
+        }
+
+        OderList oderList = modelMapper.map(form, OderList.class);
+
+        repository.save(oderList);
+
+        cartRepository.deleteCartByUserId(userId);
+
+        payRepository.deleteByUserId(userId);
+    }
 //
 //	@Override
 //	public void updateCatalog(int id, CatalogFormForUpdating form) {
