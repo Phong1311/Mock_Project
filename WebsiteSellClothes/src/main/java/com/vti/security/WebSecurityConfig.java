@@ -67,6 +67,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/auth/signup").anonymous()
                 .antMatchers("/api/v1/auth/signin").anonymous()
                 .antMatchers("/api/v1/users/activeUser").anonymous()
+                .antMatchers("/api/v1/users/userName/**").anonymous()
+                .antMatchers("/api/v1/users/email/**").anonymous()
                 .antMatchers("/api/v1/auth/signout").hasAnyAuthority("USER","STAFF","ADMIN")
                 .antMatchers("/api/v1/users/profile").hasAuthority("USER")
                 .antMatchers("/api/v1/users/fullProfile").hasAuthority("USER")
@@ -78,8 +80,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/api/v1/oderLists/**").hasAuthority("USER")
 
-                .antMatchers("/api/v1/user/username/**").anonymous()
-                .antMatchers("/api/v1/user/email/**").anonymous()
+
 
 
                 .anyRequest().authenticated()

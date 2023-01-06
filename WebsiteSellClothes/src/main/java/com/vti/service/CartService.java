@@ -36,10 +36,7 @@ public class CartService implements ICartService {
     @Override
     public void createCart(CartFormForCreating form) {
         // omit id field
-
         Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
-
-
         TypeMap<CartFormForCreating, Cart> typeMap = modelMapper.getTypeMap(CartFormForCreating.class, Cart.class);
         if (typeMap == null) { // if not already added
             // skip field
@@ -53,7 +50,7 @@ public class CartService implements ICartService {
         // convert form to entity
         Cart cart = modelMapper.map(form, Cart.class);
         cart.setId(shoppingCartKey);
-
+        cart.setQuantity(1);
         repository.save(cart);
     }
 
@@ -71,8 +68,14 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public void deleteProductInCartByProductId(int userId) {
-        repository.deleteProductInCartByProductId(userId);
+    public void deleteProductInCartByProductId(int productId) {
+        repository.deleteProductInCartByProductId(productId);
+    }
+
+    @Override
+    public int total(int userId) {
+        int sum = repository.total(userId);
+        return sum;
     }
 
 

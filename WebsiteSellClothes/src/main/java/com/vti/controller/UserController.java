@@ -142,9 +142,6 @@ public class UserController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
 
-//        get username from token
-//        String username = authentication.getName();
-
         userService.changeAddrAndPhone(userDetails.getUsername(), dto);
 
         return new ResponseEntity<>("Change Profile Successfully!", HttpStatus.OK);

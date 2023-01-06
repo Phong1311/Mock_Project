@@ -25,4 +25,6 @@ public interface ICartService {
 
 	void deleteProductInCartByProductId(int userId);
 
+	int total(int userId);
+
 }

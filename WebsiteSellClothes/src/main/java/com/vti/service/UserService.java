@@ -194,18 +194,6 @@ public class UserService implements IUserService {
         resetPasswordTokenRepository.deleteById(resetPasswordToken.getId());
     }
 
-//	@Override
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		// Check user exists by username
-//		User user = userRepository.findByUserName(username);
-//
-//		if (user == null) {
-//			throw new UsernameNotFoundException(username);
-//		}
-//
-//		return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),
-//				AuthorityUtils.createAuthorityList(user.getRole()));
-//	}
 
 	@Override
 	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {

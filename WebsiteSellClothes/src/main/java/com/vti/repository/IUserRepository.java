@@ -7,16 +7,16 @@ import com.vti.entity.User;
 
 public interface IUserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
-	public boolean existsByUsername(String userName);
-//
-	public boolean existsByEmail(String email);
+	 boolean existsByUsername(String userName);
+
+	 boolean existsByEmail(String email);
 //
 //	@Query("	SELECT 	status 		"
 //			+ "	FROM 	User 		"
 //			+ " WHERE 	email = :email")
 //	public UserStatus findStatusByEmail(@Param("email") String email);
 //
-	public User findByUsername(String name);
-//
-	public User findByEmail(String email);
+	 User findByUsername(String name);
+
+	 User findByEmail(String email);
 }

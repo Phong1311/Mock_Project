@@ -87,5 +87,12 @@ public class CartController {
         return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
     }
 
+    // tính tổng
+    @GetMapping(value = "/sum")
+    public ResponseEntity<?> total(@Parameter(name = "userId") int userId) {
+        int sum = service.total(userId);
+        return new ResponseEntity<>(sum, HttpStatus.OK);
+    }
+
 
 }
