@@ -11,6 +11,7 @@ import com.vti.form.creating.CommentFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.ICommentService;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,6 @@ public class CommentController {
     private ModelMapper modelMapper;
 
 
-
-
     @GetMapping(value = "/productId/{productId}")
     public ResponseEntity<?> getCommentByProductId(Pageable pageable, @PathVariable(name = "productId") int productId) {
 
@@ -52,16 +51,15 @@ public class CommentController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createCatalog(@RequestBody CommentFormForCreating form) {
+    public ResponseEntity<?> createComment(@RequestBody CommentFormForCreating form) {
         service.createComment(form);
         return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
     }
 
 
-
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> deleteComment(@PathVariable(name = "id") int id) {
-        service.deleteComment(id);
+    @DeleteMapping()
+    public ResponseEntity<?> deleteCommentByUserIdAndProductId(@Parameter(name = "userId") int userId, @Parameter(name = "productId") int productId) {
+        service.deleteCommentByUserIdAndProductId(userId, productId);
         return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
     }
 }

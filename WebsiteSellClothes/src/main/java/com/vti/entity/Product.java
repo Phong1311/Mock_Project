@@ -3,6 +3,7 @@ package com.vti.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
@@ -56,12 +57,19 @@ public class Product implements Serializable {
     @Column(name = "review")
     private String review;
 
-    //    @CreatedDate
-//    @Column(name = "createDate")
-//    private LocalDateTime createDate;
-    @LastModifiedDate
-    @Column(name = "createDate")
-    private LocalDate createDate;
+    @CreatedDate
+    @Column(name = "createDate", insertable = false)
+    private LocalDateTime createDate;
+
+//    @LastModifiedDate
+//    @Column(name = "createDate", insertable = false)
+//    private LocalDate createDate;
+
+//    @Column(name = "createDate", insertable = false)
+//    @Temporal(TemporalType.TIMESTAMP)
+//    @CreationTimestamp
+//    private Date createdDate;
+
     @OneToOne(mappedBy = "product")
     private Image image;
 

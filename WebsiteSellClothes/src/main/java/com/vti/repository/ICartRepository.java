@@ -15,9 +15,9 @@ public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKe
     @Query(value = "SELECT * FROM CART WHERE userId = :idParameter", nativeQuery = true)
     Page<Cart> findAllByUserId(Pageable pageable, @Param("idParameter") int userId);
 
-    //getProductByProductId
+    //getProductByProductIdAndUserId
     @Query(value = "SELECT * FROM CART WHERE productId = :proIdParameter AND userId = :useIdParameter", nativeQuery = true)
-    Cart findProductByProductIdAndUserId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId );
+    Cart findProductByProductIdAndUserId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId);
 
     //  delete cart
     @Modifying
@@ -29,9 +29,5 @@ public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKe
     @Query(value = "DELETE FROM CART WHERE productId = :idParameter", nativeQuery = true)
     void deleteProductInCartByProductId(@Param("idParameter") int productId);
 
-    // update quantity by product
-//    @Modifying
-//    @Query(value = "UPDATE cart SET quantity = 20 WHERE productId = :idParameter", nativeQuery = true)
-//    void updateQuantityByProductId(@Param("idParameter") int productId, );
 
 }

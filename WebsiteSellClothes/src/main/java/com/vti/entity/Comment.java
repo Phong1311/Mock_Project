@@ -34,7 +34,7 @@ public class Comment implements Serializable {
     private String content;
 
     @CreatedDate
-    @Column(name = "createDate")
+    @Column(name = "createDate", insertable = false)
     private LocalDateTime createDate;
 
 

@@ -13,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class CommentService implements ICommentService {
 
     @Autowired
@@ -26,14 +28,11 @@ public class CommentService implements ICommentService {
 
     @Override
     public Page<Comment> getCommentByProductId(Pageable pageable, int id) {
-        return repository.findByProductId(pageable,id);
+        return repository.findByProductId(pageable, id);
     }
 
     @Override
     public void createComment(CommentFormForCreating form) {
-//        Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
-
-//        Comment commentId = modelMapper.map(form, Comment.class);
 
         TypeMap<CommentFormForCreating, Comment> typeMap = modelMapper.getTypeMap(CommentFormForCreating.class, Comment.class);
         if (typeMap == null) { // if not already added
@@ -47,15 +46,13 @@ public class CommentService implements ICommentService {
         }
         // convert form to entity
         Comment comment = modelMapper.map(form, Comment.class);
-//        comment.setId(commentId.getId());
 
         repository.save(comment);
-
     }
 
     @Override
-    public void deleteComment(int id) {
-        repository.deleteById(id);
+    public void deleteCommentByUserIdAndProductId(int userId, int productId) {
+        repository.deleteCommentByUserIdAndProductId(userId, productId);
     }
 
 

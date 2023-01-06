@@ -29,12 +29,6 @@ public class CartController {
     private ICartService service;
 
     @Autowired
-    private IUserRepository userRepository;
-
-    @Autowired
-    private IProductRepository productRepository;
-
-    @Autowired
     private ModelMapper modelMapper;
 
     @GetMapping()

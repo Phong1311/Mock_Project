@@ -19,6 +19,10 @@
 //import java.util.List;
 //
 //@Service
+
+import org.springframework.transaction.annotation.Transactional;
+
+//@Transactional
 //public class OderDetailService implements IOderDetailService {
 //
 //    @Autowired

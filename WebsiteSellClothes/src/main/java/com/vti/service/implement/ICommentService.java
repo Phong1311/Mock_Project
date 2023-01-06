@@ -16,6 +16,6 @@ public interface ICommentService {
     void createComment(CommentFormForCreating form);
 
 
-    void deleteComment(int id);
+    void deleteCommentByUserIdAndProductId(int userId, int productId);
 
 }
