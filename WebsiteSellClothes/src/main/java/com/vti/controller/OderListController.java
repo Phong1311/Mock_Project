@@ -52,8 +52,8 @@ public class OderListController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
-    @GetMapping(value = "/username/{status}")
-    public ResponseEntity<?> getOderListByUsernameAndStatus(Pageable pageable, @PathVariable(name = "status") OderList.Status status) {
+    @GetMapping(value = "/username/status")
+    public ResponseEntity<?> getOderListByUsernameAndStatus(Pageable pageable, @Parameter(name = "status") OderList.Status status) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();

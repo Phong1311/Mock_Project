@@ -33,8 +33,8 @@ public class OderDetail implements Serializable {
     @Column(name = "price", nullable = false)
     private int price;
 
-    @Column(name = "salePrice", nullable = false)
-    private int salePrice;
+    @Column(name = "total", nullable = false)
+    private int total;
 
 
 }
