@@ -23,7 +23,7 @@ public class Image implements Serializable {
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "productId", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "productId", referencedColumnName = "productId", nullable = false)
     private Product product;
 
     @Column(name = "image1", length = 100)

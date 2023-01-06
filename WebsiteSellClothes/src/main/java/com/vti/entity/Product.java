@@ -4,10 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 
@@ -20,7 +23,7 @@ public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "id")
+    @Column(name = "productId")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -53,10 +56,12 @@ public class Product implements Serializable {
     @Column(name = "review")
     private String review;
 
-    @CreatedDate
+    //    @CreatedDate
+//    @Column(name = "createDate")
+//    private LocalDateTime createDate;
+    @LastModifiedDate
     @Column(name = "createDate")
-    private LocalDateTime createDate;
-
+    private LocalDate createDate;
     @OneToOne(mappedBy = "product")
     private Image image;
 
@@ -82,5 +87,8 @@ public class Product implements Serializable {
         this.purchasePrice = purchasePrice;
         this.price = price;
         this.salePrice = salePrice;
+    }
+
+    public void setCreateDate(Date date) {
     }
 }

@@ -15,6 +15,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -53,7 +55,7 @@ public class ProductService implements IProductService {
         }
         // convert form to entity
         Product product = modelMapper.map(form, Product.class);
-
+        product.setCreateDate(new Date());
         repository.save(product);
 
     }

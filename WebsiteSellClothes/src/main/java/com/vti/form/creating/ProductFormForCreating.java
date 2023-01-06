@@ -24,5 +24,7 @@ public class ProductFormForCreating {
 
     private int salePrice;
 
+    private String review;
+
 
 }
