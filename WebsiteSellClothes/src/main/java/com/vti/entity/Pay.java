@@ -27,7 +27,7 @@ public class Pay implements Serializable {
     @JoinColumn(name = "userId", nullable = false)
     private User user;
 
-    @Column(name = "total")
+    @Column(name = "totalPayment")
     private int total;
 
 

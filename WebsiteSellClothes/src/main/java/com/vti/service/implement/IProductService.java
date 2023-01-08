@@ -21,4 +21,6 @@ public interface IProductService {
 
 	void deleteProduct(List<Integer> ids);
 
+	Page<Product>getNameAndPriceByOderId(int oderId);
+
 }

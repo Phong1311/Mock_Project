@@ -34,19 +34,6 @@ public class OderListService implements IOderListService {
     private ModelMapper modelMapper;
 
 
-    //	@Override
-//	public Page<Catalog> getAllCatalogs(Pageable pageable, String search) {
-//
-//		CatalogSpecificationBuilder specification = new CatalogSpecificationBuilder(search);
-//
-//		return repository.findAll(specification.build(),pageable);
-//	}
-//
-//	@Override
-//	public Catalog getCatalogByID(int id) {
-//		return repository.findById(id).get();
-//	}
-//
     @Override
     public void createOderList(int userId, OderListFormForCreating form) {
 
@@ -70,18 +57,6 @@ public class OderListService implements IOderListService {
 
         payRepository.deleteByUserId(userId);
     }
-//
-//	@Override
-//	public void updateCatalog(int id, CatalogFormForUpdating form) {
-//		Catalog entity = repository.findById(id).get();
-//		entity.setName(form.getName());
-//		repository.save(entity);
-//	}
-//
-//	@Override
-//	public void deleteCatalog(int id) {
-//		repository.deleteById(id);
-//	}
 
 
     @Override

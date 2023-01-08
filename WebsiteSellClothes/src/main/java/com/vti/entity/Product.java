@@ -75,9 +75,6 @@ public class Product implements Serializable {
 
 
     @OneToMany(mappedBy = "product")
-    private List<OderDetail> oderDetails;
-
-    @OneToMany(mappedBy = "product")
     private List<Cart> carts;
 
     @OneToMany(mappedBy = "product")
@@ -97,6 +94,5 @@ public class Product implements Serializable {
         this.salePrice = salePrice;
     }
 
-    public void setCreateDate(Date date) {
-    }
+
 }

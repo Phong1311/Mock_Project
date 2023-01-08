@@ -17,21 +17,23 @@ public class OderDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "id")
+    @Column(name = "oderDetailId")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne
-    @JoinColumn(name= "oderId", nullable = false)
+    @JoinColumn(name = "oderId", nullable = false)
     private OderList oderList;
 
-    @ManyToOne
-    @JoinColumn(name= "productId", nullable = false)
-    private Product product;
+    @Column(name = "productName", nullable = false, length = 30)
+    private String productName;
 
-    @Column(name = "price", nullable = false)
+    @Column(name = "salePrice")
     private int price;
+
+    @Column(name = "quantity", nullable = false)
+    private int quantity;
 
     @Column(name = "total", nullable = false)
     private int total;

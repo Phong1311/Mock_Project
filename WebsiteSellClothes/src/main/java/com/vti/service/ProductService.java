@@ -57,7 +57,7 @@ public class ProductService implements IProductService {
         }
         // convert form to entity
         Product product = modelMapper.map(form, Product.class);
-        product.setCreateDate(new Date());
+//        product.setCreateDate(new Date());
         repository.save(product);
 
     }
@@ -80,5 +80,12 @@ public class ProductService implements IProductService {
     public void deleteProduct(List<Integer> ids) {
         repository.deleteByIdIn(ids);
 
+    }
+
+    @Override
+    public Page<Product> getNameAndPriceByOderId(int oderId) {
+
+
+        return null;
     }
 }

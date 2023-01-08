@@ -37,5 +37,4 @@ public class Comment implements Serializable {
     @Column(name = "createDate", insertable = false)
     private LocalDateTime createDate;
 
-
 }

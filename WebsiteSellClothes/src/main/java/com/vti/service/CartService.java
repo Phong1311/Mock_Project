@@ -2,7 +2,6 @@ package com.vti.service;
 
 import com.vti.entity.Cart;
 import com.vti.entity.Pay;
-import com.vti.entity.User;
 import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.creating.PayFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
