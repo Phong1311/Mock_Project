@@ -40,24 +40,5 @@ public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKe
             "WHERE c.userId = :useIdParameter", nativeQuery = true)
     int total(@Param("useIdParameter") int userId);
 
-    // lấy soluong
-    @Query(value = "SELECT c.quantity  as total\n" +
-            "FROM cart c\n" +
-            "JOIN product p\n" +
-            "USING (productId)\n" +
-            "JOIN oderlist od\n" +
-            "USING (userId)\n" +
-            "WHERE od.oderId = :oderIdParameter", nativeQuery = true)
-    List<Integer> getQuantityByOderId(@Param("oderIdParameter") int oderId);
 
-//    // lấy tên và giá
-//
-//    @Query(value = "SELECT  p.productName, p.salePrice\n" +
-//            "FROM PRODUCT p\n" +
-//            "JOIN CART c\n" +
-//            "USING (productId)\n" +
-//            "JOIN oderlist od\n" +
-//            "USING (userId)\n" +
-//            "WHERE od.oderId = :oderIdParameter", nativeQuery = true)
-//    List<ProductDTO> getNameAndPriceByOderId(@Param("oderIdParameter") int oderId);
 }

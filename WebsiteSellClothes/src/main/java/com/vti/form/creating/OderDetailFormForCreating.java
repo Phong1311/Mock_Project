@@ -2,10 +2,13 @@ package com.vti.form.creating;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+
+import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
-public class OderDetailFormForCreating {
+public class OderDetailFormForCreating implements Serializable {
 
     private int oderListId;
 

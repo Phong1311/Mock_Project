@@ -10,4 +10,5 @@ public interface IOderDetailService {
     Page<OderDetail> getOderDetailByOderId(Pageable pageable, int oderId);
 
 
+    void createOderDetailByOderId(int oderId);
 }

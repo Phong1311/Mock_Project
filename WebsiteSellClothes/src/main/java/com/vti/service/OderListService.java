@@ -6,6 +6,7 @@ import com.vti.repository.ICartRepository;
 import com.vti.repository.IOderListRepository;
 import com.vti.repository.IPayRepository;
 import com.vti.service.implement.ICartService;
+import com.vti.service.implement.IOderDetailService;
 import com.vti.service.implement.IOderListService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class OderListService implements IOderListService {
 
     @Autowired
     private IOderListRepository repository;
+
+    @Autowired
+    private IOderDetailService oderDetailService;
 
     @Autowired
     private ICartRepository cartRepository;
@@ -52,6 +56,8 @@ public class OderListService implements IOderListService {
         OderList oderList = modelMapper.map(form, OderList.class);
 
         repository.save(oderList);
+
+        oderDetailService.createOderDetailByOderId(oderList.getId());
 
         cartRepository.deleteCartByUserId(userId);
 

@@ -19,15 +19,6 @@ public interface IProductRepository extends JpaRepository<Product, Integer>, Jpa
     @Modifying
     void deleteByIdIn(List<Integer> ids);
 
-//     lấy tên và giá
 
-    @Query(value = "SELECT  p.*\n" +
-            "FROM cart c\n" +
-            "JOIN product p\n" +
-            "USING (productId)\n" +
-            "JOIN oderlist od\n" +
-            "USING (userId)\n" +
-            "WHERE od.oderId = :oderIdParameter", nativeQuery = true)
-    List<Product> getNameAndPriceByOderId(@Param("oderIdParameter") int oderId);
 
 }
