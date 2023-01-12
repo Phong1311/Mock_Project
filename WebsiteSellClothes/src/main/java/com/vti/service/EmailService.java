@@ -14,55 +14,57 @@ import com.vti.repository.ResetPasswordTokenRepository;
 @Component
 public class EmailService implements IEmailService {
 
-	@Autowired
-	private IUserService userService;
+    @Autowired
+    private IUserService userService;
 
-	@Autowired
-	private RegistrationUserTokenRepository registrationUserTokenRepository;
+    @Autowired
+    private RegistrationUserTokenRepository registrationUserTokenRepository;
 
-	@Autowired
-	private ResetPasswordTokenRepository resetPasswordTokenRepository;
+    @Autowired
+    private ResetPasswordTokenRepository resetPasswordTokenRepository;
 
-	@Autowired
-	private JavaMailSender mailSender;
+    @Autowired
+    private JavaMailSender mailSender;
 
-	@Override
-	public void sendRegistrationUserConfirm(String email) {
+    @Override
+    public void sendRegistrationUserConfirm(String email) {
 
-		User user = userService.findUserByEmail(email);
-		String token = registrationUserTokenRepository.findByUserId(user.getId());
 
-		String confirmationUrl = "http://localhost:8080/api/v1/users/activeUser?token=" + token;
+        User user = userService.findUserByEmail(email);
+        String token = registrationUserTokenRepository.findByUserId(user.getId());
 
-		String subject = "Xác Nhận Đăng Ký Account";
-		String content = "Bạn đã đăng ký thành công. Click vào link dưới đây để kích hoạt tài khoản \n"
-				+ confirmationUrl;
+        String confirmationUrl = "http://localhost:8080/api/v1/users/activeUser?token=" + token;
 
-		sendEmail(email, subject, content);
-	}
+        String subject = "Xác Nhận Đăng Ký Account";
+        String content = "Bạn đã đăng ký thành công. Click vào link dưới đây để kích hoạt tài khoản \n"
+                + confirmationUrl;
 
-	@Override
-	public void sendResetPassword(String email) {
+        sendEmail(email, subject, content);
 
-		User user = userService.findUserByEmail(email);
-		String token = resetPasswordTokenRepository.findByUserId(user.getId());
+    }
 
-		String confirmationUrl = "http://localhost:3000/auth/new-password/" + token;
+    @Override
+    public void sendResetPassword(String email) {
 
-		String subject = "Thiết lập lại mật khẩu";
-		String content = "Click vào link dưới đây để thiết lập lại mật khẩu (nếu không phải bạn xin vui lòng bỏ qua).\n"
-				+ confirmationUrl;
+        User user = userService.findUserByEmail(email);
+        String token = resetPasswordTokenRepository.findByUserId(user.getId());
 
-		sendEmail(email, subject, content);
-	}
+        String confirmationUrl = "http://localhost:3000/auth/new-password/" + token;
 
-	private void sendEmail(final String recipientEmail, final String subject, final String content) {
-		SimpleMailMessage message = new SimpleMailMessage();
-		message.setTo(recipientEmail);
-		message.setSubject(subject);
-		message.setText(content);
+        String subject = "Thiết lập lại mật khẩu";
+        String content = "Click vào link dưới đây để thiết lập lại mật khẩu (nếu không phải bạn xin vui lòng bỏ qua).\n"
+                + confirmationUrl;
 
-		mailSender.send(message);
-	}
+        sendEmail(email, subject, content);
+    }
+
+    private void sendEmail(final String recipientEmail, final String subject, final String content) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(recipientEmail);
+        message.setSubject(subject);
+        message.setText(content);
+
+        mailSender.send(message);
+    }
 
 }

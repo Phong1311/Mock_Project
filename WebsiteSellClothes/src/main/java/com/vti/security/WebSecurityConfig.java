@@ -1,7 +1,7 @@
 package com.vti.security;
 
 import com.google.common.collect.ImmutableList;
-import com.vti.security.jwt.AuthEntryPointJwt;
+import com.vti.config.exception.AuthExceptionHandler;
 import com.vti.security.jwt.AuthTokenFilter;
 import com.vti.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +34,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userDetailsService;
 
+//    @Autowired
+//    private AuthEntryPointJwt unauthorizedHandler;
+
     @Autowired
-    private AuthEntryPointJwt unauthorizedHandler;
+    private AuthExceptionHandler authExceptionHandler;
 
     @Bean
     public AuthTokenFilter authenticationJwtTokenFilter() {
@@ -60,8 +63,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
+        http.cors().and()
+//                .csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .exceptionHandling()
+                .authenticationEntryPoint(authExceptionHandler)
+                .accessDeniedHandler(authExceptionHandler)
+                .and()
+                .authorizeRequests()
                 .antMatchers("/api/v1/catalogs/**").anonymous()
                 .antMatchers("/api/v1/products/**").anonymous()
                 .antMatchers("/api/v1/auth/signup").anonymous()
@@ -82,10 +91,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/api/v1/oderLists/**").hasAuthority("USER")
                 .antMatchers("/api/v1/oderDetails/**").hasAuthority("USER")
-
-
-
-
 
                 .anyRequest().authenticated()
                 .and()

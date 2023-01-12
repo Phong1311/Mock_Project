@@ -11,6 +11,7 @@ import com.vti.form.creating.CommentFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.ICommentService;
+import com.vti.validation.user.UserIDExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -20,12 +21,14 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin("*")
 @RestController
+@Validated
 @RequestMapping(value = "/api/v1/comments")
 public class CommentController {
 
@@ -58,7 +61,7 @@ public class CommentController {
 
 
     @DeleteMapping()
-    public ResponseEntity<?> deleteCommentByUserIdAndProductId(@Parameter(name = "userId") int userId, @Parameter(name = "productId") int productId) {
+    public ResponseEntity<?> deleteCommentByUserIdAndProductId(@Parameter(name = "userId") @UserIDExists int userId, @Parameter(name = "productId") int productId) {
         service.deleteCommentByUserIdAndProductId(userId, productId);
         return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
     }

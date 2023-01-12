@@ -7,6 +7,7 @@ import com.vti.form.updating.CartFormForUpdating;
 import com.vti.repository.IProductRepository;
 import com.vti.repository.IUserRepository;
 import com.vti.service.implement.ICartService;
+import com.vti.validation.user.UserIDExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -16,12 +17,14 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/carts")
+@Validated
 @CrossOrigin("*")
 public class CartController {
 
@@ -46,7 +49,7 @@ public class CartController {
 
     // get toàn bộ sản phẩm(giỏ hàng) của user
     @GetMapping(value = "/userId/{userId}")
-    public ResponseEntity<?> getCartByUserId(Pageable pageable, @PathVariable(name = "userId") int userId) {
+    public ResponseEntity<?> getCartByUserId(Pageable pageable, @PathVariable(name = "userId") @UserIDExists int userId) {
 
         Page<Cart> cart = service.getCartByUserId(pageable, userId);
 
@@ -68,14 +71,14 @@ public class CartController {
 
     // update số lượng sản phẩm
     @PutMapping()
-    public ResponseEntity<?> updateQuantityInCart(@Parameter(name = "id") int productId, @Parameter(name = "id") int userId, @RequestBody CartFormForUpdating form) {
+    public ResponseEntity<?> updateQuantityInCart(@Parameter(name = "id") int productId, @Parameter(name = "id") @UserIDExists int userId, @RequestBody CartFormForUpdating form) {
         service.updateQuantityInCart(productId, userId, form);
         return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
     }
 
     // delete toàn bộ sản phẩm(giỏ hàng) của user
     @DeleteMapping(value = "/userId/{userId}")
-    public ResponseEntity<?> deleteCartByUserId(@PathVariable(name = "userId") int userId) {
+    public ResponseEntity<?> deleteCartByUserId(@PathVariable(name = "userId") @UserIDExists int userId) {
         service.deleteCartByUserId(userId);
         return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
     }
@@ -89,7 +92,7 @@ public class CartController {
 
     // tính tổng
     @GetMapping(value = "/sum")
-    public ResponseEntity<?> total(@Parameter(name = "userId") int userId) {
+    public ResponseEntity<?> total(@Parameter(name = "userId") @UserIDExists int userId) {
         int sum = service.total(userId);
         return new ResponseEntity<>(sum, HttpStatus.OK);
     }

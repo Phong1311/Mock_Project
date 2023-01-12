@@ -1,8 +1,8 @@
 package com.vti.controller;
 
 
-import com.vti.dto.SiginAndSignup.LoginRequest;
-import com.vti.dto.SiginAndSignup.SignupRequest;
+import com.vti.dto.SigningAndSignup.SigningRequest;
+import com.vti.dto.SigningAndSignup.SignupRequest;
 import com.vti.entity.Role;
 import com.vti.entity.User;
 import com.vti.entity.UserStatus;
@@ -10,7 +10,6 @@ import com.vti.entity.token.RegistrationUserToken;
 import com.vti.event.OnSendRegistrationUserConfirmViaEmailEvent;
 import com.vti.repository.IUserRepository;
 import com.vti.repository.RegistrationUserTokenRepository;
-import com.vti.repository.ResetPasswordTokenRepository;
 import com.vti.repository.RoleRepository;
 import com.vti.response.MessageResponse;
 import com.vti.response.UserInfoResponse;
@@ -50,9 +49,6 @@ public class AuthController {
     private RegistrationUserTokenRepository registrationUserTokenRepository;
 
     @Autowired
-    private ResetPasswordTokenRepository resetPasswordTokenRepository;
-
-    @Autowired
     private ApplicationEventPublisher eventPublisher;
     @Autowired
     PasswordEncoder encoder;
@@ -62,12 +58,12 @@ public class AuthController {
 
     @PostMapping("/signin")
 
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) throws Exception {
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody SigningRequest signingRequest) throws Exception {
         UserDetail userDetails;
         Authentication authentication;
         try {
             authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+                    new UsernamePasswordAuthenticationToken(signingRequest.getUsername(), signingRequest.getPassword()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             userDetails = (UserDetail) authentication.getPrincipal();
 
@@ -111,16 +107,11 @@ public class AuthController {
         }
 
         userRepository.save(user);
-
         // create new user registration token
         createNewRegistrationUserToken(user);
-
         // send email to confirm
         sendConfirmUserRegistrationViaEmail(user.getEmail());
-
         return ResponseEntity.ok(new MessageResponse("We have sent an email. Please check email to active account!"));
-
-
     }
 
     @PostMapping("/signout")

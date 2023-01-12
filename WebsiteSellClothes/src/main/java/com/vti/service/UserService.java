@@ -119,6 +119,11 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public boolean existsUserById(int id) {
+        return IUserRepository.existsById(id);
+    }
+
+    @Override
     public boolean existsUserByEmail(String email) {
         return IUserRepository.existsByEmail(email);
     }
@@ -130,17 +135,20 @@ public class UserService implements IUserService {
 
     @Override
     public void activeUser(String token) {
+        try {
+            // get token
+            RegistrationUserToken registrationUserToken = registrationUserTokenRepository.findByToken(token);
 
-        // get token
-        RegistrationUserToken registrationUserToken = registrationUserTokenRepository.findByToken(token);
+            // active user
+            User user = registrationUserToken.getUser();
+            user.setStatus(UserStatus.ACTIVE);
+            IUserRepository.save(user);
 
-        // active user
-        User user = registrationUserToken.getUser();
-        user.setStatus(UserStatus.ACTIVE);
-        IUserRepository.save(user);
-
-        // remove Registration User Token
-        registrationUserTokenRepository.deleteById(registrationUserToken.getId());
+            // remove Registration User Token
+            registrationUserTokenRepository.deleteById(registrationUserToken.getId());
+        } catch (NullPointerException e) {
+            throw new NullPointerException("Tài khoản đã được kích hoạt. Vui lòng quay lại trang chủ và tiến hành đăng nhập vào hệ thống. ");
+        }
     }
 
     @Override
@@ -195,18 +203,18 @@ public class UserService implements IUserService {
     }
 
 
-	@Override
-	public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
-		User user = IUserRepository.findByUsername(username);
+    @Override
+    public void changeUserProfile(String username, ChangePublicProfileDTO dto) {
+        User user = IUserRepository.findByUsername(username);
 
-		user.setFirstName(dto.getFirstName());
+        user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setAddress(dto.getAddress());
         user.setPhoneNumber(dto.getPhoneNumber());
         IUserRepository.save(user);
 
-		// TODO other field
-	}
+        // TODO other field
+    }
 
     @Override
     public void changeAddrAndPhone(String username, ChangePublicAddrAndPhoneDTO dto) {

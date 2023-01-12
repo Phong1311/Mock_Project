@@ -38,6 +38,8 @@ public interface IUserService extends UserDetailsService {
 
     void sendConfirmUserRegistrationViaEmail(String email);
 
+    boolean existsUserById(int id);
+
     boolean existsUserByEmail(String email);
 
     boolean existsUserByUserName(String userName);

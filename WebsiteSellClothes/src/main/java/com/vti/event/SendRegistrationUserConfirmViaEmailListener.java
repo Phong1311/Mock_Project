@@ -1,6 +1,7 @@
 package com.vti.event;
 
 import com.vti.service.implement.IEmailService;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -12,12 +13,15 @@ public class SendRegistrationUserConfirmViaEmailListener
 	@Autowired
 	private IEmailService emailService;
 
+	@SneakyThrows
 	@Override
 	public void onApplicationEvent(OnSendRegistrationUserConfirmViaEmailEvent event) {
-		sendConfirmViaEmail(event.getEmail());
+
+			sendConfirmViaEmail(event.getEmail());
+
 	}
 
-	private void sendConfirmViaEmail(String email) {
+	private void sendConfirmViaEmail(String email){
 		emailService.sendRegistrationUserConfirm(email);
 	}
 

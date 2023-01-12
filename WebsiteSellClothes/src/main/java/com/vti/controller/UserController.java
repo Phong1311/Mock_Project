@@ -46,7 +46,11 @@ public class UserController {
     // validate: check exists, check not expired
     public ResponseEntity<?> activeUserViaEmail(@RequestParam String token) {
         // active user
-        userService.activeUser(token);
+        try {
+            userService.activeUser(token);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         return new ResponseEntity<>("Active success!", HttpStatus.OK);
     }

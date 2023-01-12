@@ -10,6 +10,7 @@ import com.vti.form.creating.OderListFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.IOderListService;
+import com.vti.validation.user.UserIDExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -22,12 +23,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @CrossOrigin("*")
 @RestController
+@Validated
 @RequestMapping(value = "/api/v1/oderLists")
 public class OderListController {
 
@@ -71,7 +74,7 @@ public class OderListController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createOderList(@Parameter(name = "userId") int userId, @RequestBody OderListFormForCreating form) {
+    public ResponseEntity<?> createOderList(@Parameter(name = "userId") @UserIDExists int userId, @RequestBody OderListFormForCreating form) {
         service.createOderList(userId, form);
         return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
     }
