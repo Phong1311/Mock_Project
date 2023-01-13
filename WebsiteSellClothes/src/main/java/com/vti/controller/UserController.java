@@ -5,6 +5,7 @@ import com.vti.dto.ChangePublicProfileDTO;
 import com.vti.dto.ProfileDTO;
 import com.vti.entity.User;
 import com.vti.service.implement.IUserService;
+import com.vti.validation.user.EmailNotExists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @CrossOrigin("*")
 @RestController
@@ -49,7 +52,7 @@ public class UserController {
         try {
             userService.activeUser(token);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Tài khoản đã được kích hoạt. Vui lòng quay lại trang chủ và tiến hành đăng nhập vào hệ thống.");
         }
 
         return new ResponseEntity<>("Active success!", HttpStatus.OK);
@@ -58,7 +61,7 @@ public class UserController {
     // resend confirm
     @GetMapping("/userRegistrationConfirmRequest")
     // validate: email exists, email not active
-    public ResponseEntity<?> resendConfirmRegistrationViaEmail(@RequestParam String email) {
+    public ResponseEntity<?> resendConfirmRegistrationViaEmail(@RequestParam @EmailNotExists String email) {
 
         userService.sendConfirmUserRegistrationViaEmail(email);
 
@@ -125,7 +128,7 @@ public class UserController {
     // in profile
     @PutMapping("/fullProfile")
     // validate: check exists, check not expired
-    public ResponseEntity<?> changeUserProfile(@RequestBody ChangePublicProfileDTO dto) {
+    public ResponseEntity<?> changeUserProfile(@Valid  @RequestBody ChangePublicProfileDTO dto) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
@@ -141,7 +144,7 @@ public class UserController {
     // in payment
     @PutMapping("/paymentProfile")
     // validate: check exists, check not expired
-    public ResponseEntity<?> changeAddrAndPhone(@RequestBody ChangePublicAddrAndPhoneDTO dto) {
+    public ResponseEntity<?> changeAddrAndPhone(@Valid @RequestBody ChangePublicAddrAndPhoneDTO dto) {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) auth.getPrincipal();

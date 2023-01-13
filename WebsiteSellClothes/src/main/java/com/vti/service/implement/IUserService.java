@@ -34,7 +34,7 @@ public interface IUserService extends UserDetailsService {
 
     User findUserByUserName(String username);
 
-    void activeUser(String token);
+    void activeUser(String token) throws Exception;
 
     void sendConfirmUserRegistrationViaEmail(String email);
 

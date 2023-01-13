@@ -134,8 +134,8 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void activeUser(String token) {
-        try {
+    public void activeUser(String token) throws Exception{
+//        try {
             // get token
             RegistrationUserToken registrationUserToken = registrationUserTokenRepository.findByToken(token);
 
@@ -146,9 +146,9 @@ public class UserService implements IUserService {
 
             // remove Registration User Token
             registrationUserTokenRepository.deleteById(registrationUserToken.getId());
-        } catch (NullPointerException e) {
-            throw new NullPointerException("Tài khoản đã được kích hoạt. Vui lòng quay lại trang chủ và tiến hành đăng nhập vào hệ thống. ");
-        }
+//        } catch (NullPointerException e) {
+//            throw new NullPointerException("Tài khoản đã được kích hoạt. Vui lòng quay lại trang chủ và tiến hành đăng nhập vào hệ thống. ");
+//        }
     }
 
     @Override
