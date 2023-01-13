@@ -41,6 +41,12 @@ public class CartService implements ICartService {
     }
 
     @Override
+    public Cart getCartByUserIdAndProductId(int productId , int userId) {
+        return cartRepository.findCartByProductIdAndUserId(productId, userId);
+    }
+
+
+    @Override
     public void createCart(CartFormForCreating form) {
         // omit id field
         Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
@@ -54,16 +60,25 @@ public class CartService implements ICartService {
                 }
             });
         }
+
         // convert form to entity
         Cart cart = modelMapper.map(form, Cart.class);
         cart.setId(shoppingCartKey);
-        cart.setQuantity(1);
+
+        // update quantity +1 từ màn hình sản phẩm khi bấm thêm giỏ hàng 1 lần nữa
+        Cart cart1 = cartRepository.findCartByProductIdAndUserId(form.getProductId(), form.getUserId());
+
+        if (cart1 != null) {
+            cart.setQuantity(cart1.getQuantity() + 1);
+        } else {
+            cart.setQuantity(1);
+        }
         cartRepository.save(cart);
     }
 
     @Override
     public void updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
-        Cart entity = cartRepository.findProductByProductIdAndUserId(productId, userId);
+        Cart entity = cartRepository.findCartByProductIdAndUserId(productId, userId);
         entity.setQuantity(form.getQuantity());
         cartRepository.save(entity);
     }
@@ -75,8 +90,8 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public void deleteProductInCartByProductId(int productId) {
-        cartRepository.deleteProductInCartByProductId(productId);
+    public void deleteProductInCartByProductId(int productId, int userId) {
+        cartRepository.deleteProductInCartByProductId(productId, userId);
     }
 
     @Override
@@ -88,6 +103,16 @@ public class CartService implements ICartService {
         Pay pay = modelMapper.map(form, Pay.class);
         payRepository.save(pay);
         return sum;
+    }
+
+    @Override
+    public boolean existsCartByUserId(int userId) {
+        return cartRepository.existsByUserId(userId);
+    }
+
+    @Override
+    public boolean existsCartByProductId(int productId) {
+        return cartRepository.existsByProductId(productId);
     }
 
 

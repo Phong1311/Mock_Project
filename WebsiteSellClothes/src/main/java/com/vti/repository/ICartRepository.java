@@ -12,12 +12,11 @@ import org.springframework.data.repository.query.Param;
 public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKey>, JpaSpecificationExecutor<Cart> {
 
     //getProductByUserId
-    @Query(value = "SELECT * FROM CART WHERE userId = :idParameter", nativeQuery = true)
-    Page<Cart> findAllByUserId(Pageable pageable, @Param("idParameter") int userId);
+    Page<Cart> findAllByUserId(Pageable pageable, int userId);
+
 
     //getProductByProductIdAndUserId
-    @Query(value = "SELECT * FROM CART WHERE productId = :proIdParameter AND userId = :useIdParameter", nativeQuery = true)
-    Cart findProductByProductIdAndUserId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId);
+    Cart findCartByProductIdAndUserId(int productId,int userId);
 
     //  delete cart
     @Modifying
@@ -26,8 +25,8 @@ public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKe
 
     // delete product in cart
     @Modifying
-    @Query(value = "DELETE FROM CART WHERE productId = :idParameter", nativeQuery = true)
-    void deleteProductInCartByProductId(@Param("idParameter") int productId);
+    @Query(value = "DELETE FROM CART WHERE productId = :proIdParameter AND userId = :useIdParameter", nativeQuery = true)
+    void deleteProductInCartByProductId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId);
 
     // tính tổng
     @Query(value = "SELECT Sum(p.salePrice * c.quantity) as total FROM PRODUCT p\n" +
@@ -36,5 +35,7 @@ public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKe
             "WHERE c.userId = :useIdParameter", nativeQuery = true)
     int total(@Param("useIdParameter") int userId);
 
+    boolean existsByUserId(int userId);
 
+    boolean existsByProductId(int productId);
 }
