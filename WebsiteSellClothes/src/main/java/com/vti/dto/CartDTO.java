@@ -11,15 +11,15 @@ import lombok.RequiredArgsConstructor;
 public class CartDTO {
 
     @NonNull
-    private String productId;
+    private int productId;
     @NonNull
-    private ImageDTO productImage;
-    @Data
-    @NoArgsConstructor
-    static class ImageDTO {
-        private String image1;
-
-    }
+    private String productImageImage1;
+//    @Data
+//    @NoArgsConstructor
+//    static class ImageDTO {
+//        private String image1;
+//
+//    }
     @NonNull
     private String productName;
 

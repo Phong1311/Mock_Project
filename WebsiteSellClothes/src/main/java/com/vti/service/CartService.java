@@ -41,13 +41,13 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public Cart getCartByUserIdAndProductId(int productId , int userId) {
+    public Cart getCartByUserIdAndProductId(int productId, int userId) {
         return cartRepository.findCartByProductIdAndUserId(productId, userId);
     }
 
 
     @Override
-    public void createCart(CartFormForCreating form) {
+    public Cart createCart(CartFormForCreating form) {
         // omit id field
         Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
         TypeMap<CartFormForCreating, Cart> typeMap = modelMapper.getTypeMap(CartFormForCreating.class, Cart.class);
@@ -74,6 +74,10 @@ public class CartService implements ICartService {
             cart.setQuantity(1);
         }
         cartRepository.save(cart);
+
+        Cart cart2 = cartRepository.findCartByProductIdAndUserId(form.getProductId(), form.getUserId());
+
+        return cart2;
     }
 
     @Override

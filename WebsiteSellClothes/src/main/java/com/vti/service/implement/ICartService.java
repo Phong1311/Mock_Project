@@ -14,7 +14,7 @@ public interface ICartService {
 
     Cart getCartByUserIdAndProductId(int userId, int productId);
 
-    void createCart(CartFormForCreating form);
+    Cart createCart(CartFormForCreating form);
 
     void updateQuantityInCart(int productId, int userId, CartFormForUpdating form);
 

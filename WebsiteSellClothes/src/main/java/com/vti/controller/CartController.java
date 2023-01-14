@@ -52,13 +52,13 @@ public class CartController {
     @GetMapping(value = "/userId/{userId}")
     public ResponseEntity<?> getCartByUserId(Pageable pageable, @PathVariable(name = "userId") @UserIDExists int userId) {
 
-        Page<Cart> cart = service.getCartByUserId(pageable, userId);
+        Page<Cart> cartPage = service.getCartByUserId(pageable, userId);
 
         // convert entities --> dtos
-        List<CartDTO> dtos = modelMapper.map(cart.getContent(), new TypeToken<List<CartDTO>>() {
+        List<CartDTO> dtos = modelMapper.map(cartPage.getContent(), new TypeToken<List<CartDTO>>() {
         }.getType());
 
-        Page<CartDTO> dtoPages = new PageImpl<>(dtos, pageable, cart.getTotalElements());
+        Page<CartDTO> dtoPages = new PageImpl<>(dtos, pageable, cartPage.getTotalElements());
 
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
@@ -66,8 +66,9 @@ public class CartController {
     // Tạo giỏ hàng
     @PostMapping()
     public ResponseEntity<?> createCart(@Valid @RequestBody CartFormForCreating form) {
-        service.createCart(form);
-        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
+        Cart cart = service.createCart(form);
+        CartDTO cartDTO = new CartDTO(cart.getProduct().getId(),cart.getProduct().getImage().getImage1(),cart.getProduct().getName(),cart.getProduct().getSize(),cart.getQuantity(),cart.getProduct().getPrice(),cart.getProduct().getSalePrice());
+        return new ResponseEntity<>(cartDTO, HttpStatus.OK);
     }
 
     // update số lượng sản phẩm
