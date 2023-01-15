@@ -3,11 +3,13 @@ package com.vti.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 
@@ -38,8 +40,11 @@ public class OderList implements Serializable {
     private Status status = Status.WAITING;
 
     @CreatedDate
-    @Column(name = "oderDate", insertable = false)
+    @Column(name = "oderDate", insertable = false, updatable = false)
+    @CreationTimestamp
     private LocalDateTime oderDate;
+
+
 
     public enum Status {
         WAITING("WAITING"), DELIVERING("DELIVERING"), DELIVERED("DELIVERED"), CANCELED("CANCELED");
