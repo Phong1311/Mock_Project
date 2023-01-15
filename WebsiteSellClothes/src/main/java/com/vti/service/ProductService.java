@@ -2,11 +2,9 @@ package com.vti.service;
 
 import com.vti.entity.Product;
 import com.vti.form.creating.ProductFormForCreating;
-import com.vti.form.filter.ProductFilter;
 import com.vti.form.updating.ProductFormForUpdating;
 import com.vti.repository.IProductRepository;
 import com.vti.service.implement.IProductService;
-import com.vti.specification.ProductSpecificationBuilder;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.modelmapper.TypeMap;
@@ -16,8 +14,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,19 +23,12 @@ public class ProductService implements IProductService {
     @Autowired
     private ModelMapper modelMapper;
     @Autowired
-    private IProductRepository repository;
+    private IProductRepository productRepository;
 
-    @Override
-    public Page<Product> getAllProducts(Pageable pageable, ProductFilter filter, String search) {
-
-        ProductSpecificationBuilder specification = new ProductSpecificationBuilder(filter, search);
-
-        return repository.findAll(specification.build(), pageable);
-    }
 
     @Override
     public Product getProductByID(int id) {
-        return repository.findById(id).get();
+        return productRepository.findById(id).get();
     }
 
     @Override
@@ -58,13 +47,13 @@ public class ProductService implements IProductService {
         // convert form to entity
         Product product = modelMapper.map(form, Product.class);
 //        product.setCreateDate(new Date());
-        repository.save(product);
+        productRepository.save(product);
 
     }
 
     @Override
     public void updateProduct(int id, ProductFormForUpdating form) {
-        Product entity = repository.findById(id).get();
+        Product entity = productRepository.findById(id).get();
         entity.setName(form.getName());
         entity.setDescribe(form.getDescribe());
         entity.setSize(form.getSize());
@@ -72,20 +61,38 @@ public class ProductService implements IProductService {
         entity.setPurchasePrice(form.getPurchasePrice());
         entity.setPrice(form.getPrice());
         entity.setSalePrice(form.getSalePrice());
-        repository.save(entity);
+        productRepository.save(entity);
     }
 
 
     @Override
     public void deleteProduct(List<Integer> ids) {
-        repository.deleteByIdIn(ids);
-
+        productRepository.deleteByIdIn(ids);
     }
 
     @Override
-    public Page<Product> getNameAndPriceByOderId(int oderId) {
-
-
-        return null;
+    public Page<Product> getAllProductByCatalogID(Pageable pageable, int catalogId) {
+        return productRepository.findProductByCatalogId(pageable, catalogId);
     }
+
+    @Override
+    public List<Product> getProductByCatalogId(int catalogId) {
+        return productRepository.getProductByCatalogId(catalogId);
+    }
+
+    @Override
+    public List<Product> getProduct() {
+        return productRepository.getProduct();
+    }
+
+    @Override
+    public boolean existsProductByProductId(int id) {
+        return productRepository.existsById(id);
+    }
+
+    @Override
+    public boolean existsProductsByCatalogId(int catalogId) {
+        return productRepository.existsProductByCatalogId(catalogId);
+    }
+
 }

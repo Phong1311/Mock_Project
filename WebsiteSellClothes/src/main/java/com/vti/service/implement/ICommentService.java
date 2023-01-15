@@ -10,7 +10,10 @@ public interface ICommentService {
 
     Page<Comment> getCommentByProductId(Pageable pageable,int productId);
 
-    Comment createComment(CommentFormForCreating form);
+//    Comment createComment(CommentFormForCreating form);
+
+
+    Comment createComment(String username,CommentFormForCreating form);
 
 
     void deleteCommentByUserIdAndProductId(int userId, int productId);

@@ -11,6 +11,7 @@ import com.vti.form.creating.CommentFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.ICommentService;
+import com.vti.ultis.UserDetailsUltis;
 import com.vti.validation.user.UserIDExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
@@ -54,9 +55,11 @@ public class CommentController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
+
+
     @PostMapping()
     public ResponseEntity<?> createComment(@Valid @RequestBody CommentFormForCreating form) {
-        Comment comment = service.createComment(form);
+        Comment comment = service.createComment(UserDetailsUltis.UserDetails().getUsername(), form);
         CommentDTO commentDTO = modelMapper.map(comment, CommentDTO.class);
         return new ResponseEntity<>(commentDTO, HttpStatus.OK);
     }

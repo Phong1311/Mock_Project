@@ -8,10 +8,10 @@ import com.vti.service.implement.ICatalogService;
 import com.vti.specification.CatalogSpecificationBuilder;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -24,11 +24,11 @@ public class CatalogService implements ICatalogService {
     private ModelMapper modelMapper;
 
     @Override
-    public Page<Catalog> getAllCatalogs(Pageable pageable, String search) {
+    public List<Catalog> getAllCatalogs(String search) {
 
         CatalogSpecificationBuilder specification = new CatalogSpecificationBuilder(search);
 
-        return catalogRepository.findAll(specification.build(), pageable);
+        return catalogRepository.findAll(specification.build());
     }
 
     @Override

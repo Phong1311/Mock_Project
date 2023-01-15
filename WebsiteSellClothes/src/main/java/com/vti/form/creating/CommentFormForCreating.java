@@ -10,8 +10,7 @@ import javax.validation.constraints.Positive;
 @NoArgsConstructor
 public class CommentFormForCreating {
 
-    @NotNull(message = "{User.createUser.form.Empty}")
-    @Positive(message = "The UserId must be greater than or equal 1")
+
     private Integer userId;
 
     @NotNull(message = "{User.createUser.form.Empty}")

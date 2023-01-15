@@ -31,17 +31,14 @@ public class CatalogController {
     private ModelMapper modelMapper;
 
     @GetMapping()
-    public ResponseEntity<?> getAllCatalogs(Pageable pageable, @RequestParam(name = "search", required = false) String search) {
-        Page<Catalog> entities = service.getAllCatalogs(pageable, search);
+    public ResponseEntity<?> getAllCatalogs(@RequestParam(name = "search", required = false) String search) {
+        List<Catalog> entities = service.getAllCatalogs(search);
 
         // convert entities --> dtos
-        List<CatalogDTO> dtos = modelMapper.map(entities.getContent(), new TypeToken<List<CatalogDTO>>() {
+        List<CatalogDTO> dtos = modelMapper.map(entities, new TypeToken<List<CatalogDTO>>() {
         }.getType());
 
-        Page<CatalogDTO> dtoPages = new PageImpl<>(dtos, pageable, entities.getTotalElements());
-
-
-        return new ResponseEntity<>(dtoPages, HttpStatus.OK);
+        return new ResponseEntity<>(dtos, HttpStatus.OK);
     }
 
 

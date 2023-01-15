@@ -3,19 +3,19 @@ package com.vti.service.implement;
 import com.vti.form.creating.CatalogFormForCreating;
 import com.vti.form.updating.CatalogFormForUpdating;
 import com.vti.entity.Catalog;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface ICatalogService {
 
-	Page<Catalog> getAllCatalogs(Pageable pageable, String search);
+    List<Catalog> getAllCatalogs(String search);
 
-	Catalog getCatalogByID(int id);
+    Catalog getCatalogByID(int id);
 
-	Catalog createCatalog(CatalogFormForCreating form);
+    Catalog createCatalog(CatalogFormForCreating form);
 
-	Catalog updateCatalog(int id, CatalogFormForUpdating form);
+    Catalog updateCatalog(int id, CatalogFormForUpdating form);
 
-	void deleteCatalog(int id);
+    void deleteCatalog(int id);
 
 }

@@ -15,9 +15,11 @@ import com.vti.response.MessageResponse;
 import com.vti.response.UserInfoResponse;
 import com.vti.security.jwt.JwtUtils;
 import com.vti.service.UserDetail;
+import com.vti.service.implement.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -43,6 +45,9 @@ public class AuthController {
 
     @Autowired
     IUserRepository userRepository;
+
+    @Autowired
+    private IUserService userService;
 
     @Autowired
     RoleRepository roleRepository;
@@ -110,10 +115,12 @@ public class AuthController {
 
         userRepository.save(user);
         // create new user registration token
-        createNewRegistrationUserToken(user);
+        userService.createNewRegistrationUserToken(user);
         // send email to confirm
-        sendConfirmUserRegistrationViaEmail(user.getEmail());
-        return ResponseEntity.ok(new MessageResponse("We have sent an email. Please check email to active account!"));
+        userService.sendConfirmUserRegistrationViaEmail(user.getEmail());
+        return new ResponseEntity<>("We have sent an email. Please check email to active account!", HttpStatus.OK);
+
+//        return ResponseEntity.ok(new MessageResponse("We have sent an email. Please check email to active account!"));
     }
 
     @PostMapping("/signout")
@@ -123,16 +130,4 @@ public class AuthController {
                 .body(new MessageResponse("You've been signed out!"));
     }
 
-    private void createNewRegistrationUserToken(User user) {
-
-        // create new token for confirm Registration
-        final String newToken = UUID.randomUUID().toString();
-        RegistrationUserToken token = new RegistrationUserToken(newToken, user);
-
-        registrationUserTokenRepository.save(token);
-    }
-
-    public void sendConfirmUserRegistrationViaEmail(String email) {
-        eventPublisher.publishEvent(new OnSendRegistrationUserConfirmViaEmailEvent(email));
-    }
 }

@@ -6,6 +6,8 @@ import com.vti.form.creating.ProductFormForCreating;
 import com.vti.form.filter.ProductFilter;
 import com.vti.form.updating.ProductFormForUpdating;
 import com.vti.service.implement.IProductService;
+import com.vti.validation.product.CatalogIDInProductExists;
+import com.vti.validation.product.ProductIDInProductExists;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,33 +33,54 @@ public class ProductController {
     @Autowired
     private ModelMapper modelMapper;
 
+    //  API lấy 5 sản phẩm mới thêm nhất
     @GetMapping()
-    public ResponseEntity<?> getAllProducts(
-            Pageable pageable,
-            ProductFilter filter,
-            @RequestParam(name = "search", required = false)
-            String search) {
-        Page<Product> entities = service.getAllProducts(pageable, filter, search);
+    public ResponseEntity<?> getProduct() {
 
-        // convert entities --> dtos
-        List<ProductDTO> dtos = modelMapper.map(entities.getContent(), new TypeToken<List<ProductDTO>>() {
+        List<Product> product = service.getProduct();
+
+        List<ProductDTO> dtos = modelMapper.map(product, new TypeToken<List<ProductDTO>>() {
         }.getType());
 
-        Page<ProductDTO> dtoPages = new PageImpl<>(dtos, pageable, entities.getTotalElements());
 
-        return new ResponseEntity<>(dtoPages, HttpStatus.OK);
+        return new ResponseEntity<>(dtos, HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<?> getProductByID(@PathVariable(name = "id") short id) {
+    public ResponseEntity<?> getProductByID(@ProductIDInProductExists @PathVariable(name = "id") int id) {
 
         Product product = service.getProductByID(id);
 
         ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
 
 
-
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/catalog/{catalogId}")
+    public ResponseEntity<?> getProductByCatalogID(@CatalogIDInProductExists @PathVariable(name = "catalogId") int catalogId) {
+
+        List<Product> product = service.getProductByCatalogId(catalogId);
+
+        List<ProductDTO> dtos = modelMapper.map(product, new TypeToken<List<ProductDTO>>() {
+        }.getType());
+
+
+        return new ResponseEntity<>(dtos, HttpStatus.OK);
+    }
+
+
+    @GetMapping(value = "/allProduct/{catalogId}")
+    public ResponseEntity<?> getAllProductByCatalogID(Pageable pageable, @CatalogIDInProductExists @PathVariable(name = "catalogId") int catalogId) {
+
+        Page<Product> product = service.getAllProductByCatalogID(pageable, catalogId);
+
+        List<ProductDTO> dtos = modelMapper.map(product.getContent(), new TypeToken<List<ProductDTO>>() {
+        }.getType());
+
+        Page<ProductDTO> dtoPages = new PageImpl<>(dtos, pageable, product.getTotalElements());
+
+        return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
     @PostMapping()
@@ -68,7 +91,7 @@ public class ProductController {
 
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<?> updateProduct(@PathVariable(name = "id") int id, @RequestBody ProductFormForUpdating form) {
+    public ResponseEntity<?> updateProduct(@ProductIDInProductExists @PathVariable(name = "id") int id, @RequestBody ProductFormForUpdating form) {
         service.updateProduct(id, form);
         return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
     }

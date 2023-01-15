@@ -11,20 +11,20 @@ import com.vti.entity.token.RegistrationUserToken;
 
 public interface RegistrationUserTokenRepository extends JpaRepository<RegistrationUserToken, Integer> {
 
-	public RegistrationUserToken findByToken(String token);
+    RegistrationUserToken findByToken(String token);
 
-	public boolean existsByToken(String token);
-	
-	@Query("	SELECT 	token	"
-			+ "	FROM 	RegistrationUserToken "
-			+ " WHERE 	user.id = :userId")
-	public String findByUserId(@Param("userId") int userId);
+    boolean existsByToken(String token);
 
-	@Transactional
-	@Modifying
-	@Query("	DELETE 							"
-			+ "	FROM 	RegistrationUserToken 	"
-			+ " WHERE 	user.id = :userId")
-	public void deleteByUserId(@Param("userId") int userId);
+    @Query("	SELECT 	token	"
+            + "	FROM 	RegistrationUserToken "
+            + " WHERE 	user.id = :userId")
+    String findByUserId(@Param("userId") int userId);
+
+    @Transactional
+    @Modifying
+    @Query("	DELETE 							"
+            + "	FROM 	RegistrationUserToken 	"
+            + " WHERE 	user.id = :userId")
+    void deleteByUserId(@Param("userId") int userId);
 
 }

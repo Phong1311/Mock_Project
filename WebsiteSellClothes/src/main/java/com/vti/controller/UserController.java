@@ -10,9 +10,6 @@ import com.vti.validation.user.EmailNotExists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -123,15 +120,9 @@ public class UserController {
     // in profile
     @PutMapping("/fullProfile")
     // validate: check exists, check not expired
-    public ResponseEntity<?> changeUserProfile(@Valid  @RequestBody ChangePublicProfileDTO dto) {
+    public ResponseEntity<?> changeUserProfile(@Valid @RequestBody ChangePublicProfileDTO dto) {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
-
-//        get username from token
-//        String username = authentication.getName();
-
-        userService.changeUserProfile(userDetails.getUsername(), dto);
+        userService.changeUserProfile(UserDetailsUltis.UserDetails().getUsername(), dto);
 
         return new ResponseEntity<>("Change Profile Successfully!", HttpStatus.OK);
     }
@@ -141,10 +132,7 @@ public class UserController {
     // validate: check exists, check not expired
     public ResponseEntity<?> changeAddrAndPhone(@Valid @RequestBody ChangePublicAddrAndPhoneDTO dto) {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
-
-        userService.changeAddrAndPhone(userDetails.getUsername(), dto);
+        userService.changeAddrAndPhone(UserDetailsUltis.UserDetails().getUsername(), dto);
 
         return new ResponseEntity<>("Change Profile Successfully!", HttpStatus.OK);
     }

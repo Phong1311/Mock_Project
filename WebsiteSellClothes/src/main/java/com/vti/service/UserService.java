@@ -47,54 +47,9 @@ public class UserService implements IUserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-//    @Override
-//    public Page<Product> getAllUsers(Pageable pageable, ProductFilter filter, String search) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Product getUserByID(int id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void createUser(ProductFormForCreating form) {
-//
-//    }
-//
-//    @Override
-//    public void updateUser(int id, ProductFormForUpdating form) {
-//
-//    }
-//
-//    @Override
-//    public void deleteUser(List<Integer> ids) {
-//
-//    }
-//
-//    @Override
-//    public void createUser(User user) {
-//
-//        // encode password
-//        user.setPassword(passwordEncoder.encode(user.getPassword()));
-//
-//        // create user
-//        if (user.getRole() == null) {
-//            Role role = new Role();
-//            role.setId((short) 3);
-//            role.setERole(Role.ERole.USER);
-//            user.setRole(role);
-//        }
-//        IUserRepository.save(user);
-//
-//        // create new user registration token
-//        createNewRegistrationUserToken(user);
-//
-//        // send email to confirm
-//        sendConfirmUserRegistrationViaEmail(user.getEmail());
-//    }
 
-    private void createNewRegistrationUserToken(User user) {
+    @Override
+    public void createNewRegistrationUserToken(User user) {
 
         // create new token for confirm Registration
         final String newToken = UUID.randomUUID().toString();
@@ -135,7 +90,7 @@ public class UserService implements IUserService {
 
     @Override
     public void activeUser(String token) throws Exception{
-//        try {
+
             // get token
             RegistrationUserToken registrationUserToken = registrationUserTokenRepository.findByToken(token);
 
@@ -146,9 +101,7 @@ public class UserService implements IUserService {
 
             // remove Registration User Token
             registrationUserTokenRepository.deleteById(registrationUserToken.getId());
-//        } catch (NullPointerException e) {
-//            throw new NullPointerException("Tài khoản đã được kích hoạt. Vui lòng quay lại trang chủ và tiến hành đăng nhập vào hệ thống. ");
-//        }
+
     }
 
     @Override

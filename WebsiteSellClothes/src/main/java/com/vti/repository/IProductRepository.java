@@ -1,7 +1,5 @@
 package com.vti.repository;
 
-import com.vti.entity.Cart;
-import com.vti.entity.Comment;
 import com.vti.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +17,18 @@ public interface IProductRepository extends JpaRepository<Product, Integer>, Jpa
     @Modifying
     void deleteByIdIn(List<Integer> ids);
 
+    Page<Product> findProductByCatalogId(Pageable pageable, int catalogId);
 
+    @Query(value = "SELECT * FROM PRODUCT\n" +
+            "WHERE CATALOGID = :IdParameter\n" +
+            "ORDER BY CREATEDATE DESC\n" +
+            "LIMIT 9 ", nativeQuery = true)
+    List<Product> getProductByCatalogId(@Param("IdParameter") int catalogId);
+
+    @Query(value = "SELECT * FROM PRODUCT\n" +
+            "ORDER BY CREATEDATE DESC\n" +
+            "LIMIT 5 ", nativeQuery = true)
+    List<Product> getProduct();
+    boolean existsProductByCatalogId(int id);
 
 }

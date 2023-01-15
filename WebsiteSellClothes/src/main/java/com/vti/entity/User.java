@@ -1,6 +1,9 @@
 package com.vti.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
@@ -31,7 +34,7 @@ public class User implements Serializable {
     @Column(name = "`password`", nullable = false, length = 800)
     private String password;
 
-    @Column(name = "firstName", length = 50, updatable = false)
+    @Column(name = "firstName", length = 50)
     private String firstName;
 
     @Column(name = "lastName", length = 50)

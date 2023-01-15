@@ -36,6 +36,8 @@ public interface IUserService extends UserDetailsService {
 
     void activeUser(String token) throws Exception;
 
+    void createNewRegistrationUserToken(User user);
+
     void sendConfirmUserRegistrationViaEmail(String email);
 
     boolean existsUserById(int id);

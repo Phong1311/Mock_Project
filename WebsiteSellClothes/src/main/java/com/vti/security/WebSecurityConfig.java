@@ -30,12 +30,8 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
         prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     @Autowired
     UserService userDetailsService;
-
-//    @Autowired
-//    private AuthEntryPointJwt unauthorizedHandler;
 
     @Autowired
     private AuthExceptionHandler authExceptionHandler;
@@ -64,8 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and()
-//                .csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+
+
                 .exceptionHandling()
                 .authenticationEntryPoint(authExceptionHandler)
                 .accessDeniedHandler(authExceptionHandler)
@@ -73,15 +69,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/v1/catalogs/**").anonymous()
                 .antMatchers("/api/v1/products/**").anonymous()
-                .antMatchers("/api/v1/auth/signup").anonymous()
-                .antMatchers("/api/v1/auth/signin").anonymous()
-                .antMatchers("/api/v1/users/activeUser").anonymous()
-                .antMatchers("/api/v1/users/userName/**").anonymous()
-                .antMatchers("/api/v1/users/email/**").anonymous()
+
+                .antMatchers("/api/v1/auth/signup").permitAll()
+                .antMatchers("/api/v1/auth/signin").permitAll()
                 .antMatchers("/api/v1/auth/signout").hasAnyAuthority("USER","STAFF","ADMIN")
+
+
                 .antMatchers("/api/v1/users/profile").hasAuthority("USER")
                 .antMatchers("/api/v1/users/fullProfile").hasAuthority("USER")
                 .antMatchers("/api/v1/users/paymentProfile").hasAuthority("USER")
+                .antMatchers("/api/v1/users/**").permitAll()
+
+
                 .antMatchers("/api/v1/carts/**").hasAuthority("USER")
 
                 .antMatchers("/api/v1/comments/productId").anonymous()

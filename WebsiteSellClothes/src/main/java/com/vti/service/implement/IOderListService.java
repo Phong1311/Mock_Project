@@ -14,9 +14,6 @@ public interface IOderListService {
     Page<OderList> getOderListByUsernameAndStatus(Pageable pageable, String username, OderList.Status status);
 
     OderList createOderList(String username, OderListFormForCreating form);
-//
-//	void updateCatalog(int id, CatalogFormForUpdating form);
-//
-//	void deleteCatalog(int id);
+
 
 }
