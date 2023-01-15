@@ -1,14 +1,20 @@
 package com.vti.service;
 
+import com.vti.entity.Comment;
 import com.vti.entity.OderList;
+import com.vti.entity.User;
+import com.vti.form.creating.CommentFormForCreating;
 import com.vti.form.creating.OderListFormForCreating;
 import com.vti.repository.ICartRepository;
 import com.vti.repository.IOderListRepository;
 import com.vti.repository.IPayRepository;
+import com.vti.repository.IUserRepository;
 import com.vti.service.implement.ICartService;
 import com.vti.service.implement.IOderDetailService;
 import com.vti.service.implement.IOderListService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,7 +26,10 @@ import org.springframework.transaction.annotation.Transactional;
 public class OderListService implements IOderListService {
 
     @Autowired
-    private IOderListRepository repository;
+    private IUserRepository IUserRepository;
+
+    @Autowired
+    private IOderListRepository oderListRepository;
 
     @Autowired
     private IOderDetailService oderDetailService;
@@ -39,11 +48,14 @@ public class OderListService implements IOderListService {
 
 
     @Override
-    public void createOderList(int userId, OderListFormForCreating form) {
+    public void createOderList(String username, OderListFormForCreating form) {
 
-        int total = cartService.total(userId);
+        User user = IUserRepository.findByUsername(username);
 
-        form.setUserId(userId);
+        int total = cartService.total(user.getId());
+
+        //Set form
+        form.setUserId(user.getId());
 
         if (form.getTotalPayment() == null) {
             form.setTotalPayment(total);
@@ -53,25 +65,40 @@ public class OderListService implements IOderListService {
             form.setStatus(OderList.Status.WAITING);
         }
 
-        OderList oderList = modelMapper.map(form, OderList.class);
+        TypeMap<OderListFormForCreating, OderList> typeMap = modelMapper.getTypeMap(OderListFormForCreating.class, OderList.class);
+        if (typeMap == null) { // if not already added
+            // skip field
+            modelMapper.addMappings(new PropertyMap<OderListFormForCreating, OderList>() {
+                @Override
+                protected void configure() {
+                    skip(destination.getId());
+                }
+            });
+        }
 
-        repository.save(oderList);
+        OderList map = modelMapper.map(form, OderList.class);
 
-        oderDetailService.createOderDetailByOderId(oderList.getId());
+        oderListRepository.save(map);
 
-        cartRepository.deleteCartByUserId(userId);
 
-        payRepository.deleteByUserId(userId);
+
+
+
+        oderDetailService.createOderDetailByOderId(map.getId());
+
+        cartRepository.deleteCartByUserId(user.getId());
+
+        payRepository.deleteByUserId(user.getId());
     }
 
 
     @Override
     public Page<OderList> getOderListByUsername(Pageable pageable, String username) {
-        return repository.findByUserUsername(pageable, username);
+        return oderListRepository.findByUserUsername(pageable, username);
     }
 
     @Override
     public Page<OderList> getOderListByUsernameAndStatus(Pageable pageable, String username, OderList.Status status) {
-        return repository.findByUserUsernameAndStatus(pageable, username, status);
+        return oderListRepository.findByUserUsernameAndStatus(pageable, username, status);
     }
 }

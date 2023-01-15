@@ -26,13 +26,11 @@ public class Catalog implements Serializable {
     @Column(name = "`name`", nullable = false, length = 30)
     private String name;
 
-    @Column(name = "image", nullable = false, length = 30)
+    @Column(name = "image", nullable = false, length = 100)
     private String image;
 
     @OneToMany(mappedBy = "catalog")
     private List<Product> product;
 
-    public Catalog(String name) {
-        this.name = name;
-    }
+
 }

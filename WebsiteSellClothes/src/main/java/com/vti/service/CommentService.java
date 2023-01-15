@@ -1,8 +1,6 @@
 package com.vti.service;
 
-import com.vti.entity.Cart;
 import com.vti.entity.Comment;
-import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.creating.CommentFormForCreating;
 import com.vti.repository.ICommentRepository;
 import com.vti.service.implement.ICommentService;
@@ -32,7 +30,7 @@ public class CommentService implements ICommentService {
     }
 
     @Override
-    public void createComment(CommentFormForCreating form) {
+    public Comment createComment(CommentFormForCreating form) {
 
         TypeMap<CommentFormForCreating, Comment> typeMap = modelMapper.getTypeMap(CommentFormForCreating.class, Comment.class);
         if (typeMap == null) { // if not already added
@@ -48,6 +46,10 @@ public class CommentService implements ICommentService {
         Comment comment = modelMapper.map(form, Comment.class);
 
         repository.save(comment);
+
+        Comment comment1 = repository.findCommentByContent(form.getContent());
+
+        return comment1;
     }
 
     @Override

@@ -12,13 +12,12 @@ import java.util.List;
 
 public interface IOderListService {
 
-//	Page<Catalog> getAllCatalogs(Pageable pageable, String search);
 
     Page<OderList> getOderListByUsername(Pageable pageable, String username);
 
     Page<OderList> getOderListByUsernameAndStatus(Pageable pageable, String username, OderList.Status status);
 
-    void createOderList(int userId, OderListFormForCreating form);
+    void createOderList(String username, OderListFormForCreating form);
 //
 //	void updateCatalog(int id, CatalogFormForUpdating form);
 //

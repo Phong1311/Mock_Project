@@ -1,6 +1,7 @@
 package com.vti.controller;
 
 import com.vti.dto.CartDTO;
+import com.vti.dto.CatalogDTO;
 import com.vti.entity.Cart;
 import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
@@ -67,7 +68,7 @@ public class CartController {
     @PostMapping()
     public ResponseEntity<?> createCart(@Valid @RequestBody CartFormForCreating form) {
         Cart cart = service.createCart(form);
-        CartDTO cartDTO = new CartDTO(cart.getProduct().getId(),cart.getProduct().getImage().getImage1(),cart.getProduct().getName(),cart.getProduct().getSize(),cart.getQuantity(),cart.getProduct().getPrice(),cart.getProduct().getSalePrice());
+        CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
         return new ResponseEntity<>(cartDTO, HttpStatus.OK);
     }
 
@@ -76,8 +77,10 @@ public class CartController {
     public ResponseEntity<?> updateQuantityInCart(@ProductIDInCartExists @Parameter(name = "productId") int productId,
                                                   @UserIDInCartExists @Parameter(name = "userId") int userId,
                                                   @Valid @RequestBody CartFormForUpdating form) {
-        service.updateQuantityInCart(productId, userId, form);
-        return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
+        Cart cart = service.updateQuantityInCart(productId, userId, form);
+        CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
+
+        return new ResponseEntity<>(cartDTO, HttpStatus.OK);
     }
 
     // delete toàn bộ sản phẩm(giỏ hàng) của user

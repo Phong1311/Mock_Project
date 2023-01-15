@@ -24,6 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -54,9 +55,10 @@ public class CommentController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createComment(@RequestBody CommentFormForCreating form) {
-        service.createComment(form);
-        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
+    public ResponseEntity<?> createComment(@Valid @RequestBody CommentFormForCreating form) {
+        Comment comment = service.createComment(form);
+        CommentDTO commentDTO = modelMapper.map(comment, CommentDTO.class);
+        return new ResponseEntity<>(commentDTO, HttpStatus.OK);
     }
 
 

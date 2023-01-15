@@ -9,4 +9,6 @@ public class CatalogFormForUpdating {
 
     private String name;
 
+    private String image;
+
 }

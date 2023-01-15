@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface ICatalogRepository extends JpaRepository<Catalog, Integer>, JpaSpecificationExecutor<Catalog> {
 
+    Catalog findCatalogByName(String catalogName);
 }

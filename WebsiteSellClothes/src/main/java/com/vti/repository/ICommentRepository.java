@@ -16,4 +16,5 @@ public interface ICommentRepository extends JpaRepository<Comment, Integer>, Jpa
     @Modifying
     void deleteCommentByUserIdAndProductId(int userId, int productId);
 
+    Comment findCommentByContent(String content);
 }

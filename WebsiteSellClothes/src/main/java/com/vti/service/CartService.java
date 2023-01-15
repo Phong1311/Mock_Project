@@ -50,6 +50,7 @@ public class CartService implements ICartService {
     public Cart createCart(CartFormForCreating form) {
         // omit id field
         Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
+
         TypeMap<CartFormForCreating, Cart> typeMap = modelMapper.getTypeMap(CartFormForCreating.class, Cart.class);
         if (typeMap == null) { // if not already added
             // skip field
@@ -81,10 +82,11 @@ public class CartService implements ICartService {
     }
 
     @Override
-    public void updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
+    public Cart updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
         Cart entity = cartRepository.findCartByProductIdAndUserId(productId, userId);
         entity.setQuantity(form.getQuantity());
         cartRepository.save(entity);
+        return entity;
     }
 
 

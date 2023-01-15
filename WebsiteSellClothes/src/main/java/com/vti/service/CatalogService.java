@@ -6,6 +6,7 @@ import com.vti.entity.Catalog;
 import com.vti.repository.ICatalogRepository;
 import com.vti.service.implement.ICatalogService;
 import com.vti.specification.CatalogSpecificationBuilder;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,39 +17,50 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CatalogService implements ICatalogService {
 
-	@Autowired
-	private ICatalogRepository repository;
+    @Autowired
+    private ICatalogRepository repository;
 
-	@Override
-	public Page<Catalog> getAllCatalogs(Pageable pageable, String search) {
+    @Autowired
+    private ModelMapper modelMapper;
 
-		CatalogSpecificationBuilder specification = new CatalogSpecificationBuilder(search);
+    @Override
+    public Page<Catalog> getAllCatalogs(Pageable pageable, String search) {
 
-		return repository.findAll(specification.build(),pageable);
-	}
+        CatalogSpecificationBuilder specification = new CatalogSpecificationBuilder(search);
 
-	@Override
-	public Catalog getCatalogByID(int id) {
-		return repository.findById(id).get();
-	}
+        return repository.findAll(specification.build(), pageable);
+    }
 
-	@Override
-	public void createCatalog(CatalogFormForCreating form) {
-		repository.save(form.toEntity());
+    @Override
+    public Catalog getCatalogByID(int id) {
+        return repository.findById(id).get();
+    }
 
-	}
+    @Override
+    public Catalog createCatalog(CatalogFormForCreating form) {
 
-	@Override
-	public void updateCatalog(int id, CatalogFormForUpdating form) {
-		Catalog entity = repository.findById(id).get();
-		entity.setName(form.getName());
-		repository.save(entity);
-	}
+        // convert form to entity
+        Catalog catalog = modelMapper.map(form, Catalog.class);
+        repository.save(catalog);
 
-	@Override
-	public void deleteCatalog(int id) {
-		repository.deleteById(id);
-	}
+        Catalog catalog1 = repository.findCatalogByName(form.getName());
+
+        return catalog1;
+    }
+
+    @Override
+    public Catalog updateCatalog(int id, CatalogFormForUpdating form) {
+        Catalog entity = repository.findById(id).get();
+        entity.setName(form.getName());
+        entity.setImage(form.getImage());
+        repository.save(entity);
+        return entity;
+    }
+
+    @Override
+    public void deleteCatalog(int id) {
+        repository.deleteById(id);
+    }
 
 
 }

@@ -55,15 +55,19 @@ public class CatalogController {
 
     @PostMapping()
     public ResponseEntity<?> createCatalog(@RequestBody CatalogFormForCreating form) {
-        service.createCatalog(form);
-        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
+        Catalog catalog = service.createCatalog(form);
+        CatalogDTO catalogDTO = modelMapper.map(catalog, CatalogDTO.class);
+
+        return new ResponseEntity<>(catalogDTO, HttpStatus.OK);
     }
 
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<?> updateCatalog(@PathVariable(name = "id") short id, @RequestBody CatalogFormForUpdating form) {
-        service.updateCatalog(id, form);
-        return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
+        Catalog catalog = service.updateCatalog(id, form);
+        CatalogDTO catalogDTO = modelMapper.map(catalog, CatalogDTO.class);
+
+        return new ResponseEntity<>(catalogDTO, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")

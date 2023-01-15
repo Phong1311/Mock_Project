@@ -12,14 +12,10 @@ public class CartDTO {
 
     @NonNull
     private int productId;
+
     @NonNull
     private String productImageImage1;
-//    @Data
-//    @NoArgsConstructor
-//    static class ImageDTO {
-//        private String image1;
-//
-//    }
+
     @NonNull
     private String productName;
 
@@ -34,8 +30,6 @@ public class CartDTO {
 
     @NonNull
     private int productSalePrice;
-
-
 
 
 }

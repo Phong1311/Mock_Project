@@ -1,16 +1,10 @@
 package com.vti.controller;
 
-import com.vti.dto.CatalogDTO;
 import com.vti.dto.OderListDTO;
-import com.vti.entity.Catalog;
 import com.vti.entity.OderList;
-import com.vti.form.creating.CartFormForCreating;
-import com.vti.form.creating.CatalogFormForCreating;
 import com.vti.form.creating.OderListFormForCreating;
-import com.vti.form.updating.CatalogFormForUpdating;
-import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.IOderListService;
-import com.vti.validation.user.UserIDExists;
+import com.vti.ultis.UserDetailsUltis;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -44,10 +38,8 @@ public class OderListController {
     @GetMapping(value = "/username")
     public ResponseEntity<?> getOderListByUsername(Pageable pageable) {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
 
-        Page<OderList> oderLists = service.getOderListByUsername(pageable, userDetails.getUsername());
+        Page<OderList> oderLists = service.getOderListByUsername(pageable, UserDetailsUltis.UserDetails().getUsername());
 
         List<OderListDTO> dtos = modelMapper.map(oderLists.getContent(), new TypeToken<List<OderListDTO>>() {
         }.getType());
@@ -60,10 +52,8 @@ public class OderListController {
     @GetMapping(value = "/username/status")
     public ResponseEntity<?> getOderListByUsernameAndStatus(Pageable pageable, @Parameter(name = "status") OderList.Status status) {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
 
-        Page<OderList> oderLists = service.getOderListByUsernameAndStatus(pageable, userDetails.getUsername(), status);
+        Page<OderList> oderLists = service.getOderListByUsernameAndStatus(pageable, UserDetailsUltis.UserDetails().getUsername(), status);
 
         List<OderListDTO> dtos = modelMapper.map(oderLists.getContent(), new TypeToken<List<OderListDTO>>() {
         }.getType());
@@ -74,8 +64,9 @@ public class OderListController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createOderList(@Parameter(name = "userId") @UserIDExists int userId, @RequestBody OderListFormForCreating form) {
-        service.createOderList(userId, form);
+    public ResponseEntity<?> createOderList(@RequestBody OderListFormForCreating form) {
+
+        service.createOderList(UserDetailsUltis.UserDetails().getUsername(), form);
         return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
     }
 

@@ -12,9 +12,9 @@ public interface ICatalogService {
 
 	Catalog getCatalogByID(int id);
 
-	void createCatalog(CatalogFormForCreating form);
+	Catalog createCatalog(CatalogFormForCreating form);
 
-	void updateCatalog(int id, CatalogFormForUpdating form);
+	Catalog updateCatalog(int id, CatalogFormForUpdating form);
 
 	void deleteCatalog(int id);
 
