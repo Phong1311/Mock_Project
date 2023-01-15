@@ -1,14 +1,13 @@
 package com.vti.controller;
 
 import com.vti.dto.CartDTO;
-import com.vti.dto.CatalogDTO;
 import com.vti.entity.Cart;
 import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
 import com.vti.service.implement.ICartService;
 import com.vti.validation.cart.ProductIDInCartExists;
-import com.vti.validation.user.UserIDExists;
 import com.vti.validation.cart.UserIDInCartExists;
+import com.vti.validation.user.UserIDExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -51,7 +50,7 @@ public class CartController {
 
     // get toàn bộ sản phẩm(giỏ hàng) của user
     @GetMapping(value = "/userId/{userId}")
-    public ResponseEntity<?> getCartByUserId(Pageable pageable, @PathVariable(name = "userId") @UserIDExists int userId) {
+    public ResponseEntity<?> getCartByUserId(Pageable pageable,@UserIDExists @PathVariable(name = "userId")  int userId) {
 
         Page<Cart> cartPage = service.getCartByUserId(pageable, userId);
 

@@ -5,6 +5,7 @@ import com.vti.dto.ChangePublicProfileDTO;
 import com.vti.dto.ProfileDTO;
 import com.vti.entity.User;
 import com.vti.service.implement.IUserService;
+import com.vti.ultis.UserDetailsUltis;
 import com.vti.validation.user.EmailNotExists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -102,13 +103,8 @@ public class UserController {
     // validate: check exists, check not expired
     public ResponseEntity<?> getUserProfile() {
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
-        // get username from token
-//		String username = authentication.getName();
-
         // get user info
-        User user = userService.findUserByUserName(userDetails.getUsername());
+        User user = userService.findUserByUserName(UserDetailsUltis.UserDetails().getUsername());
 
         // convert user entity to user dto
         ProfileDTO profileDto = new ProfileDTO(
@@ -121,7 +117,6 @@ public class UserController {
                 user.getAddress(),
                 user.getStatus().toString()
         );
-
         return new ResponseEntity<>(profileDto, HttpStatus.OK);
     }
 

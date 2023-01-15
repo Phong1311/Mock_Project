@@ -11,4 +11,8 @@ public interface IOderDetailService {
 
 
     void createOderDetailByOderId(int oderId);
+
+    boolean existsOderDetailByOderListId(int id);
+
+
 }

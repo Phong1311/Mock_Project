@@ -14,4 +14,7 @@ public interface IOderDetailRepository extends JpaRepository<OderDetail, Integer
 
 
     Page<OderDetail> findAllByOderListId(Pageable pageable, int oderId);
+
+
+    boolean existsByOderListId(int id);
 }

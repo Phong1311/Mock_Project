@@ -3,6 +3,7 @@ package com.vti.controller;
 import com.vti.dto.OderDetailDTO;
 import com.vti.entity.OderDetail;
 import com.vti.service.implement.IOderDetailService;
+import com.vti.validation.oderDetail.OderListIDInOderDetailExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.List;
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/api/v1/oderDetails")
+@Validated
 public class OderDetailController {
 
     @Autowired
@@ -29,7 +32,7 @@ public class OderDetailController {
 
 
     @GetMapping()
-    public ResponseEntity<?> getOderDetailByOderId(Pageable pageable, @Parameter(name = "oderId") int oderId) {
+    public ResponseEntity<?> getOderDetailByOderId(Pageable pageable,@OderListIDInOderDetailExists @Parameter(name = "oderId") int oderId) {
 
         Page<OderDetail> oderDetails = service.getOderDetailByOderId(pageable, oderId);
 
@@ -43,7 +46,7 @@ public class OderDetailController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createOderDetailByOderId(@Parameter(name = "oderId") int oderId) {
+    public ResponseEntity<?> createOderDetailByOderId(@OderListIDInOderDetailExists @Parameter(name = "oderId") int oderId) {
         service.createOderDetailByOderId(oderId);
         return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
     }

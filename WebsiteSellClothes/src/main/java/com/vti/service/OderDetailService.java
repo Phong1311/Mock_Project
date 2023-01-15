@@ -2,13 +2,9 @@ package com.vti.service;
 
 import com.vti.entity.OderDetail;
 import com.vti.entity.OderDetailDBConvert;
-import com.vti.entity.Product;
-import com.vti.form.creating.OderDetailFormForCreating;
-import com.vti.repository.*;
+import com.vti.repository.IOderDetailConvertRepository;
+import com.vti.repository.IOderDetailRepository;
 import com.vti.service.implement.IOderDetailService;
-import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
-import org.modelmapper.TypeMap;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,16 +26,6 @@ public class OderDetailService implements IOderDetailService {
     @Autowired
     private IOderDetailConvertRepository oderDetailConvertRepository;
 
-    @Autowired
-    private IProductRepository productRepository;
-
-    @Autowired
-    private ICartRepository cartRepository;
-
-
-    @Autowired
-    private ModelMapper modelMapper;
-
 
     @Override
     public void createOderDetailByOderId(int oderId) {
@@ -53,6 +39,11 @@ public class OderDetailService implements IOderDetailService {
 
             oderDetailRepository.save(oderDetail);
         }
+    }
+
+    @Override
+    public boolean existsOderDetailByOderListId(int id) {
+        return oderDetailRepository.existsByOderListId(id);
     }
 
 
