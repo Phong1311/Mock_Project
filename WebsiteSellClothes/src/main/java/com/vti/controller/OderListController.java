@@ -66,8 +66,9 @@ public class OderListController {
     @PostMapping()
     public ResponseEntity<?> createOderList(@RequestBody OderListFormForCreating form) {
 
-        service.createOderList(UserDetailsUltis.UserDetails().getUsername(), form);
-        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
+        OderList oderList =  service.createOderList(UserDetailsUltis.UserDetails().getUsername(), form);
+        OderListDTO oderListDTO = modelMapper.map(oderList, OderListDTO.class);
+        return new ResponseEntity<>(oderListDTO, HttpStatus.OK);
     }
 
 

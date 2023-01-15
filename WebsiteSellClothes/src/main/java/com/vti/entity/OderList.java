@@ -38,7 +38,7 @@ public class OderList implements Serializable {
     private Status status = Status.WAITING;
 
     @CreatedDate
-    @Column(name = "oderDate", insertable = false, updatable = false)
+    @Column(name = "oderDate", insertable = false)
     private LocalDateTime oderDate;
 
     public enum Status {

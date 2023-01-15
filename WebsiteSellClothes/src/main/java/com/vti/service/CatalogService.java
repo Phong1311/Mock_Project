@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CatalogService implements ICatalogService {
 
     @Autowired
-    private ICatalogRepository repository;
+    private ICatalogRepository catalogRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -28,12 +28,12 @@ public class CatalogService implements ICatalogService {
 
         CatalogSpecificationBuilder specification = new CatalogSpecificationBuilder(search);
 
-        return repository.findAll(specification.build(), pageable);
+        return catalogRepository.findAll(specification.build(), pageable);
     }
 
     @Override
     public Catalog getCatalogByID(int id) {
-        return repository.findById(id).get();
+        return catalogRepository.findById(id).get();
     }
 
     @Override
@@ -41,25 +41,25 @@ public class CatalogService implements ICatalogService {
 
         // convert form to entity
         Catalog catalog = modelMapper.map(form, Catalog.class);
-        repository.save(catalog);
+        catalogRepository.save(catalog);
 
-        Catalog catalog1 = repository.findCatalogByName(form.getName());
+        Catalog catalog1 = catalogRepository.findCatalogByName(form.getName());
 
         return catalog1;
     }
 
     @Override
     public Catalog updateCatalog(int id, CatalogFormForUpdating form) {
-        Catalog entity = repository.findById(id).get();
+        Catalog entity = catalogRepository.findById(id).get();
         entity.setName(form.getName());
         entity.setImage(form.getImage());
-        repository.save(entity);
+        catalogRepository.save(entity);
         return entity;
     }
 
     @Override
     public void deleteCatalog(int id) {
-        repository.deleteById(id);
+        catalogRepository.deleteById(id);
     }
 
 

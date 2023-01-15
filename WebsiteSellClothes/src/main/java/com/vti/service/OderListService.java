@@ -1,9 +1,7 @@
 package com.vti.service;
 
-import com.vti.entity.Comment;
 import com.vti.entity.OderList;
 import com.vti.entity.User;
-import com.vti.form.creating.CommentFormForCreating;
 import com.vti.form.creating.OderListFormForCreating;
 import com.vti.repository.ICartRepository;
 import com.vti.repository.IOderListRepository;
@@ -47,8 +45,10 @@ public class OderListService implements IOderListService {
     private ModelMapper modelMapper;
 
 
+
+
     @Override
-    public void createOderList(String username, OderListFormForCreating form) {
+    public OderList createOderList(String username, OderListFormForCreating form) {
 
         User user = IUserRepository.findByUsername(username);
 
@@ -76,21 +76,26 @@ public class OderListService implements IOderListService {
             });
         }
 
-        OderList map = modelMapper.map(form, OderList.class);
+        OderList oderList = modelMapper.map(form, OderList.class);
 
-        oderListRepository.save(map);
+        oderListRepository.save(oderList);
 
-
-
-
-
-        oderDetailService.createOderDetailByOderId(map.getId());
+        oderDetailService.createOderDetailByOderId(oderList.getId());
 
         cartRepository.deleteCartByUserId(user.getId());
 
         payRepository.deleteByUserId(user.getId());
+
+        OderList oderListById = getOderListById(oderList.getId());
+
+        return oderListById;
     }
 
+
+    @Override
+    public OderList getOderListById(int id) {
+        return oderListRepository.findById(id).get();
+    }
 
     @Override
     public Page<OderList> getOderListByUsername(Pageable pageable, String username) {

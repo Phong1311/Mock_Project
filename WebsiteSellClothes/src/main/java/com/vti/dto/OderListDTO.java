@@ -23,7 +23,7 @@ public class OderListDTO {
     @NonNull
     private String status;
 
-    @NonNull
+
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDateTime oderDate;
 
