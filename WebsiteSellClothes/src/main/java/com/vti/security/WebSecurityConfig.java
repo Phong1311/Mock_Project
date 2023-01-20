@@ -70,8 +70,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/catalogs/**").anonymous()
                 .antMatchers("/api/v1/products/**").anonymous()
 
-                .antMatchers("/api/v1/auth/signup").permitAll()
-                .antMatchers("/api/v1/auth/signin").permitAll()
+                .antMatchers("/api/v1/auth/signup").anonymous()
+                .antMatchers("/api/v1/auth/signin").anonymous()
                 .antMatchers("/api/v1/auth/signout").hasAnyAuthority("USER","STAFF","ADMIN")
 
 
