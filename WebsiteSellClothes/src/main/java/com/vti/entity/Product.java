@@ -73,7 +73,6 @@ public class Product implements Serializable {
     @OneToOne(mappedBy = "product")
     private Image image;
 
-
     @OneToMany(mappedBy = "product")
     private List<Cart> carts;
 

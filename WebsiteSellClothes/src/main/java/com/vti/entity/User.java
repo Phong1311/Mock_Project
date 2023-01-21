@@ -58,13 +58,17 @@ public class User implements Serializable {
     private Role role;
 
     @OneToMany(mappedBy = "user")
-    private List<OderList> oderLists;
+    private List<Cart> carts;
 
     @OneToMany(mappedBy = "user")
     private List<Pay> pays;
 
     @OneToMany(mappedBy = "user")
-    private List<Cart> carts;
+    private List<OderList> oderLists;
+
+
+
+
 
     @OneToMany(mappedBy = "user")
     private List<Comment> comments;

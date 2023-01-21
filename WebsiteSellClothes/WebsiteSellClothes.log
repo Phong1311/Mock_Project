@@ -1,85 +1,85 @@
-2023-01-21 01:26:59 [background-preinit] INFO  o.h.v.i.u.Version                                  - HV000001: Hibernate Validator 6.1.7.Final 
-2023-01-21 01:26:59 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Starting WebsiteSellClothesApplication using Java 1.8.0_341 on DESKTOP-EE2PIUG with PID 8592 (C:\Mock\Mock_Project\WebsiteSellClothes\target\classes started by user in C:\Mock\Mock_Project\WebsiteSellClothes) 
-2023-01-21 01:26:59 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - No active profile set, falling back to default profiles: default 
-2023-01-21 01:26:59 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
-2023-01-21 01:26:59 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
-2023-01-21 01:27:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
-2023-01-21 01:27:00 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 134 ms. Found 12 JPA repository interfaces. 
-2023-01-21 01:27:01 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@67fd1153' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
-2023-01-21 01:27:01 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
-2023-01-21 01:27:01 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 8080 (http) 
-2023-01-21 01:27:01 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-8080"] 
-2023-01-21 01:27:01 [restartedMain] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat] 
-2023-01-21 01:27:01 [restartedMain] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41] 
-2023-01-21 01:27:02 [restartedMain] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext 
-2023-01-21 01:27:02 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2475 ms 
-2023-01-21 01:27:02 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
-2023-01-21 01:27:02 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Starting... 
-2023-01-21 01:27:02 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Start completed. 
-2023-01-21 01:27:02 [restartedMain] INFO  o.h.j.i.u.LogHelper                                - HHH000204: Processing PersistenceUnitInfo [name: default] 
-2023-01-21 01:27:02 [restartedMain] INFO  o.h.Version                                        - HHH000412: Hibernate ORM core version 5.4.27.Final 
-2023-01-21 01:27:03 [restartedMain] INFO  o.h.a.c.Version                                    - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
-2023-01-21 01:27:03 [restartedMain] INFO  o.h.d.Dialect                                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect 
-2023-01-21 01:27:04 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
-2023-01-21 01:27:04 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default' 
-2023-01-21 01:27:05 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain                 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e2f598a, org.springframework.security.web.context.SecurityContextPersistenceFilter@6e7a0e94, org.springframework.security.web.header.HeaderWriterFilter@6d7e171f, org.springframework.web.filter.CorsFilter@1c741989, org.springframework.security.web.authentication.logout.LogoutFilter@529dc739, com.vti.security.jwt.AuthTokenFilter@7bdff7dc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@40e0c6fa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4949c54c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@75c40f9e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@482545, org.springframework.security.web.session.SessionManagementFilter@3db0c875, org.springframework.security.web.access.ExceptionTranslationFilter@58bffa89, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@75ceea54] 
-2023-01-21 01:27:06 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor' 
-2023-01-21 01:27:06 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729 
-2023-01-21 01:27:06 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-8080"] 
-2023-01-21 01:27:06 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 8080 (http) with context path '' 
-2023-01-21 01:27:06 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Started WebsiteSellClothesApplication in 7.909 seconds (JVM running for 9.725) 
-2023-01-21 01:27:20 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet' 
-2023-01-21 01:27:20 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet' 
-2023-01-21 01:27:20 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 2 ms 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:08 [background-preinit] INFO  o.h.v.i.u.Version                                  - HV000001: Hibernate Validator 6.1.7.Final 
+2023-01-21 13:52:08 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Starting WebsiteSellClothesApplication using Java 1.8.0_341 on DESKTOP-EE2PIUG with PID 16788 (C:\Mock\Mock_Project\WebsiteSellClothes\target\classes started by user in C:\Mock\Mock_Project\WebsiteSellClothes) 
+2023-01-21 13:52:08 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - No active profile set, falling back to default profiles: default 
+2023-01-21 13:52:08 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2023-01-21 13:52:08 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2023-01-21 13:52:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2023-01-21 13:52:09 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 129 ms. Found 12 JPA repository interfaces. 
+2023-01-21 13:52:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@38985a1a' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2023-01-21 13:52:10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2023-01-21 13:52:10 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 8080 (http) 
+2023-01-21 13:52:10 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-8080"] 
+2023-01-21 13:52:10 [restartedMain] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat] 
+2023-01-21 13:52:10 [restartedMain] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41] 
+2023-01-21 13:52:11 [restartedMain] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext 
+2023-01-21 13:52:11 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2593 ms 
+2023-01-21 13:52:11 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2023-01-21 13:52:11 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Starting... 
+2023-01-21 13:52:11 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Start completed. 
+2023-01-21 13:52:11 [restartedMain] INFO  o.h.j.i.u.LogHelper                                - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2023-01-21 13:52:11 [restartedMain] INFO  o.h.Version                                        - HHH000412: Hibernate ORM core version 5.4.27.Final 
+2023-01-21 13:52:12 [restartedMain] INFO  o.h.a.c.Version                                    - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2023-01-21 13:52:12 [restartedMain] INFO  o.h.d.Dialect                                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect 
+2023-01-21 13:52:13 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2023-01-21 13:52:13 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2023-01-21 13:52:15 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain                 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@60dc6956, org.springframework.security.web.context.SecurityContextPersistenceFilter@63b77b02, org.springframework.security.web.header.HeaderWriterFilter@3707d834, org.springframework.web.filter.CorsFilter@411b921c, org.springframework.security.web.authentication.logout.LogoutFilter@2a8da5af, com.vti.security.jwt.AuthTokenFilter@135ba77c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@525a764a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1021c730, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26ea6fde, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4d9556eb, org.springframework.security.web.session.SessionManagementFilter@4862591b, org.springframework.security.web.access.ExceptionTranslationFilter@5b91f7e0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@62e8aa53] 
+2023-01-21 13:52:15 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor' 
+2023-01-21 13:52:15 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729 
+2023-01-21 13:52:15 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-8080"] 
+2023-01-21 13:52:15 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 8080 (http) with context path '' 
+2023-01-21 13:52:16 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Started WebsiteSellClothesApplication in 8.331 seconds (JVM running for 10.314) 
+2023-01-21 13:52:34 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2023-01-21 13:52:34 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet' 
+2023-01-21 13:52:34 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 1 ms 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as col_0_0_ 
     from
         `User` user0_ 
     where
         user0_.email=? limit ? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as col_0_0_ 
     from
         `User` user0_ 
     where
         user0_.userName=? limit ? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [baybyabay] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [baybyabay] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as col_0_0_ 
     from
         `User` user0_ 
     where
         user0_.email=? limit ? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as col_0_0_ 
     from
         `User` user0_ 
     where
         user0_.userName=? limit ? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [baybyabay] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [baybyabay] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as col_0_0_ 
     from
         `User` user0_ 
     where
         user0_.userName=? limit ? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [baybyabay] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [baybyabay] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as col_0_0_ 
     from
         `User` user0_ 
     where
         user0_.email=? limit ? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     insert 
     into
         `
@@ -88,16 +88,16 @@
         ) 
     values
         (?, ?, ?, ?, ?, ?, ?, ?, ?) 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [null] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [VARCHAR] - [tunguyen.080701@gmail.com] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [VARCHAR] - [guyen] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [4] as [VARCHAR] - [tu] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [5] as [VARCHAR] - [$2a$10$zfRKgcni40kU2lR/7lX/OuD43pP/tBs3qXEecE3nGdw.RP06XM1GC] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [6] as [VARCHAR] - [null] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [7] as [SMALLINT] - [3] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [8] as [INTEGER] - [0] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [9] as [VARCHAR] - [baybyabay] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [null] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [VARCHAR] - [tunguyen.080701@gmail.com] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [VARCHAR] - [guyen] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [4] as [VARCHAR] - [tu] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [5] as [VARCHAR] - [$2a$10$JYJnrGNaFIVSSyyAMVXm1.P2NEW1Q4LJDEBYGLUzLjRm294gRZnsC] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [6] as [VARCHAR] - [null] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [7] as [SMALLINT] - [3] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [8] as [INTEGER] - [0] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [9] as [VARCHAR] - [baybyabay] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     insert 
     into
         `
@@ -106,10 +106,10 @@
         ) 
     values
         (?, ?, ?) 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [TIMESTAMP] - [Sat Jan 21 01:33:21 JST 2023] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [VARCHAR] - [4a1ef87a-c88b-4821-b397-4ca781eb47c2] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [INTEGER] - [16] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [TIMESTAMP] - [Sat Jan 21 13:58:35 JST 2023] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [VARCHAR] - [dfcc52a9-2af6-450a-afec-6b0f47b09475] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [INTEGER] - [16] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as userid1_5_,
         user0_.address as address2_5_,
@@ -128,80 +128,12 @@
         `User` user0_ 
     where
         user0_.email=? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tunguyen.080701@gmail.com] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         registrati0_.`token` as col_0_0_ 
     from
         `Registration_User_Token` registrati0_ 
     where
         registrati0_.user_id=? 
-2023-01-21 01:27:21 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [16] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    select
-        registrati0_.`id` as id1_2_,
-        registrati0_.`expiryDate` as expiryda2_2_,
-        registrati0_.`token` as token3_2_,
-        registrati0_.user_id as user_id4_2_ 
-    from
-        `Registration_User_Token` registrati0_ 
-    where
-        registrati0_.`token`=? 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [4a1ef87a-c88b-4821-b397-4ca781eb47c2] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_0_,
-        user0_.address as address2_5_0_,
-        user0_.email as email3_5_0_,
-        user0_.firstName as firstnam4_5_0_,
-        user0_.lastName as lastname5_5_0_,
-        user0_.`password` as password6_5_0_,
-        user0_.phoneNumber as phonenum7_5_0_,
-        user0_.roleId as roleid10_5_0_,
-        user0_.`status` as status8_5_0_,
-        user0_.userName as username9_5_0_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_0_,
-        role1_.roleId as roleid1_4_1_,
-        role1_.roleName as rolename2_4_1_ 
-    from
-        `User` user0_ 
-    left outer join
-        `Role` role1_ 
-            on user0_.roleId=role1_.roleId 
-    where
-        user0_.userId=? 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [16] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    update
-        `User` 
-    set
-        address=?,
-        email=?,
-        firstName=?,
-        lastName=?,
-        `password`=?,
-        phoneNumber=?,
-        roleId=?,
-        `status`=?,
-        userName=? 
-    where
-        userId=? 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [null] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [VARCHAR] - [tunguyen.080701@gmail.com] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [VARCHAR] - [guyen] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [4] as [VARCHAR] - [tu] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [5] as [VARCHAR] - [$2a$10$zfRKgcni40kU2lR/7lX/OuD43pP/tBs3qXEecE3nGdw.RP06XM1GC] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [6] as [VARCHAR] - [null] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [7] as [SMALLINT] - [3] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [8] as [INTEGER] - [1] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [9] as [VARCHAR] - [baybyabay] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [10] as [INTEGER] - [16] 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    delete 
-    from
-        `Registration_User_Token` 
-    where
-        `id`=? 
-2023-01-21 01:27:34 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [1] 
+2023-01-21 13:52:35 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [16] 
