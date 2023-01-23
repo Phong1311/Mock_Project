@@ -5,13 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 
@@ -59,6 +56,7 @@ public class Product implements Serializable {
 
     @CreatedDate
     @Column(name = "createDate", insertable = false)
+    @CreationTimestamp
     private LocalDateTime createDate;
 
 //    @LastModifiedDate
@@ -70,7 +68,8 @@ public class Product implements Serializable {
 //    @CreationTimestamp
 //    private Date createdDate;
 
-    @OneToOne(mappedBy = "product")
+    @OneToOne
+    @JoinColumn(name = "imageId", referencedColumnName = "imageId", nullable = false)
     private Image image;
 
     @OneToMany(mappedBy = "product")

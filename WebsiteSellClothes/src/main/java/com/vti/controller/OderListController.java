@@ -4,7 +4,7 @@ import com.vti.dto.OderListDTO;
 import com.vti.entity.OderList;
 import com.vti.form.creating.OderListFormForCreating;
 import com.vti.service.implement.IOderListService;
-import com.vti.ultis.UserDetailsUltis;
+import com.vti.utils.UserDetailsUltis;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -14,9 +14,6 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

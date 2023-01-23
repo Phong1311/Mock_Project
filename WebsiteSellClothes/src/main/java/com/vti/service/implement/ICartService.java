@@ -8,19 +8,15 @@ import org.springframework.data.domain.Pageable;
 
 public interface ICartService {
 
-    Page<Cart> getAllCarts(Pageable pageable);
+    Page<Cart> getCartByUsername(Pageable pageable, String username);
 
-    Page<Cart> getCartByUserId(Pageable pageable, int userId);
+    Cart createCart(String username, CartFormForCreating form);
 
-    Cart getCartByUserIdAndProductId(int userId, int productId);
+    Cart updateQuantityInCart(String username, int productId, CartFormForUpdating form);
 
-    Cart createCart(CartFormForCreating form);
+    void deleteCartByUsername(String username);
 
-    Cart updateQuantityInCart(int productId, int userId, CartFormForUpdating form);
-
-    void deleteCartByUserId(int userId);
-
-    void deleteProductInCartByProductId(int productId, int userId);
+    void deleteProductByUsernameAndProductId(String username, int productId);
 
     int total(int userId);
 

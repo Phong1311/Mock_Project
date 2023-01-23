@@ -1,8 +1,10 @@
 package com.vti.service;
 
+import com.vti.entity.Image;
 import com.vti.entity.Product;
 import com.vti.form.creating.ProductFormForCreating;
 import com.vti.form.updating.ProductFormForUpdating;
+import com.vti.repository.IImageRepository;
 import com.vti.repository.IProductRepository;
 import com.vti.service.implement.IProductService;
 import org.modelmapper.ModelMapper;
@@ -25,6 +27,9 @@ public class ProductService implements IProductService {
     @Autowired
     private IProductRepository productRepository;
 
+    @Autowired
+    private IImageRepository imageRepository;
+
 
     @Override
     public Product getProductByID(int id) {
@@ -32,7 +37,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public void createProduct(ProductFormForCreating form) {
+    public Product createProduct(ProductFormForCreating form) {
         // omit id field
         TypeMap<ProductFormForCreating, Product> typeMap = modelMapper.getTypeMap(ProductFormForCreating.class, Product.class);
         if (typeMap == null) { // if not already added
@@ -44,11 +49,28 @@ public class ProductService implements IProductService {
                 }
             });
         }
+
         // convert form to entity
         Product product = modelMapper.map(form, Product.class);
-//        product.setCreateDate(new Date());
-        productRepository.save(product);
 
+        // create image
+        Image image = new Image();
+        image.setImage1(form.getImage().getImage1());
+        image.setImage2(form.getImage().getImage2());
+        image.setImage3(form.getImage().getImage3());
+        image.setImage4(form.getImage().getImage4());
+        image.setImage5(form.getImage().getImage5());
+        image.setImage6(form.getImage().getImage6());
+
+        Image saveImage = imageRepository.save(image);
+
+
+
+        // create product
+        product.setImage(saveImage);
+        Product productReturn = productRepository.save(product);
+
+        return productReturn;
     }
 
     @Override

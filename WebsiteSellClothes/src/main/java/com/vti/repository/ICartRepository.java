@@ -4,29 +4,35 @@ import com.vti.entity.Cart;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKey>, JpaSpecificationExecutor<Cart> {
+public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKey> {
 
     //getProductByUserId
-    Page<Cart> findAllByUserId(Pageable pageable, int userId);
+    Page<Cart> findAllByUserUsername(Pageable pageable, String username);
 
+
+    Cart findCartByUserUsernameAndProductId(String username, int productId);
 
     //getProductByProductIdAndUserId
-    Cart findCartByProductIdAndUserId(int productId,int userId);
+    Cart findCartByUserIdAndProductId(int userId, int productId);
 
     //  delete cart
-    @Modifying
-    @Query(value = "DELETE FROM CART WHERE userId = :idParameter", nativeQuery = true)
-    void deleteCartByUserId(@Param("idParameter") int userId);
+//    @Modifying
+//    @Query(value = "DELETE FROM CART WHERE userId = :idParameter", nativeQuery = true)
+    void deleteCartByUserId(int userId);
+
+    void deleteCartByUserUsername(String username);
+
 
     // delete product in cart
-    @Modifying
-    @Query(value = "DELETE FROM CART WHERE productId = :proIdParameter AND userId = :useIdParameter", nativeQuery = true)
-    void deleteProductInCartByProductId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId);
+//    @Modifying
+//    @Query(value = "DELETE FROM CART WHERE productId = :proIdParameter AND userId = :useIdParameter", nativeQuery = true)
+//    void deleteProductInCartByProductId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId);
+
+    void deleteCartByUserUsernameAndProductId(String username, int productId);
 
     // tính tổng
     @Query(value = "SELECT Sum(p.salePrice * c.quantity) as total FROM PRODUCT p\n" +

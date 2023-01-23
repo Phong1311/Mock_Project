@@ -5,6 +5,7 @@ import com.vti.entity.Cart;
 import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
 import com.vti.service.implement.ICartService;
+import com.vti.utils.UserDetailsUltis;
 import com.vti.validation.cart.ProductIDInCartExists;
 import com.vti.validation.cart.UserIDInCartExists;
 import com.vti.validation.user.UserIDExists;
@@ -35,24 +36,13 @@ public class CartController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @GetMapping()
-    public ResponseEntity<?> getAllProducts(Pageable pageable) {
-        Page<Cart> entities = service.getAllCarts(pageable);
-
-        // convert entities --> dtos
-        List<CartDTO> dtos = modelMapper.map(entities.getContent(), new TypeToken<List<CartDTO>>() {
-        }.getType());
-
-        Page<CartDTO> dtoPages = new PageImpl<>(dtos, pageable, entities.getTotalElements());
-
-        return new ResponseEntity<>(dtoPages, HttpStatus.OK);
-    }
 
     // get toàn bộ sản phẩm(giỏ hàng) của user
-    @GetMapping(value = "/userId/{userId}")
-    public ResponseEntity<?> getCartByUserId(Pageable pageable,@UserIDExists @PathVariable(name = "userId")  int userId) {
 
-        Page<Cart> cartPage = service.getCartByUserId(pageable, userId);
+    @GetMapping(value = "/username")
+    public ResponseEntity<?> getCartByUsername(Pageable pageable) {
+
+        Page<Cart> cartPage = service.getCartByUsername(pageable, UserDetailsUltis.UserDetails().getUsername());
 
         // convert entities --> dtos
         List<CartDTO> dtos = modelMapper.map(cartPage.getContent(), new TypeToken<List<CartDTO>>() {
@@ -63,10 +53,11 @@ public class CartController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
+
     // Tạo giỏ hàng
     @PostMapping()
     public ResponseEntity<?> createCart(@Valid @RequestBody CartFormForCreating form) {
-        Cart cart = service.createCart(form);
+        Cart cart = service.createCart(UserDetailsUltis.UserDetails().getUsername(), form);
         CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
         return new ResponseEntity<>(cartDTO, HttpStatus.OK);
     }
@@ -74,27 +65,25 @@ public class CartController {
     // update số lượng sản phẩm
     @PutMapping()
     public ResponseEntity<?> updateQuantityInCart(@ProductIDInCartExists @Parameter(name = "productId") int productId,
-                                                  @UserIDInCartExists @Parameter(name = "userId") int userId,
                                                   @Valid @RequestBody CartFormForUpdating form) {
-        Cart cart = service.updateQuantityInCart(productId, userId, form);
+        Cart cart = service.updateQuantityInCart(UserDetailsUltis.UserDetails().getUsername(), productId, form);
         CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
-
         return new ResponseEntity<>(cartDTO, HttpStatus.OK);
     }
 
     // delete toàn bộ sản phẩm(giỏ hàng) của user
-    @DeleteMapping(value = "/userId/{userId}")
-    public ResponseEntity<?> deleteCartByUserId(@UserIDInCartExists @PathVariable(name = "userId") int userId) {
-        service.deleteCartByUserId(userId);
-        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
+    @DeleteMapping(value = "/username")
+    public ResponseEntity<?> deleteCartByUsername() {
+        service.deleteCartByUsername(UserDetailsUltis.UserDetails().getUsername());
+        return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
     }
 
     // delete 1 sản phẩm
-    @DeleteMapping(value = "/productId/userId")
-    public ResponseEntity<?> deleteProductInCartByProductId(@ProductIDInCartExists @Parameter(name = "productId") int productId,
-                                                            @UserIDInCartExists @Parameter(name = "userId") int userId) {
-        service.deleteProductInCartByProductId(productId, userId);
-        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
+    @DeleteMapping(value = "/productId")
+    public ResponseEntity<?> deleteProductInCartByProductId(@ProductIDInCartExists @Parameter(name = "productId") int productId
+    ) {
+        service.deleteProductByUsernameAndProductId(UserDetailsUltis.UserDetails().getUsername(), productId);
+        return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
     }
 
     // tính tổng

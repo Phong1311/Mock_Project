@@ -5,7 +5,7 @@ import com.vti.dto.ChangePublicProfileDTO;
 import com.vti.dto.ProfileDTO;
 import com.vti.entity.User;
 import com.vti.service.implement.IUserService;
-import com.vti.ultis.UserDetailsUltis;
+import com.vti.utils.UserDetailsUltis;
 import com.vti.validation.user.EmailNotExists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

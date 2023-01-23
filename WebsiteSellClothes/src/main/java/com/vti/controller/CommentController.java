@@ -1,17 +1,11 @@
 package com.vti.controller;
 
-import com.vti.dto.CartDTO;
-import com.vti.dto.CatalogDTO;
 import com.vti.dto.CommentDTO;
-import com.vti.entity.Cart;
-import com.vti.entity.Catalog;
 import com.vti.entity.Comment;
-import com.vti.form.creating.CatalogFormForCreating;
 import com.vti.form.creating.CommentFormForCreating;
-import com.vti.form.updating.CatalogFormForUpdating;
-import com.vti.service.implement.ICatalogService;
 import com.vti.service.implement.ICommentService;
-import com.vti.ultis.UserDetailsUltis;
+import com.vti.utils.UserDetailsUltis;
+import com.vti.validation.comment.ProductIDInCommentExists;
 import com.vti.validation.user.UserIDExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
@@ -56,7 +50,6 @@ public class CommentController {
     }
 
 
-
     @PostMapping()
     public ResponseEntity<?> createComment(@Valid @RequestBody CommentFormForCreating form) {
         Comment comment = service.createComment(UserDetailsUltis.UserDetails().getUsername(), form);
@@ -65,9 +58,19 @@ public class CommentController {
     }
 
 
+//    @DeleteMapping()
+//    public ResponseEntity<?> deleteCommentByUserIdAndProductId(@Parameter(name = "userId") @UserIDExists int userId, @Parameter(name = "productId") int productId) {
+//        service.deleteCommentByUserIdAndProductId(userId, productId);
+//        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
+//    }
+
     @DeleteMapping()
-    public ResponseEntity<?> deleteCommentByUserIdAndProductId(@Parameter(name = "userId") @UserIDExists int userId, @Parameter(name = "productId") int productId) {
-        service.deleteCommentByUserIdAndProductId(userId, productId);
-        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
+    public ResponseEntity<?> deleteCommentByUserUsernameAndProductId(@ProductIDInCommentExists @Parameter(name = "productId") int productId) {
+
+
+            service.deleteCommentByUserUsernameAndProductId(UserDetailsUltis.UserDetails().getUsername(), productId);
+
+
+        return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
     }
 }

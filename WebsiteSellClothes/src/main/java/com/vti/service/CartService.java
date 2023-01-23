@@ -2,11 +2,13 @@ package com.vti.service;
 
 import com.vti.entity.Cart;
 import com.vti.entity.Pay;
+import com.vti.entity.User;
 import com.vti.form.creating.CartFormForCreating;
 import com.vti.form.creating.PayFormForCreating;
 import com.vti.form.updating.CartFormForUpdating;
 import com.vti.repository.ICartRepository;
 import com.vti.repository.IPayRepository;
+import com.vti.repository.IUserRepository;
 import com.vti.service.implement.ICartService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
@@ -23,31 +25,29 @@ public class CartService implements ICartService {
 
     @Autowired
     private ModelMapper modelMapper;
+
     @Autowired
     private ICartRepository cartRepository;
 
     @Autowired
     private IPayRepository payRepository;
 
+    @Autowired
+    private IUserRepository IUserRepository;
+
 
     @Override
-    public Page<Cart> getAllCarts(Pageable pageable) {
-        return cartRepository.findAll(pageable);
-    }
-
-    @Override
-    public Page<Cart> getCartByUserId(Pageable pageable, int userId) {
-        return cartRepository.findAllByUserId(pageable, userId);
-    }
-
-    @Override
-    public Cart getCartByUserIdAndProductId(int productId, int userId) {
-        return cartRepository.findCartByProductIdAndUserId(productId, userId);
+    public Page<Cart> getCartByUsername(Pageable pageable, String username) {
+        return cartRepository.findAllByUserUsername(pageable, username);
     }
 
 
     @Override
-    public Cart createCart(CartFormForCreating form) {
+    public Cart createCart(String username, CartFormForCreating form) {
+
+        User user = IUserRepository.findByUsername(username);
+
+        form.setUserId(user.getId());
         // omit id field
         Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
 
@@ -67,38 +67,38 @@ public class CartService implements ICartService {
         cart.setId(shoppingCartKey);
 
         // update quantity +1 từ màn hình sản phẩm khi bấm thêm giỏ hàng 1 lần nữa
-        Cart cart1 = cartRepository.findCartByProductIdAndUserId(form.getProductId(), form.getUserId());
+        Cart cartUpdate = cartRepository.findCartByUserIdAndProductId(user.getId(), form.getProductId());
 
-        if (cart1 != null) {
-            cart.setQuantity(cart1.getQuantity() + 1);
+        if (cartUpdate != null) {
+            cart.setQuantity(cartUpdate.getQuantity() + 1);
         } else {
             cart.setQuantity(1);
         }
-        cartRepository.save(cart);
-
-        Cart cart2 = cartRepository.findCartByProductIdAndUserId(form.getProductId(), form.getUserId());
-
-        return cart2;
+        Cart cartReturn = cartRepository.save(cart);
+        return cartReturn;
     }
 
+
     @Override
-    public Cart updateQuantityInCart(int productId, int userId, CartFormForUpdating form) {
-        Cart entity = cartRepository.findCartByProductIdAndUserId(productId, userId);
+    public Cart updateQuantityInCart(String username, int productId, CartFormForUpdating form) {
+        Cart entity = cartRepository.findCartByUserUsernameAndProductId(username, productId);
         entity.setQuantity(form.getQuantity());
-        cartRepository.save(entity);
-        return entity;
+        Cart cartReturn = cartRepository.save(entity);
+        return cartReturn;
     }
 
 
     @Override
-    public void deleteCartByUserId(int userId) {
-        cartRepository.deleteCartByUserId(userId);
+    public void deleteCartByUsername(String username) {
+        cartRepository.deleteCartByUserUsername(username);
     }
 
+
     @Override
-    public void deleteProductInCartByProductId(int productId, int userId) {
-        cartRepository.deleteProductInCartByProductId(productId, userId);
+    public void deleteProductByUsernameAndProductId(String username, int productId) {
+        cartRepository.deleteCartByUserUsernameAndProductId(username, productId);
     }
+
 
     @Override
     public int total(int userId) {
@@ -111,10 +111,12 @@ public class CartService implements ICartService {
         return sum;
     }
 
+
     @Override
     public boolean existsCartByUserId(int userId) {
         return cartRepository.existsByUserId(userId);
     }
+
 
     @Override
     public boolean existsCartByProductId(int productId) {

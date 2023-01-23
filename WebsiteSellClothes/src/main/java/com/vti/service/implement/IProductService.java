@@ -2,7 +2,6 @@ package com.vti.service.implement;
 
 import com.vti.entity.Product;
 import com.vti.form.creating.ProductFormForCreating;
-import com.vti.form.filter.ProductFilter;
 import com.vti.form.updating.ProductFormForUpdating;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +13,7 @@ public interface IProductService {
 
     Product getProductByID(int id);
 
-    void createProduct(ProductFormForCreating form);
+    Product createProduct(ProductFormForCreating form);
 
     void updateProduct(int id, ProductFormForUpdating form);
 

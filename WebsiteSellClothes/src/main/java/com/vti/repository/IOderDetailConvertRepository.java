@@ -1,15 +1,13 @@
 package com.vti.repository;
 
-import com.vti.entity.OderDetail;
 import com.vti.entity.OderDetailDBConvert;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface IOderDetailConvertRepository extends JpaRepository<OderDetailDBConvert, Integer>, JpaSpecificationExecutor<OderDetail> {
+public interface IOderDetailConvertRepository extends JpaRepository<OderDetailDBConvert, Integer> {
 
 
     @Query(value = "SELECT  p.productId as oderDetailId,od.oderId,p.productName, p.salePrice, c.quantity ,(p.salePrice * c.quantity) as total\n" +

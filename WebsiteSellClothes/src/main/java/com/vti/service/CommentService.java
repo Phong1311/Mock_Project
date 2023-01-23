@@ -15,12 +15,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class CommentService implements ICommentService {
 
     @Autowired
-    private ICommentRepository repository;
+    private ICommentRepository commentRepository;
 
     @Autowired
     private ModelMapper modelMapper;
@@ -30,7 +32,7 @@ public class CommentService implements ICommentService {
 
     @Override
     public Page<Comment> getCommentByProductId(Pageable pageable, int id) {
-        return repository.findByProductId(pageable, id);
+        return commentRepository.findByProductId(pageable, id);
     }
 
 //    @Override
@@ -76,16 +78,28 @@ public class CommentService implements ICommentService {
         // convert form to entity
         Comment comment = modelMapper.map(form, Comment.class);
 
-        repository.save(comment);
+        Comment commentReturn = commentRepository.save(comment);
 
-        Comment comment1 = repository.findCommentByContent(form.getContent());
-
-        return comment1;
+        return commentReturn;
     }
 
     @Override
-    public void deleteCommentByUserIdAndProductId(int userId, int productId) {
-        repository.deleteCommentByUserIdAndProductId(userId, productId);
+    public void deleteCommentByUserUsernameAndProductId(String username, int productId) {
+
+        List<Comment> comment = commentRepository.findCommentsByUserUsername(username);
+
+        for (Comment comment1 : comment) {
+            if (comment1.getProduct().getId() == productId) {
+                commentRepository.deleteCommentByUserUsernameAndProductId(username, productId);
+                return;
+            }
+        }
+        throw new RuntimeException("Không tồn tại id của sản phẩm");
+    }
+
+    @Override
+    public boolean existsCommentByProductId(int productId) {
+        return commentRepository.existsCommentByProductId(productId);
     }
 
 

@@ -30,7 +30,11 @@ public class Catalog implements Serializable {
     private String image;
 
     @OneToMany(mappedBy = "catalog")
-    private List<Product> product;
+    private List<Product> products;
 
-
+    public Catalog(int id, String name, String image) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+    }
 }

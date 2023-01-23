@@ -41,11 +41,8 @@ public class CatalogService implements ICatalogService {
 
         // convert form to entity
         Catalog catalog = modelMapper.map(form, Catalog.class);
-        catalogRepository.save(catalog);
-
-        Catalog catalog1 = catalogRepository.findCatalogByName(form.getName());
-
-        return catalog1;
+        Catalog catalogReturn = catalogRepository.save(catalog);
+        return catalogReturn;
     }
 
     @Override
@@ -53,8 +50,8 @@ public class CatalogService implements ICatalogService {
         Catalog entity = catalogRepository.findById(id).get();
         entity.setName(form.getName());
         entity.setImage(form.getImage());
-        catalogRepository.save(entity);
-        return entity;
+        Catalog catalogReturn =catalogRepository.save(entity);
+        return catalogReturn;
     }
 
     @Override

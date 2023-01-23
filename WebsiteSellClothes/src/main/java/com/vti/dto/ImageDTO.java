@@ -32,5 +32,5 @@ public class ImageDTO {
     private String image6;
 
     @NonNull
-    private String productId;
+    private int productId;
 }

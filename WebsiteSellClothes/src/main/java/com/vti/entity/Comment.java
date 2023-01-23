@@ -3,6 +3,7 @@ package com.vti.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
@@ -35,6 +36,7 @@ public class Comment implements Serializable {
 
     @CreatedDate
     @Column(name = "createDate", insertable = false)
+    @CreationTimestamp
     private LocalDateTime createDate;
 
 }

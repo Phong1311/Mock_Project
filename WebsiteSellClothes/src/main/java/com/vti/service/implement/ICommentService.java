@@ -8,14 +8,16 @@ import org.springframework.data.domain.Pageable;
 public interface ICommentService {
 
 
-    Page<Comment> getCommentByProductId(Pageable pageable,int productId);
+    Page<Comment> getCommentByProductId(Pageable pageable, int productId);
 
 //    Comment createComment(CommentFormForCreating form);
 
 
-    Comment createComment(String username,CommentFormForCreating form);
+    Comment createComment(String username, CommentFormForCreating form);
 
 
-    void deleteCommentByUserIdAndProductId(int userId, int productId);
+    void deleteCommentByUserUsernameAndProductId(String username, int productId);
 
+
+    boolean existsCommentByProductId(int productId);
 }

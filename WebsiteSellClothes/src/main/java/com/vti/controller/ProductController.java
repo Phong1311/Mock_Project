@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -84,9 +85,10 @@ public class ProductController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createProduct(@RequestBody ProductFormForCreating form) {
-        service.createProduct(form);
-        return new ResponseEntity<String>("Create successfully!", HttpStatus.OK);
+    public ResponseEntity<?> createProduct(@Valid @RequestBody ProductFormForCreating form) {
+        Product product = service.createProduct(form);
+        ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
+        return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
 

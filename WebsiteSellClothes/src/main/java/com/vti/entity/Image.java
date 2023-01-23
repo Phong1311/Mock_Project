@@ -17,14 +17,10 @@ public class Image implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "id")
+    @Column(name = "imageId")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @OneToOne
-    @JoinColumn(name = "productId", referencedColumnName = "productId", nullable = false)
-    private Product product;
 
     @Column(name = "image1", length = 100)
     private String image1;
@@ -43,5 +39,8 @@ public class Image implements Serializable {
 
     @Column(name = "image6", length = 100)
     private String image6;
+
+    @OneToOne(mappedBy = "image")
+    private Product product;
 
 }

@@ -1,11 +1,9 @@
 package com.vti.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-
 import com.vti.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IUserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
+public interface IUserRepository extends JpaRepository<User, Integer> {
 
 	 boolean existsByUsername(String userName);
 
