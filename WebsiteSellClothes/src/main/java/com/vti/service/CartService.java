@@ -51,17 +51,6 @@ public class CartService implements ICartService {
         // omit id field
         Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
 
-        TypeMap<CartFormForCreating, Cart> typeMap = modelMapper.getTypeMap(CartFormForCreating.class, Cart.class);
-        if (typeMap == null) { // if not already added
-            // skip field
-            modelMapper.addMappings(new PropertyMap<CartFormForCreating, Cart>() {
-                @Override
-                protected void configure() {
-                    skip(destination.getId());
-                }
-            });
-        }
-
         // convert form to entity
         Cart cart = modelMapper.map(form, Cart.class);
         cart.setId(shoppingCartKey);
@@ -74,8 +63,8 @@ public class CartService implements ICartService {
         } else {
             cart.setQuantity(1);
         }
-        Cart cartReturn = cartRepository.save(cart);
-        return cartReturn;
+        Cart returnCart = cartRepository.save(cart);
+        return returnCart;
     }
 
 
@@ -83,8 +72,8 @@ public class CartService implements ICartService {
     public Cart updateQuantityInCart(String username, int productId, CartFormForUpdating form) {
         Cart entity = cartRepository.findCartByUserUsernameAndProductId(username, productId);
         entity.setQuantity(form.getQuantity());
-        Cart cartReturn = cartRepository.save(entity);
-        return cartReturn;
+        Cart returnCart = cartRepository.save(entity);
+        return returnCart;
     }
 
 

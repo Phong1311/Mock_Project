@@ -52,7 +52,7 @@ public class CatalogController {
         return new ResponseEntity<>(catalogDTO, HttpStatus.OK);
     }
 
-    @PostMapping()
+    @PostMapping(value = "/create")
     public ResponseEntity<?> createCatalog(@RequestBody CatalogFormForCreating form) {
         Catalog catalog = service.createCatalog(form);
         CatalogDTO catalogDTO = modelMapper.map(catalog, CatalogDTO.class);
@@ -61,7 +61,7 @@ public class CatalogController {
     }
 
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<?> updateCatalog(@PathVariable(name = "id") short id, @RequestBody CatalogFormForUpdating form) {
         Catalog catalog = service.updateCatalog(id, form);
         CatalogDTO catalogDTO = modelMapper.map(catalog, CatalogDTO.class);
@@ -69,7 +69,7 @@ public class CatalogController {
         return new ResponseEntity<>(catalogDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<?> deleteCatalog(@PathVariable(name = "id") int id) {
         service.deleteCatalog(id);
         return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);

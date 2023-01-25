@@ -13,11 +13,13 @@ public interface IProductService {
 
     Product getProductByID(int id);
 
-    Product createProduct(ProductFormForCreating form);
+    Product createProduct(String username,ProductFormForCreating form);
 
-    void updateProduct(int id, ProductFormForUpdating form);
+    Product updateProduct(int id, ProductFormForUpdating form);
 
-    void deleteProduct(List<Integer> ids);
+    void deleteProducts(List<Integer> ids);
+
+    void deleteProduct(int id);
 
     Page<Product> getAllProductByCatalogID(Pageable pageable, int catalogId);
 

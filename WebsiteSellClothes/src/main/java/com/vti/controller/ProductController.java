@@ -6,6 +6,7 @@ import com.vti.form.creating.ProductFormForCreating;
 import com.vti.form.filter.ProductFilter;
 import com.vti.form.updating.ProductFormForUpdating;
 import com.vti.service.implement.IProductService;
+import com.vti.utils.UserDetailsUltis;
 import com.vti.validation.product.CatalogIDInProductExists;
 import com.vti.validation.product.ProductIDInProductExists;
 import org.modelmapper.ModelMapper;
@@ -58,6 +59,7 @@ public class ProductController {
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
+    // Get 9 product
     @GetMapping(value = "/catalog/{catalogId}")
     public ResponseEntity<?> getProductByCatalogID(@CatalogIDInProductExists @PathVariable(name = "catalogId") int catalogId) {
 
@@ -84,23 +86,33 @@ public class ProductController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
-    @PostMapping()
+    @PostMapping(value = "/create")
     public ResponseEntity<?> createProduct(@Valid @RequestBody ProductFormForCreating form) {
-        Product product = service.createProduct(form);
+        Product product = service.createProduct(UserDetailsUltis.UserDetails().getUsername(),form);
         ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/update/{id}")
     public ResponseEntity<?> updateProduct(@ProductIDInProductExists @PathVariable(name = "id") int id, @RequestBody ProductFormForUpdating form) {
-        service.updateProduct(id, form);
-        return new ResponseEntity<String>("Update successfully!", HttpStatus.OK);
+        Product product =service.updateProduct(id, form);
+        ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
+
+        return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{ids}")
+    // Delete list
+    @DeleteMapping(value = "/deletes/{ids}")
     public ResponseEntity<?> deleteProducts(@PathVariable(name = "ids") List<Integer> ids) {
-        service.deleteProduct(ids);
-        return new ResponseEntity<String>("Delete successfully!", HttpStatus.OK);
+        service.deleteProducts(ids);
+        return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
+    }
+
+    // Delete one
+    @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable(name = "id") int id) {
+        service.deleteProduct(id);
+        return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
     }
 }

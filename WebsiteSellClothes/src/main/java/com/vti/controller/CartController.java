@@ -8,7 +8,6 @@ import com.vti.service.implement.ICartService;
 import com.vti.utils.UserDetailsUltis;
 import com.vti.validation.cart.ProductIDInCartExists;
 import com.vti.validation.cart.UserIDInCartExists;
-import com.vti.validation.user.UserIDExists;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;

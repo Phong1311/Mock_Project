@@ -55,18 +55,10 @@ public class Product implements Serializable {
     private String review;
 
     @CreatedDate
-    @Column(name = "createDate", insertable = false)
+    @Column(name = "updateDate", insertable = false)
     @CreationTimestamp
     private LocalDateTime createDate;
 
-//    @LastModifiedDate
-//    @Column(name = "createDate", insertable = false)
-//    private LocalDate createDate;
-
-//    @Column(name = "createDate", insertable = false)
-//    @Temporal(TemporalType.TIMESTAMP)
-//    @CreationTimestamp
-//    private Date createdDate;
 
     @OneToOne
     @JoinColumn(name = "imageId", referencedColumnName = "imageId", nullable = false)
@@ -78,8 +70,8 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product")
     private List<Comment> comments;
 
-    @ManyToMany(mappedBy = "products")
-    private List<User> users;
+    @OneToMany(mappedBy = "product")
+    private List<CreatorProduct> creatorProducts;
 
     public Product(String name, Catalog catalog, String describe, String size, short amount, int purchasePrice, int price, int salePrice) {
         this.name = name;

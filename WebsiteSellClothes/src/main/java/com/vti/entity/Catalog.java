@@ -18,7 +18,7 @@ public class Catalog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Column(name = "id")
+    @Column(name = "catalogId")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
