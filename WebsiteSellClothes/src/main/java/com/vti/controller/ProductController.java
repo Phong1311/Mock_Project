@@ -88,7 +88,7 @@ public class ProductController {
 
     @PostMapping(value = "/create")
     public ResponseEntity<?> createProduct(@Valid @RequestBody ProductFormForCreating form) {
-        Product product = service.createProduct(UserDetailsUltis.UserDetails().getUsername(),form);
+        Product product = service.createProduct(UserDetailsUltis.UserDetails().getUsername(), form);
         ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }
@@ -96,7 +96,7 @@ public class ProductController {
 
     @PutMapping(value = "/update/{id}")
     public ResponseEntity<?> updateProduct(@ProductIDInProductExists @PathVariable(name = "id") int id, @RequestBody ProductFormForUpdating form) {
-        Product product =service.updateProduct(id, form);
+        Product product = service.updateProduct(UserDetailsUltis.UserDetails().getUsername(), id, form);
         ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
 
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
@@ -105,7 +105,7 @@ public class ProductController {
     // Delete list
     @DeleteMapping(value = "/deletes/{ids}")
     public ResponseEntity<?> deleteProducts(@PathVariable(name = "ids") List<Integer> ids) {
-        service.deleteProducts(ids);
+        service.deleteProducts(UserDetailsUltis.UserDetails().getUsername(), ids);
         return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
     }
 

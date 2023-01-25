@@ -1,10 +1,12 @@
 package com.vti.service;
 
+import com.vti.entity.CreatorProduct;
 import com.vti.entity.Image;
 import com.vti.entity.Product;
 import com.vti.entity.User;
 import com.vti.form.creating.ProductFormForCreating;
 import com.vti.form.updating.ProductFormForUpdating;
+import com.vti.repository.ICreatorProductRepository;
 import com.vti.repository.IImageRepository;
 import com.vti.repository.IProductRepository;
 import com.vti.repository.IUserRepository;
@@ -33,7 +35,10 @@ public class ProductService implements IProductService {
     private IImageRepository imageRepository;
 
     @Autowired
-    private com.vti.repository.IUserRepository IUserRepository;
+    private IUserRepository userRepository;
+
+    @Autowired
+    private ICreatorProductRepository creatorProductRepository;
 
 
     @Override
@@ -44,7 +49,7 @@ public class ProductService implements IProductService {
     @Override
     public Product createProduct(String username, ProductFormForCreating form) {
 
-        User user = IUserRepository.findByUsername(username);
+        User user = userRepository.findByUsername(username);
 
         // omit id field
         TypeMap<ProductFormForCreating, Product> typeMap = modelMapper.getTypeMap(ProductFormForCreating.class, Product.class);
@@ -71,34 +76,65 @@ public class ProductService implements IProductService {
             image.setImage5(form.getImage().getImage5());
             image.setImage6(form.getImage().getImage6());
 
+            // create image
             Image saveImage = imageRepository.save(image);
 
-            // create product
             product.setImage(saveImage);
         }
+        // save product
         Product returnProduct = productRepository.save(product);
+
+        // create CreatorProduct
+        CreatorProduct creatorProduct = new CreatorProduct();
+        creatorProduct.setUser(user);
+        creatorProduct.setProduct(returnProduct);
+
+        creatorProductRepository.save(creatorProduct);
+
+        //
         Product returnProduct1 = productRepository.findById(returnProduct.getId()).get();
         return returnProduct1;
     }
 
     @Override
-    public Product updateProduct(int id, ProductFormForUpdating form) {
-        Product entity = productRepository.findById(id).get();
-        entity.setName(form.getName());
-        entity.setDescribe(form.getDescribe());
-        entity.setSize(form.getSize());
-        entity.setAmount(form.getAmount());
-        entity.setPurchasePrice(form.getPurchasePrice());
-        entity.setPrice(form.getPrice());
-        entity.setSalePrice(form.getSalePrice());
-        Product returnProduct = productRepository.save(entity);
-        return returnProduct;
+    public Product updateProduct(String username, int productId, ProductFormForUpdating form) {
+
+        List<CreatorProduct> creatorProducts = creatorProductRepository.findCreatorProductsByUserUsername(username);
+
+        for (CreatorProduct creatorProduct : creatorProducts) {
+            if (creatorProduct.getProduct().getId() == productId) {
+                Product entity = productRepository.findById(productId).get();
+                entity.setName(form.getName());
+                entity.setDescribe(form.getDescribe());
+                entity.setSize(form.getSize());
+                entity.setAmount(form.getAmount());
+                entity.setPurchasePrice(form.getPurchasePrice());
+                entity.setPrice(form.getPrice());
+                entity.setSalePrice(form.getSalePrice());
+                Product returnProduct = productRepository.save(entity);
+                return returnProduct;
+            }
+        }
+        throw new RuntimeException("Không tồn tại id của sản phẩm");
     }
 
 
     @Override
-    public void deleteProducts(List<Integer> ids) {
-        productRepository.deleteByIdIn(ids);
+    public void deleteProducts(String username, List<Integer> ids) {
+        List<CreatorProduct> creatorProducts = creatorProductRepository.findCreatorProductsByUserUsername(username);
+
+
+        for (CreatorProduct creatorProduct : creatorProducts) {
+            for (int id : ids){
+                if (creatorProduct.getProduct().getId() == id){
+                    creatorProductRepository.deleteCreatorProductByProductId(id);
+                    productRepository.deleteById(id);
+                }
+            }
+
+        }
+
+//            productRepository.deleteByIdIn(ids);
     }
 
     @Override

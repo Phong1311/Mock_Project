@@ -15,9 +15,9 @@ public interface IProductService {
 
     Product createProduct(String username,ProductFormForCreating form);
 
-    Product updateProduct(int id, ProductFormForUpdating form);
+    Product updateProduct(String username, int id, ProductFormForUpdating form);
 
-    void deleteProducts(List<Integer> ids);
+    void deleteProducts(String username,List<Integer> ids);
 
     void deleteProduct(int id);
 

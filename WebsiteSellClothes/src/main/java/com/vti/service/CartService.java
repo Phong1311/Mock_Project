@@ -48,7 +48,7 @@ public class CartService implements ICartService {
         User user = IUserRepository.findByUsername(username);
 
         form.setUserId(user.getId());
-        // omit id field
+
         Cart.ShoppingCartKey shoppingCartKey = modelMapper.map(form, Cart.ShoppingCartKey.class);
 
         // convert form to entity

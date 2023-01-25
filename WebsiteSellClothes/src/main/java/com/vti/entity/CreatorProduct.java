@@ -21,17 +21,17 @@ public class CreatorProduct implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-    @EmbeddedId
-    private CreatorProductKey id;
+    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @ManyToOne
-    @MapsId("staffId")
     @JoinColumn(name = "staffId")
     private User user;
 
-    @ManyToOne
-    @MapsId("productId")
-    @JoinColumn(name = "productId")
+    @OneToOne
+    @JoinColumn(name = "productId", referencedColumnName = "productId", nullable = false)
     private Product product;
 
     @CreatedDate
@@ -40,21 +40,5 @@ public class CreatorProduct implements Serializable {
     private LocalDateTime createDate;
 
 
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Embeddable
-    public static class CreatorProductKey implements Serializable {
-
-        private static final long serialVersionUID = 1L;
-
-        @Column(name = "staffId")
-        private int staffId;
-
-        @Column(name = "productId")
-        private int productId;
-
-
-    }
 
 }

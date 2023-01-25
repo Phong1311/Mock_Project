@@ -1,37 +1,37 @@
-2023-01-25 22:07:20 [background-preinit] INFO  o.h.v.i.u.Version                                  - HV000001: Hibernate Validator 6.1.7.Final 
-2023-01-25 22:07:20 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Starting WebsiteSellClothesApplication using Java 1.8.0_341 on DESKTOP-EE2PIUG with PID 5420 (C:\Mock\Mock_Project\WebsiteSellClothes\target\classes started by user in C:\Mock\Mock_Project\WebsiteSellClothes) 
-2023-01-25 22:07:20 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - No active profile set, falling back to default profiles: default 
-2023-01-25 22:07:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
-2023-01-25 22:07:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
-2023-01-25 22:07:22 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
-2023-01-25 22:07:22 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 118 ms. Found 14 JPA repository interfaces. 
-2023-01-25 22:07:22 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2827a7aa' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
-2023-01-25 22:07:22 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
-2023-01-25 22:07:23 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 8080 (http) 
-2023-01-25 22:07:23 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-8080"] 
-2023-01-25 22:07:23 [restartedMain] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat] 
-2023-01-25 22:07:23 [restartedMain] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41] 
-2023-01-25 22:07:23 [restartedMain] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext 
-2023-01-25 22:07:23 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2452 ms 
-2023-01-25 22:07:23 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
-2023-01-25 22:07:23 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Starting... 
-2023-01-25 22:07:24 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Start completed. 
-2023-01-25 22:07:24 [restartedMain] INFO  o.h.j.i.u.LogHelper                                - HHH000204: Processing PersistenceUnitInfo [name: default] 
-2023-01-25 22:07:24 [restartedMain] INFO  o.h.Version                                        - HHH000412: Hibernate ORM core version 5.4.27.Final 
-2023-01-25 22:07:24 [restartedMain] INFO  o.h.a.c.Version                                    - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
-2023-01-25 22:07:24 [restartedMain] INFO  o.h.d.Dialect                                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect 
-2023-01-25 22:07:25 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
-2023-01-25 22:07:25 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default' 
-2023-01-25 22:07:27 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain                 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@396b9e87, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d8bd124, org.springframework.security.web.header.HeaderWriterFilter@2dd1bc, org.springframework.web.filter.CorsFilter@4e13f7e0, org.springframework.security.web.authentication.logout.LogoutFilter@16c7a10e, com.vti.security.jwt.AuthTokenFilter@1f1cf9da, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@73620675, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@436819db, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@105250d9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@17fee937, org.springframework.security.web.session.SessionManagementFilter@2ba57f8c, org.springframework.security.web.access.ExceptionTranslationFilter@43f64368, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5760fb5b] 
-2023-01-25 22:07:27 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor' 
-2023-01-25 22:07:27 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729 
-2023-01-25 22:07:27 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-8080"] 
-2023-01-25 22:07:27 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 8080 (http) with context path '' 
-2023-01-25 22:07:28 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Started WebsiteSellClothesApplication in 7.796 seconds (JVM running for 9.772) 
-2023-01-25 22:07:36 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet' 
-2023-01-25 22:07:36 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet' 
-2023-01-25 22:07:36 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 2 ms 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+2023-01-26 02:25:21 [background-preinit] INFO  o.h.v.i.u.Version                                  - HV000001: Hibernate Validator 6.1.7.Final 
+2023-01-26 02:25:21 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Starting WebsiteSellClothesApplication using Java 1.8.0_341 on DESKTOP-EE2PIUG with PID 8376 (C:\Mock\Mock_Project\WebsiteSellClothes\target\classes started by user in C:\Mock\Mock_Project\WebsiteSellClothes) 
+2023-01-26 02:25:21 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - No active profile set, falling back to default profiles: default 
+2023-01-26 02:25:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2023-01-26 02:25:21 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2023-01-26 02:25:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2023-01-26 02:25:23 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 315 ms. Found 14 JPA repository interfaces. 
+2023-01-26 02:25:24 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@67af3e38' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2023-01-26 02:25:24 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2023-01-26 02:25:24 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 8080 (http) 
+2023-01-26 02:25:24 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-8080"] 
+2023-01-26 02:25:24 [restartedMain] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat] 
+2023-01-26 02:25:24 [restartedMain] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41] 
+2023-01-26 02:25:24 [restartedMain] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext 
+2023-01-26 02:25:24 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 3410 ms 
+2023-01-26 02:25:24 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2023-01-26 02:25:24 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Starting... 
+2023-01-26 02:25:25 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Start completed. 
+2023-01-26 02:25:25 [restartedMain] INFO  o.h.j.i.u.LogHelper                                - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2023-01-26 02:25:25 [restartedMain] INFO  o.h.Version                                        - HHH000412: Hibernate ORM core version 5.4.27.Final 
+2023-01-26 02:25:25 [restartedMain] INFO  o.h.a.c.Version                                    - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2023-01-26 02:25:26 [restartedMain] INFO  o.h.d.Dialect                                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect 
+2023-01-26 02:25:27 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2023-01-26 02:25:27 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2023-01-26 02:25:29 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain                 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49e99ad5, org.springframework.security.web.context.SecurityContextPersistenceFilter@386a2538, org.springframework.security.web.header.HeaderWriterFilter@1ec34773, org.springframework.web.filter.CorsFilter@2ec979f5, org.springframework.security.web.authentication.logout.LogoutFilter@2820b16c, com.vti.security.jwt.AuthTokenFilter@2ed3ddc3, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@a5f6a44, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6c1139, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3e1473e2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b9d4ca6, org.springframework.security.web.session.SessionManagementFilter@22634b2d, org.springframework.security.web.access.ExceptionTranslationFilter@195e9b1d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3fed5dff] 
+2023-01-26 02:25:29 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor' 
+2023-01-26 02:25:29 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729 
+2023-01-26 02:25:30 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-8080"] 
+2023-01-26 02:25:30 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 8080 (http) with context path '' 
+2023-01-26 02:25:30 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Started WebsiteSellClothesApplication in 10.877 seconds (JVM running for 13.157) 
+2023-01-26 02:26:01 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2023-01-26 02:26:01 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet' 
+2023-01-26 02:26:01 [http-nio-8080-exec-2] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 3 ms 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         user0_.userId as userid1_5_,
         user0_.address as address2_5_,
@@ -50,8 +50,8 @@
         `User` user0_ 
     where
         user0_.userName=? 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti1233445] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         role0_.roleId as roleid1_4_0_,
         role0_.roleName as rolename2_4_0_ 
@@ -59,67 +59,22 @@
         `Role` role0_ 
     where
         role0_.roleId=? 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
+        creatorpro0_.id as id1_8_,
+        creatorpro0_.createDate as createda2_8_,
+        creatorpro0_.productId as producti3_8_,
+        creatorpro0_.staffId as staffid4_8_ 
     from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_,
-        cart0_.userId as userid2_6_,
-        cart0_.quantity as quantity3_6_ 
-    from
-        Cart cart0_ 
+        CreatorProduct creatorpro0_ 
     left outer join
         `User` user1_ 
-            on cart0_.userId=user1_.userId 
-    left outer join
-        Product product2_ 
-            on cart0_.productId=product2_.productId 
+            on creatorpro0_.staffId=user1_.userId 
     where
-        user1_.userId=? 
-        and product2_.productId=? 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_0_,
-        cart0_.userId as userid2_6_0_,
-        cart0_.quantity as quantity3_6_0_ 
-    from
-        Cart cart0_ 
-    where
-        cart0_.productId=? 
-        and cart0_.userId=? 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [7] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+        user1_.userName=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti1233445] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         product0_.productId as producti1_12_0_,
         product0_.amount as amount2_12_0_,
@@ -142,105 +97,105 @@
         image2_.image3 as image4_1_2_,
         image2_.image4 as image5_1_2_,
         image2_.image5 as image6_1_2_,
-        image2_.image6 as image7_1_2_ 
+        image2_.image6 as image7_1_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_,
+        user4_.userId as userid1_5_4_,
+        user4_.address as address2_5_4_,
+        user4_.email as email3_5_4_,
+        user4_.firstName as firstnam4_5_4_,
+        user4_.lastName as lastname5_5_4_,
+        user4_.`password` as password6_5_4_,
+        user4_.phoneNumber as phonenum7_5_4_,
+        user4_.roleId as roleid10_5_4_,
+        user4_.`status` as status8_5_4_,
+        user4_.userName as username9_5_4_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_4_ 
     from
         Product product0_ 
     left outer join
         Catalog catalog1_ 
             on product0_.catalogId=catalog1_.catalogId 
-    inner join
+    left outer join
         `Image` image2_ 
             on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
     where
         product0_.productId=? 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
-    insert 
-    into
-        Cart
-        (quantity, productId, userId) 
-    values
-        (?, ?, ?) 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [1] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-25 22:07:37 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [INTEGER] - [7] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [6] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
+        creatorpro0_.id as id1_8_5_,
+        creatorpro0_.createDate as createda2_8_5_,
+        creatorpro0_.productId as producti3_8_5_,
+        creatorpro0_.staffId as staffid4_8_5_,
+        product1_.productId as producti1_12_0_,
+        product1_.amount as amount2_12_0_,
+        product1_.catalogId as catalog11_12_0_,
+        product1_.updateDate as updateda3_12_0_,
+        product1_.`describe` as describe4_12_0_,
+        product1_.imageId as imageid12_12_0_,
+        product1_.productName as productn5_12_0_,
+        product1_.price as price6_12_0_,
+        product1_.purchase_Price as purchase7_12_0_,
+        product1_.review as review8_12_0_,
+        product1_.salePrice as salepric9_12_0_,
+        product1_.size as size10_12_0_,
+        catalog2_.catalogId as catalogi1_7_1_,
+        catalog2_.image as image2_7_1_,
+        catalog2_.`name` as name3_7_1_,
+        image3_.imageId as imageid1_1_2_,
+        image3_.image1 as image2_1_2_,
+        image3_.image2 as image3_1_2_,
+        image3_.image3 as image4_1_2_,
+        image3_.image4 as image5_1_2_,
+        image3_.image5 as image6_1_2_,
+        image3_.image6 as image7_1_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
         ' ',
-        user0_.lastName) as formula1_ 
+        user4_.lastName) as formula1_3_,
+        role5_.roleId as roleid1_4_4_,
+        role5_.roleName as rolename2_4_4_ 
     from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
-    from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_,
-        cart0_.userId as userid2_6_,
-        cart0_.quantity as quantity3_6_ 
-    from
-        Cart cart0_ 
+        CreatorProduct creatorpro0_ 
+    inner join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
     left outer join
-        `User` user1_ 
-            on cart0_.userId=user1_.userId 
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
     left outer join
-        Product product2_ 
-            on cart0_.productId=product2_.productId 
+        `Image` image3_ 
+            on product1_.imageId=image3_.imageId 
+    left outer join
+        `User` user4_ 
+            on creatorpro0_.staffId=user4_.userId 
+    left outer join
+        `Role` role5_ 
+            on user4_.roleId=role5_.roleId 
     where
-        user1_.userId=? 
-        and product2_.productId=? 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
+        creatorpro0_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [6] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
         product0_.productId as producti1_12_0_,
         product0_.amount as amount2_12_0_,
@@ -263,26 +218,455 @@
         image2_.image3 as image4_1_2_,
         image2_.image4 as image5_1_2_,
         image2_.image5 as image6_1_2_,
-        image2_.image6 as image7_1_2_ 
+        image2_.image6 as image7_1_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_,
+        user4_.userId as userid1_5_4_,
+        user4_.address as address2_5_4_,
+        user4_.email as email3_5_4_,
+        user4_.firstName as firstnam4_5_4_,
+        user4_.lastName as lastname5_5_4_,
+        user4_.`password` as password6_5_4_,
+        user4_.phoneNumber as phonenum7_5_4_,
+        user4_.roleId as roleid10_5_4_,
+        user4_.`status` as status8_5_4_,
+        user4_.userName as username9_5_4_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_4_ 
     from
         Product product0_ 
     left outer join
         Catalog catalog1_ 
             on product0_.catalogId=catalog1_.catalogId 
-    inner join
+    left outer join
         `Image` image2_ 
             on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
     where
         product0_.productId=? 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    update
-        Cart 
-    set
-        quantity=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [19] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        creatorpro0_.id as id1_8_5_,
+        creatorpro0_.createDate as createda2_8_5_,
+        creatorpro0_.productId as producti3_8_5_,
+        creatorpro0_.staffId as staffid4_8_5_,
+        product1_.productId as producti1_12_0_,
+        product1_.amount as amount2_12_0_,
+        product1_.catalogId as catalog11_12_0_,
+        product1_.updateDate as updateda3_12_0_,
+        product1_.`describe` as describe4_12_0_,
+        product1_.imageId as imageid12_12_0_,
+        product1_.productName as productn5_12_0_,
+        product1_.price as price6_12_0_,
+        product1_.purchase_Price as purchase7_12_0_,
+        product1_.review as review8_12_0_,
+        product1_.salePrice as salepric9_12_0_,
+        product1_.size as size10_12_0_,
+        catalog2_.catalogId as catalogi1_7_1_,
+        catalog2_.image as image2_7_1_,
+        catalog2_.`name` as name3_7_1_,
+        image3_.imageId as imageid1_1_2_,
+        image3_.image1 as image2_1_2_,
+        image3_.image2 as image3_1_2_,
+        image3_.image3 as image4_1_2_,
+        image3_.image4 as image5_1_2_,
+        image3_.image5 as image6_1_2_,
+        image3_.image6 as image7_1_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_,
+        role5_.roleId as roleid1_4_4_,
+        role5_.roleName as rolename2_4_4_ 
+    from
+        CreatorProduct creatorpro0_ 
+    inner join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        `Image` image3_ 
+            on product1_.imageId=image3_.imageId 
+    left outer join
+        `User` user4_ 
+            on creatorpro0_.staffId=user4_.userId 
+    left outer join
+        `Role` role5_ 
+            on user4_.roleId=role5_.roleId 
+    where
+        creatorpro0_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [19] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        product0_.productId as producti1_12_0_,
+        product0_.amount as amount2_12_0_,
+        product0_.catalogId as catalog11_12_0_,
+        product0_.updateDate as updateda3_12_0_,
+        product0_.`describe` as describe4_12_0_,
+        product0_.imageId as imageid12_12_0_,
+        product0_.productName as productn5_12_0_,
+        product0_.price as price6_12_0_,
+        product0_.purchase_Price as purchase7_12_0_,
+        product0_.review as review8_12_0_,
+        product0_.salePrice as salepric9_12_0_,
+        product0_.size as size10_12_0_,
+        catalog1_.catalogId as catalogi1_7_1_,
+        catalog1_.image as image2_7_1_,
+        catalog1_.`name` as name3_7_1_,
+        image2_.imageId as imageid1_1_2_,
+        image2_.image1 as image2_1_2_,
+        image2_.image2 as image3_1_2_,
+        image2_.image3 as image4_1_2_,
+        image2_.image4 as image5_1_2_,
+        image2_.image5 as image6_1_2_,
+        image2_.image6 as image7_1_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_,
+        user4_.userId as userid1_5_4_,
+        user4_.address as address2_5_4_,
+        user4_.email as email3_5_4_,
+        user4_.firstName as firstnam4_5_4_,
+        user4_.lastName as lastname5_5_4_,
+        user4_.`password` as password6_5_4_,
+        user4_.phoneNumber as phonenum7_5_4_,
+        user4_.roleId as roleid10_5_4_,
+        user4_.`status` as status8_5_4_,
+        user4_.userName as username9_5_4_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_4_ 
+    from
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
+    where
+        product0_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [20] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        creatorpro0_.id as id1_8_5_,
+        creatorpro0_.createDate as createda2_8_5_,
+        creatorpro0_.productId as producti3_8_5_,
+        creatorpro0_.staffId as staffid4_8_5_,
+        product1_.productId as producti1_12_0_,
+        product1_.amount as amount2_12_0_,
+        product1_.catalogId as catalog11_12_0_,
+        product1_.updateDate as updateda3_12_0_,
+        product1_.`describe` as describe4_12_0_,
+        product1_.imageId as imageid12_12_0_,
+        product1_.productName as productn5_12_0_,
+        product1_.price as price6_12_0_,
+        product1_.purchase_Price as purchase7_12_0_,
+        product1_.review as review8_12_0_,
+        product1_.salePrice as salepric9_12_0_,
+        product1_.size as size10_12_0_,
+        catalog2_.catalogId as catalogi1_7_1_,
+        catalog2_.image as image2_7_1_,
+        catalog2_.`name` as name3_7_1_,
+        image3_.imageId as imageid1_1_2_,
+        image3_.image1 as image2_1_2_,
+        image3_.image2 as image3_1_2_,
+        image3_.image3 as image4_1_2_,
+        image3_.image4 as image5_1_2_,
+        image3_.image5 as image6_1_2_,
+        image3_.image6 as image7_1_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_,
+        role5_.roleId as roleid1_4_4_,
+        role5_.roleName as rolename2_4_4_ 
+    from
+        CreatorProduct creatorpro0_ 
+    inner join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        `Image` image3_ 
+            on product1_.imageId=image3_.imageId 
+    left outer join
+        `User` user4_ 
+            on creatorpro0_.staffId=user4_.userId 
+    left outer join
+        `Role` role5_ 
+            on user4_.roleId=role5_.roleId 
+    where
+        creatorpro0_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [20] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        product0_.productId as producti1_12_0_,
+        product0_.amount as amount2_12_0_,
+        product0_.catalogId as catalog11_12_0_,
+        product0_.updateDate as updateda3_12_0_,
+        product0_.`describe` as describe4_12_0_,
+        product0_.imageId as imageid12_12_0_,
+        product0_.productName as productn5_12_0_,
+        product0_.price as price6_12_0_,
+        product0_.purchase_Price as purchase7_12_0_,
+        product0_.review as review8_12_0_,
+        product0_.salePrice as salepric9_12_0_,
+        product0_.size as size10_12_0_,
+        catalog1_.catalogId as catalogi1_7_1_,
+        catalog1_.image as image2_7_1_,
+        catalog1_.`name` as name3_7_1_,
+        image2_.imageId as imageid1_1_2_,
+        image2_.image1 as image2_1_2_,
+        image2_.image2 as image3_1_2_,
+        image2_.image3 as image4_1_2_,
+        image2_.image4 as image5_1_2_,
+        image2_.image5 as image6_1_2_,
+        image2_.image6 as image7_1_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_,
+        user4_.userId as userid1_5_4_,
+        user4_.address as address2_5_4_,
+        user4_.email as email3_5_4_,
+        user4_.firstName as firstnam4_5_4_,
+        user4_.lastName as lastname5_5_4_,
+        user4_.`password` as password6_5_4_,
+        user4_.phoneNumber as phonenum7_5_4_,
+        user4_.roleId as roleid10_5_4_,
+        user4_.`status` as status8_5_4_,
+        user4_.userName as username9_5_4_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_4_ 
+    from
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
+    where
+        product0_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [21] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        creatorpro0_.id as id1_8_5_,
+        creatorpro0_.createDate as createda2_8_5_,
+        creatorpro0_.productId as producti3_8_5_,
+        creatorpro0_.staffId as staffid4_8_5_,
+        product1_.productId as producti1_12_0_,
+        product1_.amount as amount2_12_0_,
+        product1_.catalogId as catalog11_12_0_,
+        product1_.updateDate as updateda3_12_0_,
+        product1_.`describe` as describe4_12_0_,
+        product1_.imageId as imageid12_12_0_,
+        product1_.productName as productn5_12_0_,
+        product1_.price as price6_12_0_,
+        product1_.purchase_Price as purchase7_12_0_,
+        product1_.review as review8_12_0_,
+        product1_.salePrice as salepric9_12_0_,
+        product1_.size as size10_12_0_,
+        catalog2_.catalogId as catalogi1_7_1_,
+        catalog2_.image as image2_7_1_,
+        catalog2_.`name` as name3_7_1_,
+        image3_.imageId as imageid1_1_2_,
+        image3_.image1 as image2_1_2_,
+        image3_.image2 as image3_1_2_,
+        image3_.image3 as image4_1_2_,
+        image3_.image4 as image5_1_2_,
+        image3_.image5 as image6_1_2_,
+        image3_.image6 as image7_1_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_,
+        role5_.roleId as roleid1_4_4_,
+        role5_.roleName as rolename2_4_4_ 
+    from
+        CreatorProduct creatorpro0_ 
+    inner join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        `Image` image3_ 
+            on product1_.imageId=image3_.imageId 
+    left outer join
+        `User` user4_ 
+            on creatorpro0_.staffId=user4_.userId 
+    left outer join
+        `Role` role5_ 
+            on user4_.roleId=role5_.roleId 
+    where
+        creatorpro0_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [21] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        creatorpro0_.id as id1_8_,
+        creatorpro0_.createDate as createda2_8_,
+        creatorpro0_.productId as producti3_8_,
+        creatorpro0_.staffId as staffid4_8_ 
+    from
+        CreatorProduct creatorpro0_ 
+    left outer join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
+    where
+        product1_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [6] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        CreatorProduct 
+    where
+        id=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [4] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        Product 
     where
         productId=? 
-        and userId=? 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [2] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-25 22:07:57 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [INTEGER] - [7] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [6] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        creatorpro0_.id as id1_8_,
+        creatorpro0_.createDate as createda2_8_,
+        creatorpro0_.productId as producti3_8_,
+        creatorpro0_.staffId as staffid4_8_ 
+    from
+        CreatorProduct creatorpro0_ 
+    left outer join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
+    where
+        product1_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [19] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        CreatorProduct 
+    where
+        id=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [8] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        Product 
+    where
+        productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [19] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        creatorpro0_.id as id1_8_,
+        creatorpro0_.createDate as createda2_8_,
+        creatorpro0_.productId as producti3_8_,
+        creatorpro0_.staffId as staffid4_8_ 
+    from
+        CreatorProduct creatorpro0_ 
+    left outer join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
+    where
+        product1_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [20] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        CreatorProduct 
+    where
+        id=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [9] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        Product 
+    where
+        productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [20] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    select
+        creatorpro0_.id as id1_8_,
+        creatorpro0_.createDate as createda2_8_,
+        creatorpro0_.productId as producti3_8_,
+        creatorpro0_.staffId as staffid4_8_ 
+    from
+        CreatorProduct creatorpro0_ 
+    left outer join
+        Product product1_ 
+            on creatorpro0_.productId=product1_.productId 
+    where
+        product1_.productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [21] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        CreatorProduct 
+    where
+        id=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [10] 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
+    delete 
+    from
+        Product 
+    where
+        productId=? 
+2023-01-26 02:26:02 [http-nio-8080-exec-2] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [21] 

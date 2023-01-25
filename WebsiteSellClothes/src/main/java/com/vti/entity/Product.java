@@ -61,7 +61,7 @@ public class Product implements Serializable {
 
 
     @OneToOne
-    @JoinColumn(name = "imageId", referencedColumnName = "imageId", nullable = false)
+    @JoinColumn(name = "imageId", referencedColumnName = "imageId")
     private Image image;
 
     @OneToMany(mappedBy = "product")
@@ -70,8 +70,8 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product")
     private List<Comment> comments;
 
-    @OneToMany(mappedBy = "product")
-    private List<CreatorProduct> creatorProducts;
+    @OneToOne(mappedBy = "product")
+    private CreatorProduct creatorProduct;
 
     public Product(String name, Catalog catalog, String describe, String size, short amount, int purchasePrice, int price, int salePrice) {
         this.name = name;

@@ -22,8 +22,10 @@ public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKe
     //  delete cart
 //    @Modifying
 //    @Query(value = "DELETE FROM CART WHERE userId = :idParameter", nativeQuery = true)
+    @Modifying
     void deleteCartByUserId(int userId);
 
+    @Modifying
     void deleteCartByUserUsername(String username);
 
 
@@ -32,6 +34,7 @@ public interface ICartRepository extends JpaRepository<Cart, Cart.ShoppingCartKe
 //    @Query(value = "DELETE FROM CART WHERE productId = :proIdParameter AND userId = :useIdParameter", nativeQuery = true)
 //    void deleteProductInCartByProductId(@Param("proIdParameter") int productId, @Param("useIdParameter") int userId);
 
+    @Modifying
     void deleteCartByUserUsernameAndProductId(String username, int productId);
 
     // tính tổng

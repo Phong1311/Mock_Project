@@ -50,7 +50,7 @@ public class ProductDTO {
     @NonNull
     private String catalogId;
 
-    @NonNull
+
     private ImageDTO image;
 
     @Data
