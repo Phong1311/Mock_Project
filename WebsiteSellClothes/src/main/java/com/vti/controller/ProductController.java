@@ -35,6 +35,8 @@ public class ProductController {
     @Autowired
     private ModelMapper modelMapper;
 
+    // user
+
     //  API lấy 5 sản phẩm mới thêm nhất
     @GetMapping()
     public ResponseEntity<?> getProduct() {
@@ -86,6 +88,8 @@ public class ProductController {
         return new ResponseEntity<>(dtoPages, HttpStatus.OK);
     }
 
+    // Staff
+
     @PostMapping(value = "/create")
     public ResponseEntity<?> createProduct(@Valid @RequestBody ProductFormForCreating form) {
         Product product = service.createProduct(UserDetailsUltis.UserDetails().getUsername(), form);
@@ -111,8 +115,8 @@ public class ProductController {
 
     // Delete one
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<?> deleteProduct(@PathVariable(name = "id") int id) {
-        service.deleteProduct(id);
+    public ResponseEntity<?> deleteProduct(@ProductIDInProductExists @PathVariable(name = "id") int id) {
+        service.deleteProduct(UserDetailsUltis.UserDetails().getUsername(), id);
         return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
     }
 }

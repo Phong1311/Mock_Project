@@ -57,7 +57,7 @@ public class Product implements Serializable {
     @CreatedDate
     @Column(name = "updateDate", insertable = false)
     @CreationTimestamp
-    private LocalDateTime createDate;
+    private LocalDateTime updateDate;
 
 
     @OneToOne

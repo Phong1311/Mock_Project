@@ -42,7 +42,7 @@ public class ProductDTO {
 
     @NonNull
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private LocalDateTime createDate;
+    private LocalDateTime updateDate;
 
 //    @NonNull
     private String catalogName;

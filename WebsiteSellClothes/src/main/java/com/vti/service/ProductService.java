@@ -47,6 +47,33 @@ public class ProductService implements IProductService {
     }
 
     @Override
+    public Page<Product> getAllProductByCatalogID(Pageable pageable, int catalogId) {
+        return productRepository.findProductByCatalogId(pageable, catalogId);
+    }
+
+    @Override
+    public List<Product> getProductByCatalogId(int catalogId) {
+        return productRepository.getProductByCatalogId(catalogId);
+    }
+
+    @Override
+    public List<Product> getProduct() {
+        return productRepository.getProduct();
+    }
+
+    @Override
+    public boolean existsProductByProductId(int id) {
+        return productRepository.existsById(id);
+    }
+
+    @Override
+    public boolean existsProductsByCatalogId(int catalogId) {
+        return productRepository.existsProductByCatalogId(catalogId);
+    }
+
+
+    // staff
+    @Override
     public Product createProduct(String username, ProductFormForCreating form) {
 
         User user = userRepository.findByUsername(username);
@@ -123,48 +150,40 @@ public class ProductService implements IProductService {
     public void deleteProducts(String username, List<Integer> ids) {
         List<CreatorProduct> creatorProducts = creatorProductRepository.findCreatorProductsByUserUsername(username);
 
+        // số đầu sai
+        for (Integer id : ids) {
+            for (CreatorProduct creatorProduct : creatorProducts) {
+                if (id.equals(creatorProduct.getProduct().getId()) ) {
 
-        for (CreatorProduct creatorProduct : creatorProducts) {
-            for (int id : ids){
-                if (creatorProduct.getProduct().getId() == id){
-                    creatorProductRepository.deleteCreatorProductByProductId(id);
-                    productRepository.deleteById(id);
+
+                                creatorProductRepository.deleteCreatorProductByProductId(id);
+                                productRepository.deleteById(id);
+                                break;
+
+
+
+
+                } else {
+                    throw new RuntimeException("Không tồn tại id của sản phẩm");
                 }
             }
-
         }
 
-//            productRepository.deleteByIdIn(ids);
     }
 
     @Override
-    public void deleteProduct(int id) {
-        productRepository.deleteById(id);
+    public void deleteProduct(String username, int id) {
+        List<CreatorProduct> creatorProducts = creatorProductRepository.findCreatorProductsByUserUsername(username);
+        for (CreatorProduct creatorProduct : creatorProducts) {
+            if (creatorProduct.getProduct().getId() == id) {
+                creatorProductRepository.deleteCreatorProductByProductId(id);
+                productRepository.deleteById(id);
+                return;
+            }
+        }
+        throw new RuntimeException("Không tồn tại id của sản phẩm");
+
     }
 
-    @Override
-    public Page<Product> getAllProductByCatalogID(Pageable pageable, int catalogId) {
-        return productRepository.findProductByCatalogId(pageable, catalogId);
-    }
-
-    @Override
-    public List<Product> getProductByCatalogId(int catalogId) {
-        return productRepository.getProductByCatalogId(catalogId);
-    }
-
-    @Override
-    public List<Product> getProduct() {
-        return productRepository.getProduct();
-    }
-
-    @Override
-    public boolean existsProductByProductId(int id) {
-        return productRepository.existsById(id);
-    }
-
-    @Override
-    public boolean existsProductsByCatalogId(int catalogId) {
-        return productRepository.existsProductByCatalogId(catalogId);
-    }
 
 }
