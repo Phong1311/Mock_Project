@@ -150,24 +150,21 @@ public class ProductService implements IProductService {
     public void deleteProducts(String username, List<Integer> ids) {
         List<CreatorProduct> creatorProducts = creatorProductRepository.findCreatorProductsByUserUsername(username);
 
+
         // số đầu sai
         for (Integer id : ids) {
             for (CreatorProduct creatorProduct : creatorProducts) {
-                if (id.equals(creatorProduct.getProduct().getId()) ) {
+                if (id.equals(creatorProduct.getProduct().getId())) {
 
-
-                                creatorProductRepository.deleteCreatorProductByProductId(id);
-                                productRepository.deleteById(id);
-                                break;
-
-
-
-
-                } else {
-                    throw new RuntimeException("Không tồn tại id của sản phẩm");
+                    creatorProductRepository.deleteCreatorProductByProductId(id);
+                    productRepository.deleteById(id);
+                    break;
                 }
             }
         }
+
+        throw new RuntimeException("Không tồn tại id của sản phẩm");
+
 
     }
 

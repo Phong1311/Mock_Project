@@ -21,7 +21,7 @@ public interface IProductRepository extends JpaRepository<Product, Integer>, Jpa
 
     @Query(value = "SELECT * FROM PRODUCT\n" +
             "WHERE CATALOGID = :IdParameter\n" +
-            "ORDER BY CREATEDATE DESC\n" +
+            "ORDER BY UPDATEDATE DESC\n" +
             "LIMIT 9 ", nativeQuery = true)
     List<Product> getProductByCatalogId(@Param("IdParameter") int catalogId);
 
