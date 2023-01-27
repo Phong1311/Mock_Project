@@ -148,24 +148,15 @@ public class ProductService implements IProductService {
 
     @Override
     public void deleteProducts(String username, List<Integer> ids) {
-        List<CreatorProduct> creatorProducts = creatorProductRepository.findCreatorProductsByUserUsername(username);
-
-
-        // số đầu sai
         for (Integer id : ids) {
-            for (CreatorProduct creatorProduct : creatorProducts) {
-                if (id.equals(creatorProduct.getProduct().getId())) {
-
-                    creatorProductRepository.deleteCreatorProductByProductId(id);
-                    productRepository.deleteById(id);
-                    break;
-                }
+            boolean i = creatorProductRepository.existsCreatorProductByUserUsernameAndProductId(username, id);
+            if (i == true) {
+                creatorProductRepository.deleteCreatorProductByProductId(id);
+                productRepository.deleteById(id);
+            } else {
+                throw new RuntimeException("Không tồn tại id của sản phẩm");
             }
         }
-
-        throw new RuntimeException("Không tồn tại id của sản phẩm");
-
-
     }
 
     @Override

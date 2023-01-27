@@ -13,4 +13,7 @@ public interface ICreatorProductRepository extends JpaRepository<CreatorProduct,
     @Modifying
     void deleteCreatorProductByProductId(int id);
 
+
+    boolean existsCreatorProductByUserUsernameAndProductId(String username, Integer productId);
+
 }
