@@ -54,7 +54,7 @@ public class CartController {
 
 
     // Tạo giỏ hàng
-    @PostMapping()
+    @PostMapping(value = "/create")
     public ResponseEntity<?> createCart(@Valid @RequestBody CartFormForCreating form) {
         Cart cart = service.createCart(UserDetailsUltis.UserDetails().getUsername(), form);
         CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
@@ -62,7 +62,7 @@ public class CartController {
     }
 
     // update số lượng sản phẩm
-    @PutMapping()
+    @PutMapping(value = "/update")
     public ResponseEntity<?> updateQuantityInCart(@ProductIDInCartExists @Parameter(name = "productId") int productId,
                                                   @Valid @RequestBody CartFormForUpdating form) {
         Cart cart = service.updateQuantityInCart(UserDetailsUltis.UserDetails().getUsername(), productId, form);
@@ -71,14 +71,14 @@ public class CartController {
     }
 
     // delete toàn bộ sản phẩm(giỏ hàng) của user
-    @DeleteMapping(value = "/username")
+    @DeleteMapping(value = "/delete/username")
     public ResponseEntity<?> deleteCartByUsername() {
         service.deleteCartByUsername(UserDetailsUltis.UserDetails().getUsername());
         return new ResponseEntity<>("Delete successfully!", HttpStatus.OK);
     }
 
     // delete 1 sản phẩm
-    @DeleteMapping(value = "/productId")
+    @DeleteMapping(value = "/delete/productId")
     public ResponseEntity<?> deleteProductInCartByProductId(@ProductIDInCartExists @Parameter(name = "productId") int productId
     ) {
         service.deleteProductByUsernameAndProductId(UserDetailsUltis.UserDetails().getUsername(), productId);
