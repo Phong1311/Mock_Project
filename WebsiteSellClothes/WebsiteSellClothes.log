@@ -1,508 +1,143 @@
-2023-01-28 02:23:49 [background-preinit] INFO  o.h.v.i.u.Version                                  - HV000001: Hibernate Validator 6.1.7.Final 
-2023-01-28 02:23:49 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Starting WebsiteSellClothesApplication using Java 1.8.0_341 on DESKTOP-EE2PIUG with PID 5172 (C:\Mock\Mock_Project\WebsiteSellClothes\target\classes started by user in C:\Mock\Mock_Project\WebsiteSellClothes) 
-2023-01-28 02:23:49 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - No active profile set, falling back to default profiles: default 
-2023-01-28 02:23:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
-2023-01-28 02:23:49 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
-2023-01-28 02:23:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
-2023-01-28 02:23:51 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 178 ms. Found 14 JPA repository interfaces. 
-2023-01-28 02:23:52 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@7b4900ed' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
-2023-01-28 02:23:52 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
-2023-01-28 02:23:52 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 8080 (http) 
-2023-01-28 02:23:52 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-8080"] 
-2023-01-28 02:23:52 [restartedMain] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat] 
-2023-01-28 02:23:52 [restartedMain] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41] 
-2023-01-28 02:23:52 [restartedMain] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext 
-2023-01-28 02:23:52 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 3343 ms 
-2023-01-28 02:23:53 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
-2023-01-28 02:23:53 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Starting... 
-2023-01-28 02:23:53 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Start completed. 
-2023-01-28 02:23:53 [restartedMain] INFO  o.h.j.i.u.LogHelper                                - HHH000204: Processing PersistenceUnitInfo [name: default] 
-2023-01-28 02:23:53 [restartedMain] INFO  o.h.Version                                        - HHH000412: Hibernate ORM core version 5.4.27.Final 
-2023-01-28 02:23:54 [restartedMain] INFO  o.h.a.c.Version                                    - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
-2023-01-28 02:23:54 [restartedMain] INFO  o.h.d.Dialect                                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect 
-2023-01-28 02:23:55 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
-2023-01-28 02:23:55 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default' 
-2023-01-28 02:23:57 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain                 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e93759, org.springframework.security.web.context.SecurityContextPersistenceFilter@707e9261, org.springframework.security.web.header.HeaderWriterFilter@58de7fe9, org.springframework.web.filter.CorsFilter@6399c612, org.springframework.security.web.authentication.logout.LogoutFilter@1ea39631, com.vti.security.jwt.AuthTokenFilter@7d55bd8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3bbf6319, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3890593a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f97f206, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5649af8, org.springframework.security.web.session.SessionManagementFilter@59bf0d68, org.springframework.security.web.access.ExceptionTranslationFilter@4eef8e88, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2fffaca2] 
-2023-01-28 02:23:57 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor' 
-2023-01-28 02:23:57 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729 
-2023-01-28 02:23:58 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-8080"] 
-2023-01-28 02:23:58 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 8080 (http) with context path '' 
-2023-01-28 02:23:58 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Started WebsiteSellClothesApplication in 9.993 seconds (JVM running for 12.447) 
-2023-01-28 02:24:38 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet' 
-2023-01-28 02:24:38 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet' 
-2023-01-28 02:24:38 [http-nio-8080-exec-1] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 3 ms 
-2023-01-28 02:24:38 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+2023-01-28 02:45:10 [background-preinit] INFO  o.h.v.i.u.Version                                  - HV000001: Hibernate Validator 6.1.7.Final 
+2023-01-28 02:45:10 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Starting WebsiteSellClothesApplication using Java 1.8.0_341 on DESKTOP-EE2PIUG with PID 3932 (C:\Mock\Mock_Project\WebsiteSellClothes\target\classes started by user in C:\Mock\Mock_Project\WebsiteSellClothes) 
+2023-01-28 02:45:10 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - No active profile set, falling back to default profiles: default 
+2023-01-28 02:45:10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2023-01-28 02:45:10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor    - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2023-01-28 02:45:12 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2023-01-28 02:45:12 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate          - Finished Spring Data repository scanning in 139 ms. Found 14 JPA repository interfaces. 
+2023-01-28 02:45:12 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@51bdd6b6' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2023-01-28 02:45:12 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2023-01-28 02:45:13 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat initialized with port(s): 8080 (http) 
+2023-01-28 02:45:13 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Initializing ProtocolHandler ["http-nio-8080"] 
+2023-01-28 02:45:13 [restartedMain] INFO  o.a.c.c.StandardService                            - Starting service [Tomcat] 
+2023-01-28 02:45:13 [restartedMain] INFO  o.a.c.c.StandardEngine                             - Starting Servlet engine: [Apache Tomcat/9.0.41] 
+2023-01-28 02:45:13 [restartedMain] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring embedded WebApplicationContext 
+2023-01-28 02:45:13 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext     - Root WebApplicationContext: initialization completed in 2904 ms 
+2023-01-28 02:45:13 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning 
+2023-01-28 02:45:13 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Starting... 
+2023-01-28 02:45:14 [restartedMain] INFO  c.z.h.HikariDataSource                             - HikariPool-1 - Start completed. 
+2023-01-28 02:45:14 [restartedMain] INFO  o.h.j.i.u.LogHelper                                - HHH000204: Processing PersistenceUnitInfo [name: default] 
+2023-01-28 02:45:14 [restartedMain] INFO  o.h.Version                                        - HHH000412: Hibernate ORM core version 5.4.27.Final 
+2023-01-28 02:45:14 [restartedMain] INFO  o.h.a.c.Version                                    - HCANN000001: Hibernate Commons Annotations {5.1.2.Final} 
+2023-01-28 02:45:14 [restartedMain] INFO  o.h.d.Dialect                                      - HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect 
+2023-01-28 02:45:15 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator                 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform] 
+2023-01-28 02:45:15 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean     - Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2023-01-28 02:45:17 [restartedMain] INFO  o.s.s.w.DefaultSecurityFilterChain                 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2fece9b5, org.springframework.security.web.context.SecurityContextPersistenceFilter@76889f90, org.springframework.security.web.header.HeaderWriterFilter@3e0fa62e, org.springframework.web.filter.CorsFilter@3c92b060, org.springframework.security.web.authentication.logout.LogoutFilter@4fb1520, com.vti.security.jwt.AuthTokenFilter@220b0644, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2921b60, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4343aef4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@50c14d3e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6907cac, org.springframework.security.web.session.SessionManagementFilter@1d6bf576, org.springframework.security.web.access.ExceptionTranslationFilter@6c097313, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30f86458] 
+2023-01-28 02:45:17 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor                     - Initializing ExecutorService 'applicationTaskExecutor' 
+2023-01-28 02:45:17 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer                 - LiveReload server is running on port 35729 
+2023-01-28 02:45:18 [restartedMain] INFO  o.a.c.h.Http11NioProtocol                          - Starting ProtocolHandler ["http-nio-8080"] 
+2023-01-28 02:45:18 [restartedMain] INFO  o.s.b.w.e.t.TomcatWebServer                        - Tomcat started on port(s): 8080 (http) with context path '' 
+2023-01-28 02:45:18 [restartedMain] INFO  c.v.WebsiteSellClothesApplication                  - Started WebsiteSellClothesApplication in 8.65 seconds (JVM running for 10.873) 
+2023-01-28 02:45:26 [http-nio-8080-exec-3] INFO  o.a.c.c.C.[.[.[/]                                  - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2023-01-28 02:45:26 [http-nio-8080-exec-3] INFO  o.s.w.s.DispatcherServlet                          - Initializing Servlet 'dispatcherServlet' 
+2023-01-28 02:45:26 [http-nio-8080-exec-3] INFO  o.s.w.s.DispatcherServlet                          - Completed initialization in 6 ms 
+2023-01-28 02:45:27 [http-nio-8080-exec-2] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
+        catalog0_.catalogId as catalogi1_7_,
+        catalog0_.image as image2_7_,
+        catalog0_.`name` as name3_7_ 
     from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:24:39 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti1233445] 
-2023-01-28 02:24:39 [http-nio-8080-exec-1] DEBUG o.h.SQL                                            - 
+        Catalog catalog0_ 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
+    SELECT
+        * 
+    FROM
+        PRODUCT 
+    ORDER BY
+        UPDATEDATE DESC LIMIT 5  
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
+        catalog0_.catalogId as catalogi1_7_0_,
+        catalog0_.image as image2_7_0_,
+        catalog0_.`name` as name3_7_0_ 
     from
-        `Role` role0_ 
+        Catalog catalog0_ 
     where
-        role0_.roleId=? 
-2023-01-28 02:24:39 [http-nio-8080-exec-1] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
-2023-01-28 02:24:39 [http-nio-8080-exec-1] ERROR c.v.c.e.AuthExceptionHandler                       - Access is denied 
-org.springframework.security.access.AccessDeniedException: Access is denied
-	at org.springframework.security.access.vote.AffirmativeBased.decide(AffirmativeBased.java:73) ~[spring-security-core-5.4.2.jar:5.4.2]
-	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.attemptAuthorization(AbstractSecurityInterceptor.java:238) ~[spring-security-core-5.4.2.jar:5.4.2]
-	at org.springframework.security.access.intercept.AbstractSecurityInterceptor.beforeInvocation(AbstractSecurityInterceptor.java:208) ~[spring-security-core-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:113) ~[spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) ~[spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at com.vti.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:51) [classes/:?]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_341]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_341]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_341]
-2023-01-28 02:25:20 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
+        catalog0_.catalogId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [1] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
-    from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:25:20 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:25:20 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:25:20 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
-    from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
-    from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_,
-        cart0_.userId as userid2_6_,
-        cart0_.quantity as quantity3_6_ 
-    from
-        Cart cart0_ 
-    left outer join
-        `User` user1_ 
-            on cart0_.userId=user1_.userId 
-    left outer join
-        Product product2_ 
-            on cart0_.productId=product2_.productId 
-    where
-        user1_.userId=? 
-        and product2_.productId=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_0_,
-        cart0_.userId as userid2_6_0_,
-        cart0_.quantity as quantity3_6_0_ 
-    from
-        Cart cart0_ 
-    where
-        cart0_.productId=? 
-        and cart0_.userId=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [7] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        product0_.productId as producti1_12_0_,
-        product0_.amount as amount2_12_0_,
-        product0_.catalogId as catalog11_12_0_,
-        product0_.`describe` as describe3_12_0_,
-        product0_.imageId as imageid12_12_0_,
-        product0_.productName as productn4_12_0_,
-        product0_.price as price5_12_0_,
-        product0_.purchase_Price as purchase6_12_0_,
-        product0_.review as review7_12_0_,
-        product0_.salePrice as salepric8_12_0_,
-        product0_.size as size9_12_0_,
-        product0_.updateDate as updated10_12_0_,
-        catalog1_.catalogId as catalogi1_7_1_,
-        catalog1_.image as image2_7_1_,
-        catalog1_.`name` as name3_7_1_,
-        image2_.imageId as imageid1_1_2_,
-        image2_.image1 as image2_1_2_,
-        image2_.image2 as image3_1_2_,
-        image2_.image3 as image4_1_2_,
-        image2_.image4 as image5_1_2_,
-        image2_.image5 as image6_1_2_,
-        image2_.image6 as image7_1_2_,
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
         creatorpro3_.id as id1_8_3_,
         creatorpro3_.createDate as createda2_8_3_,
         creatorpro3_.productId as producti3_8_3_,
-        creatorpro3_.staffId as staffid4_8_3_,
-        user4_.userId as userid1_5_4_,
-        user4_.address as address2_5_4_,
-        user4_.email as email3_5_4_,
-        user4_.firstName as firstnam4_5_4_,
-        user4_.lastName as lastname5_5_4_,
-        user4_.`password` as password6_5_4_,
-        user4_.phoneNumber as phonenum7_5_4_,
-        user4_.roleId as roleid10_5_4_,
-        user4_.`status` as status8_5_4_,
-        user4_.userName as username9_5_4_,
-        concat(user4_.firstName,
-        ' ',
-        user4_.lastName) as formula1_4_ 
+        creatorpro3_.staffId as staffid4_8_3_ 
     from
-        Product product0_ 
-    left outer join
-        Catalog catalog1_ 
-            on product0_.catalogId=catalog1_.catalogId 
-    left outer join
-        `Image` image2_ 
-            on product0_.imageId=image2_.imageId 
-    left outer join
-        CreatorProduct creatorpro3_ 
-            on product0_.productId=creatorpro3_.productId 
-    left outer join
-        `User` user4_ 
-            on creatorpro3_.staffId=user4_.userId 
-    where
-        product0_.productId=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
-    insert 
-    into
-        Cart
-        (quantity, productId, userId) 
-    values
-        (?, ?, ?) 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [1] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:25:30 [http-nio-8080-exec-4] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [INTEGER] - [7] 
-2023-01-28 02:25:50 [http-nio-8080-exec-5] ERROR c.v.s.j.JwtUtils                                   - JWT token is expired: JWT expired at 2023-01-25T02:33:58Z. Current time: 2023-01-28T02:25:50Z, a difference of 258712245 milliseconds.  Allowed clock skew: 0 milliseconds. 
-2023-01-28 02:25:50 [http-nio-8080-exec-5] ERROR c.v.c.e.AuthExceptionHandler                       - Full authentication is required to access this resource 
-org.springframework.security.authentication.InsufficientAuthenticationException: Full authentication is required to access this resource
-	at org.springframework.security.web.access.ExceptionTranslationFilter.handleAccessDeniedException(ExceptionTranslationFilter.java:192) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.handleSpringSecurityException(ExceptionTranslationFilter.java:171) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:140) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at com.vti.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:51) [classes/:?]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.4.2.jar:5.4.2]
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_341]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_341]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
-	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_341]
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
-    from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as col_0_0_,
-        cart0_.userId as col_0_1_ 
-    from
-        Cart cart0_ 
+        `Image` image0_ 
     left outer join
         Product product1_ 
-            on cart0_.productId=product1_.productId 
-    where
-        product1_.productId=? limit ? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_,
-        cart0_.userId as userid2_6_,
-        cart0_.quantity as quantity3_6_ 
-    from
-        Cart cart0_ 
+            on image0_.imageId=product1_.imageId 
     left outer join
-        `User` user1_ 
-            on cart0_.userId=user1_.userId 
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
     left outer join
-        Product product2_ 
-            on cart0_.productId=product2_.productId 
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
     where
-        user1_.userName=? 
-        and product2_.productId=? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        product0_.productId as producti1_12_0_,
-        product0_.amount as amount2_12_0_,
-        product0_.catalogId as catalog11_12_0_,
-        product0_.`describe` as describe3_12_0_,
-        product0_.imageId as imageid12_12_0_,
-        product0_.productName as productn4_12_0_,
-        product0_.price as price5_12_0_,
-        product0_.purchase_Price as purchase6_12_0_,
-        product0_.review as review7_12_0_,
-        product0_.salePrice as salepric8_12_0_,
-        product0_.size as size9_12_0_,
-        product0_.updateDate as updated10_12_0_,
-        catalog1_.catalogId as catalogi1_7_1_,
-        catalog1_.image as image2_7_1_,
-        catalog1_.`name` as name3_7_1_,
-        image2_.imageId as imageid1_1_2_,
-        image2_.image1 as image2_1_2_,
-        image2_.image2 as image3_1_2_,
-        image2_.image3 as image4_1_2_,
-        image2_.image4 as image5_1_2_,
-        image2_.image5 as image6_1_2_,
-        image2_.image6 as image7_1_2_,
-        creatorpro3_.id as id1_8_3_,
-        creatorpro3_.createDate as createda2_8_3_,
-        creatorpro3_.productId as producti3_8_3_,
-        creatorpro3_.staffId as staffid4_8_3_,
-        user4_.userId as userid1_5_4_,
-        user4_.address as address2_5_4_,
-        user4_.email as email3_5_4_,
-        user4_.firstName as firstnam4_5_4_,
-        user4_.lastName as lastname5_5_4_,
-        user4_.`password` as password6_5_4_,
-        user4_.phoneNumber as phonenum7_5_4_,
-        user4_.roleId as roleid10_5_4_,
-        user4_.`status` as status8_5_4_,
-        user4_.userName as username9_5_4_,
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
         concat(user4_.firstName,
         ' ',
-        user4_.lastName) as formula1_4_ 
+        user4_.lastName) as formula1_3_ 
     from
         Product product0_ 
     left outer join
@@ -518,9 +153,9 @@ org.springframework.security.authentication.InsufficientAuthenticationException:
         `User` user4_ 
             on creatorpro3_.staffId=user4_.userId 
     where
-        product0_.productId=? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
         role0_.roleId as roleid1_4_0_,
         role0_.roleName as rolename2_4_0_ 
@@ -528,143 +163,100 @@ org.springframework.security.authentication.InsufficientAuthenticationException:
         `Role` role0_ 
     where
         role0_.roleId=? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_0_,
-        user0_.address as address2_5_0_,
-        user0_.email as email3_5_0_,
-        user0_.firstName as firstnam4_5_0_,
-        user0_.lastName as lastname5_5_0_,
-        user0_.`password` as password6_5_0_,
-        user0_.phoneNumber as phonenum7_5_0_,
-        user0_.roleId as roleid10_5_0_,
-        user0_.`status` as status8_5_0_,
-        user0_.userName as username9_5_0_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_0_,
-        role1_.roleId as roleid1_4_1_,
-        role1_.roleName as rolename2_4_1_ 
+        catalog0_.catalogId as catalogi1_7_0_,
+        catalog0_.image as image2_7_0_,
+        catalog0_.`name` as name3_7_0_ 
     from
-        `User` user0_ 
-    left outer join
-        `Role` role1_ 
-            on user0_.roleId=role1_.roleId 
+        Catalog catalog0_ 
     where
-        user0_.userId=? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] DEBUG o.h.SQL                                            - 
-    update
-        Cart 
-    set
-        quantity=? 
-    where
-        productId=? 
-        and userId=? 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [6] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:26:17 [http-nio-8080-exec-6] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [INTEGER] - [7] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] DEBUG o.h.SQL                                            - 
+        catalog0_.catalogId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [2] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
     from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as col_0_0_,
-        cart0_.userId as col_0_1_ 
-    from
-        Cart cart0_ 
+        `Image` image0_ 
     left outer join
         Product product1_ 
-            on cart0_.productId=product1_.productId 
-    where
-        product1_.productId=? limit ? 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_,
-        cart0_.userId as userid2_6_,
-        cart0_.quantity as quantity3_6_ 
-    from
-        Cart cart0_ 
+            on image0_.imageId=product1_.imageId 
     left outer join
-        `User` user1_ 
-            on cart0_.userId=user1_.userId 
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
     left outer join
-        Product product2_ 
-            on cart0_.productId=product2_.productId 
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
     where
-        user1_.userName=? 
-        and product2_.productId=? 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] DEBUG o.h.SQL                                            - 
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [18] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        product0_.productId as producti1_12_0_,
-        product0_.amount as amount2_12_0_,
-        product0_.catalogId as catalog11_12_0_,
-        product0_.`describe` as describe3_12_0_,
-        product0_.imageId as imageid12_12_0_,
-        product0_.productName as productn4_12_0_,
-        product0_.price as price5_12_0_,
-        product0_.purchase_Price as purchase6_12_0_,
-        product0_.review as review7_12_0_,
-        product0_.salePrice as salepric8_12_0_,
-        product0_.size as size9_12_0_,
-        product0_.updateDate as updated10_12_0_,
-        catalog1_.catalogId as catalogi1_7_1_,
-        catalog1_.image as image2_7_1_,
-        catalog1_.`name` as name3_7_1_,
-        image2_.imageId as imageid1_1_2_,
-        image2_.image1 as image2_1_2_,
-        image2_.image2 as image3_1_2_,
-        image2_.image3 as image4_1_2_,
-        image2_.image4 as image5_1_2_,
-        image2_.image5 as image6_1_2_,
-        image2_.image6 as image7_1_2_,
-        creatorpro3_.id as id1_8_3_,
-        creatorpro3_.createDate as createda2_8_3_,
-        creatorpro3_.productId as producti3_8_3_,
-        creatorpro3_.staffId as staffid4_8_3_,
-        user4_.userId as userid1_5_4_,
-        user4_.address as address2_5_4_,
-        user4_.email as email3_5_4_,
-        user4_.firstName as firstnam4_5_4_,
-        user4_.lastName as lastname5_5_4_,
-        user4_.`password` as password6_5_4_,
-        user4_.phoneNumber as phonenum7_5_4_,
-        user4_.roleId as roleid10_5_4_,
-        user4_.`status` as status8_5_4_,
-        user4_.userName as username9_5_4_,
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
         concat(user4_.firstName,
         ' ',
-        user4_.lastName) as formula1_4_ 
+        user4_.lastName) as formula1_3_ 
     from
         Product product0_ 
     left outer join
@@ -680,142 +272,91 @@ org.springframework.security.authentication.InsufficientAuthenticationException:
         `User` user4_ 
             on creatorpro3_.staffId=user4_.userId 
     where
-        product0_.productId=? 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] DEBUG o.h.SQL                                            - 
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [18] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
     from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_0_,
-        user0_.address as address2_5_0_,
-        user0_.email as email3_5_0_,
-        user0_.firstName as firstnam4_5_0_,
-        user0_.lastName as lastname5_5_0_,
-        user0_.`password` as password6_5_0_,
-        user0_.phoneNumber as phonenum7_5_0_,
-        user0_.roleId as roleid10_5_0_,
-        user0_.`status` as status8_5_0_,
-        user0_.userName as username9_5_0_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_0_,
-        role1_.roleId as roleid1_4_1_,
-        role1_.roleName as rolename2_4_1_ 
-    from
-        `User` user0_ 
-    left outer join
-        `Role` role1_ 
-            on user0_.roleId=role1_.roleId 
-    where
-        user0_.userId=? 
-2023-01-28 02:26:28 [http-nio-8080-exec-7] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
-    from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as col_0_0_,
-        cart0_.userId as col_0_1_ 
-    from
-        Cart cart0_ 
+        `Image` image0_ 
     left outer join
         Product product1_ 
-            on cart0_.productId=product1_.productId 
-    where
-        product1_.productId=? limit ? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_,
-        cart0_.userId as userid2_6_,
-        cart0_.quantity as quantity3_6_ 
-    from
-        Cart cart0_ 
+            on image0_.imageId=product1_.imageId 
     left outer join
-        `User` user1_ 
-            on cart0_.userId=user1_.userId 
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
     left outer join
-        Product product2_ 
-            on cart0_.productId=product2_.productId 
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
     where
-        user1_.userName=? 
-        and product2_.productId=? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        product0_.productId as producti1_12_0_,
-        product0_.amount as amount2_12_0_,
-        product0_.catalogId as catalog11_12_0_,
-        product0_.`describe` as describe3_12_0_,
-        product0_.imageId as imageid12_12_0_,
-        product0_.productName as productn4_12_0_,
-        product0_.price as price5_12_0_,
-        product0_.purchase_Price as purchase6_12_0_,
-        product0_.review as review7_12_0_,
-        product0_.salePrice as salepric8_12_0_,
-        product0_.size as size9_12_0_,
-        product0_.updateDate as updated10_12_0_,
-        catalog1_.catalogId as catalogi1_7_1_,
-        catalog1_.image as image2_7_1_,
-        catalog1_.`name` as name3_7_1_,
-        image2_.imageId as imageid1_1_2_,
-        image2_.image1 as image2_1_2_,
-        image2_.image2 as image3_1_2_,
-        image2_.image3 as image4_1_2_,
-        image2_.image4 as image5_1_2_,
-        image2_.image5 as image6_1_2_,
-        image2_.image6 as image7_1_2_,
-        creatorpro3_.id as id1_8_3_,
-        creatorpro3_.createDate as createda2_8_3_,
-        creatorpro3_.productId as producti3_8_3_,
-        creatorpro3_.staffId as staffid4_8_3_,
-        user4_.userId as userid1_5_4_,
-        user4_.address as address2_5_4_,
-        user4_.email as email3_5_4_,
-        user4_.firstName as firstnam4_5_4_,
-        user4_.lastName as lastname5_5_4_,
-        user4_.`password` as password6_5_4_,
-        user4_.phoneNumber as phonenum7_5_4_,
-        user4_.roleId as roleid10_5_4_,
-        user4_.`status` as status8_5_4_,
-        user4_.userName as username9_5_4_,
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
         concat(user4_.firstName,
         ' ',
-        user4_.lastName) as formula1_4_ 
+        user4_.lastName) as formula1_3_ 
     from
         Product product0_ 
     left outer join
@@ -831,74 +372,335 @@ org.springframework.security.authentication.InsufficientAuthenticationException:
         `User` user4_ 
             on creatorpro3_.staffId=user4_.userId 
     where
-        product0_.productId=? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
     from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_0_,
-        user0_.address as address2_5_0_,
-        user0_.email as email3_5_0_,
-        user0_.firstName as firstnam4_5_0_,
-        user0_.lastName as lastname5_5_0_,
-        user0_.`password` as password6_5_0_,
-        user0_.phoneNumber as phonenum7_5_0_,
-        user0_.roleId as roleid10_5_0_,
-        user0_.`status` as status8_5_0_,
-        user0_.userName as username9_5_0_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_0_,
-        role1_.roleId as roleid1_4_1_,
-        role1_.roleName as rolename2_4_1_ 
-    from
-        `User` user0_ 
+        `Image` image0_ 
     left outer join
-        `Role` role1_ 
-            on user0_.roleId=role1_.roleId 
+        Product product1_ 
+            on image0_.imageId=product1_.imageId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
     where
-        user0_.userId=? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] DEBUG o.h.SQL                                            - 
-    update
-        Cart 
-    set
-        quantity=? 
-    where
-        productId=? 
-        and userId=? 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [100] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:26:34 [http-nio-8080-exec-8] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [3] as [INTEGER] - [7] 
-2023-01-28 02:26:37 [http-nio-8080-exec-9] DEBUG o.h.SQL                                            - 
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [4] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
         ' ',
-        user0_.lastName) as formula1_ 
+        user4_.lastName) as formula1_3_ 
     from
-        `User` user0_ 
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
     where
-        user0_.userName=? 
-2023-01-28 02:26:37 [http-nio-8080-exec-9] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:37 [http-nio-8080-exec-9] DEBUG o.h.SQL                                            - 
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [4] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
+    select
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
+    from
+        `Image` image0_ 
+    left outer join
+        Product product1_ 
+            on image0_.imageId=product1_.imageId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
+    where
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [5] 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] DEBUG o.h.SQL                                            - 
+    select
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_ 
+    from
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
+    where
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-3] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [5] 
+2023-01-28 02:45:27 [http-nio-8080-exec-1] ERROR c.v.s.j.JwtUtils                                   - Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted. 
+2023-01-28 02:45:27 [http-nio-8080-exec-1] WARN  o.s.w.s.PageNotFound                               - No mapping for GET /api/v1/carts/userId/null 
+2023-01-28 02:45:27 [http-nio-8080-exec-4] DEBUG o.h.SQL                                            - 
+    select
+        catalog0_.catalogId as catalogi1_7_,
+        catalog0_.image as image2_7_,
+        catalog0_.`name` as name3_7_ 
+    from
+        Catalog catalog0_ 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    SELECT
+        * 
+    FROM
+        PRODUCT 
+    ORDER BY
+        UPDATEDATE DESC LIMIT 5  
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        catalog0_.catalogId as catalogi1_7_0_,
+        catalog0_.image as image2_7_0_,
+        catalog0_.`name` as name3_7_0_ 
+    from
+        Catalog catalog0_ 
+    where
+        catalog0_.catalogId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [1] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
+    from
+        `Image` image0_ 
+    left outer join
+        Product product1_ 
+            on image0_.imageId=product1_.imageId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
+    where
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_ 
+    from
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
+    where
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
     select
         role0_.roleId as roleid1_4_0_,
         role0_.roleName as rolename2_4_0_ 
@@ -906,23 +708,67 @@ org.springframework.security.authentication.InsufficientAuthenticationException:
         `Role` role0_ 
     where
         role0_.roleId=? 
-2023-01-28 02:26:37 [http-nio-8080-exec-9] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:26:37 [http-nio-8080-exec-9] ERROR c.v.c.e.RestExceptionHandler                       - Validation failed for argument [1] in public org.springframework.http.ResponseEntity<?> com.vti.controller.CartController.updateQuantityInCart(int,com.vti.form.updating.CartFormForUpdating): [Field error in object 'cartFormForUpdating' on field 'quantity': rejected value [-100]; codes [Positive.cartFormForUpdating.quantity,Positive.quantity,Positive.java.lang.Integer,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [cartFormForUpdating.quantity,quantity]; arguments []; default message [quantity]]; default message [The Quantity must be greater than or equal 1]] 
-{quantity=The Quantity must be greater than or equal 1} 
-org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<?> com.vti.controller.CartController.updateQuantityInCart(int,com.vti.form.updating.CartFormForUpdating): [Field error in object 'cartFormForUpdating' on field 'quantity': rejected value [-100]; codes [Positive.cartFormForUpdating.quantity,Positive.quantity,Positive.java.lang.Integer,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [cartFormForUpdating.quantity,quantity]; arguments []; default message [quantity]]; default message [The Quantity must be greater than or equal 1]] 
-	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.resolveArgument(RequestResponseBodyMethodProcessor.java:139) ~[spring-webmvc-5.3.3.jar:5.3.3]
-	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:121) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:170) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) ~[spring-web-5.3.3.jar:5.3.3]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106) ~[spring-webmvc-5.3.3.jar:5.3.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894) ~[spring-webmvc-5.3.3.jar:5.3.3]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.3.jar:5.3.3]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.3.jar:5.3.3]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060) [spring-webmvc-5.3.3.jar:5.3.3]
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        catalog0_.catalogId as catalogi1_7_0_,
+        catalog0_.image as image2_7_0_,
+        catalog0_.`name` as name3_7_0_ 
+    from
+        Catalog catalog0_ 
+    where
+        catalog0_.catalogId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [2] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
+    from
+        `Image` image0_ 
+    left outer join
+        Product product1_ 
+            on image0_.imageId=product1_.imageId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
+    where
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [18] 
+2023-01-28 02:45:27 [http-nio-8080-exec-1] ERROR c.v.c.e.RestExceptionHandler                       - No handler found for GET /api/v1/carts/userId/null 
+org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null
+	at org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1275) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) [spring-webmvc-5.3.3.jar:5.3.3]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) [spring-webmvc-5.3.3.jar:5.3.3]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.3.jar:5.3.3]
-	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) [spring-webmvc-5.3.3.jar:5.3.3]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) [tomcat-embed-core-9.0.41.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.3.jar:5.3.3]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.41.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.41.jar:9.0.41]
@@ -1005,107 +851,47 @@ org.springframework.web.bind.MethodArgumentNotValidException: Validation failed 
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_341]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
 	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_341]
-2023-01-28 02:26:37 [http-nio-8080-exec-9] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver    - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [1] in public org.springframework.http.ResponseEntity<?> com.vti.controller.CartController.updateQuantityInCart(int,com.vti.form.updating.CartFormForUpdating): [Field error in object 'cartFormForUpdating' on field 'quantity': rejected value [-100]; codes [Positive.cartFormForUpdating.quantity,Positive.quantity,Positive.java.lang.Integer,Positive]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [cartFormForUpdating.quantity,quantity]; arguments []; default message [quantity]]; default message [The Quantity must be greater than or equal 1]] ] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] DEBUG o.h.SQL                                            - 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
     select
-        user0_.userId as userid1_5_,
-        user0_.address as address2_5_,
-        user0_.email as email3_5_,
-        user0_.firstName as firstnam4_5_,
-        user0_.lastName as lastname5_5_,
-        user0_.`password` as password6_5_,
-        user0_.phoneNumber as phonenum7_5_,
-        user0_.roleId as roleid10_5_,
-        user0_.`status` as status8_5_,
-        user0_.userName as username9_5_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_ 
-    from
-        `User` user0_ 
-    where
-        user0_.userName=? 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] DEBUG o.h.SQL                                            - 
-    select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
-    from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [3] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as col_0_0_,
-        cart0_.userId as col_0_1_ 
-    from
-        Cart cart0_ 
-    left outer join
-        Product product1_ 
-            on cart0_.productId=product1_.productId 
-    where
-        product1_.productId=? limit ? 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] DEBUG o.h.SQL                                            - 
-    select
-        cart0_.productId as producti1_6_,
-        cart0_.userId as userid2_6_,
-        cart0_.quantity as quantity3_6_ 
-    from
-        Cart cart0_ 
-    left outer join
-        `User` user1_ 
-            on cart0_.userId=user1_.userId 
-    left outer join
-        Product product2_ 
-            on cart0_.productId=product2_.productId 
-    where
-        user1_.userName=? 
-        and product2_.productId=? 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [VARCHAR] - [tuanvti12344] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [2] as [INTEGER] - [3] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] DEBUG o.h.SQL                                            - 
-    select
-        product0_.productId as producti1_12_0_,
-        product0_.amount as amount2_12_0_,
-        product0_.catalogId as catalog11_12_0_,
-        product0_.`describe` as describe3_12_0_,
-        product0_.imageId as imageid12_12_0_,
-        product0_.productName as productn4_12_0_,
-        product0_.price as price5_12_0_,
-        product0_.purchase_Price as purchase6_12_0_,
-        product0_.review as review7_12_0_,
-        product0_.salePrice as salepric8_12_0_,
-        product0_.size as size9_12_0_,
-        product0_.updateDate as updated10_12_0_,
-        catalog1_.catalogId as catalogi1_7_1_,
-        catalog1_.image as image2_7_1_,
-        catalog1_.`name` as name3_7_1_,
-        image2_.imageId as imageid1_1_2_,
-        image2_.image1 as image2_1_2_,
-        image2_.image2 as image3_1_2_,
-        image2_.image3 as image4_1_2_,
-        image2_.image4 as image5_1_2_,
-        image2_.image5 as image6_1_2_,
-        image2_.image6 as image7_1_2_,
-        creatorpro3_.id as id1_8_3_,
-        creatorpro3_.createDate as createda2_8_3_,
-        creatorpro3_.productId as producti3_8_3_,
-        creatorpro3_.staffId as staffid4_8_3_,
-        user4_.userId as userid1_5_4_,
-        user4_.address as address2_5_4_,
-        user4_.email as email3_5_4_,
-        user4_.firstName as firstnam4_5_4_,
-        user4_.lastName as lastname5_5_4_,
-        user4_.`password` as password6_5_4_,
-        user4_.phoneNumber as phonenum7_5_4_,
-        user4_.roleId as roleid10_5_4_,
-        user4_.`status` as status8_5_4_,
-        user4_.userName as username9_5_4_,
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
         concat(user4_.firstName,
         ' ',
-        user4_.lastName) as formula1_4_ 
+        user4_.lastName) as formula1_3_ 
     from
         Product product0_ 
     left outer join
@@ -1121,39 +907,585 @@ org.springframework.web.bind.MethodArgumentNotValidException: Validation failed 
         `User` user4_ 
             on creatorpro3_.staffId=user4_.userId 
     where
-        product0_.productId=? 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] DEBUG o.h.SQL                                            - 
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [18] 
+2023-01-28 02:45:27 [http-nio-8080-exec-1] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver    - Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
     select
-        role0_.roleId as roleid1_4_0_,
-        role0_.roleName as rolename2_4_0_ 
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
     from
-        `Role` role0_ 
-    where
-        role0_.roleId=? 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [SMALLINT] - [2] 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] DEBUG o.h.SQL                                            - 
-    select
-        user0_.userId as userid1_5_0_,
-        user0_.address as address2_5_0_,
-        user0_.email as email3_5_0_,
-        user0_.firstName as firstnam4_5_0_,
-        user0_.lastName as lastname5_5_0_,
-        user0_.`password` as password6_5_0_,
-        user0_.phoneNumber as phonenum7_5_0_,
-        user0_.roleId as roleid10_5_0_,
-        user0_.`status` as status8_5_0_,
-        user0_.userName as username9_5_0_,
-        concat(user0_.firstName,
-        ' ',
-        user0_.lastName) as formula1_0_,
-        role1_.roleId as roleid1_4_1_,
-        role1_.roleName as rolename2_4_1_ 
-    from
-        `User` user0_ 
+        `Image` image0_ 
     left outer join
-        `Role` role1_ 
-            on user0_.roleId=role1_.roleId 
+        Product product1_ 
+            on image0_.imageId=product1_.imageId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
     where
-        user0_.userId=? 
-2023-01-28 02:26:40 [http-nio-8080-exec-10] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [7] 
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_ 
+    from
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
+    where
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [3] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
+    from
+        `Image` image0_ 
+    left outer join
+        Product product1_ 
+            on image0_.imageId=product1_.imageId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
+    where
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [4] 
+2023-01-28 02:45:27 [http-nio-8080-exec-6] ERROR c.v.s.j.JwtUtils                                   - Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted. 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_ 
+    from
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
+    where
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-6] WARN  o.s.w.s.PageNotFound                               - No mapping for GET /api/v1/carts/userId/null 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [4] 
+2023-01-28 02:45:27 [http-nio-8080-exec-6] ERROR c.v.c.e.RestExceptionHandler                       - No handler found for GET /api/v1/carts/userId/null 
+org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null
+	at org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1275) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at com.vti.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:51) [classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_341]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_341]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_341]
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        image0_.imageId as imageid1_1_0_,
+        image0_.image1 as image2_1_0_,
+        image0_.image2 as image3_1_0_,
+        image0_.image3 as image4_1_0_,
+        image0_.image4 as image5_1_0_,
+        image0_.image5 as image6_1_0_,
+        image0_.image6 as image7_1_0_,
+        product1_.productId as producti1_12_1_,
+        product1_.amount as amount2_12_1_,
+        product1_.catalogId as catalog11_12_1_,
+        product1_.`describe` as describe3_12_1_,
+        product1_.imageId as imageid12_12_1_,
+        product1_.productName as productn4_12_1_,
+        product1_.price as price5_12_1_,
+        product1_.purchase_Price as purchase6_12_1_,
+        product1_.review as review7_12_1_,
+        product1_.salePrice as salepric8_12_1_,
+        product1_.size as size9_12_1_,
+        product1_.updateDate as updated10_12_1_,
+        catalog2_.catalogId as catalogi1_7_2_,
+        catalog2_.image as image2_7_2_,
+        catalog2_.`name` as name3_7_2_,
+        creatorpro3_.id as id1_8_3_,
+        creatorpro3_.createDate as createda2_8_3_,
+        creatorpro3_.productId as producti3_8_3_,
+        creatorpro3_.staffId as staffid4_8_3_ 
+    from
+        `Image` image0_ 
+    left outer join
+        Product product1_ 
+            on image0_.imageId=product1_.imageId 
+    left outer join
+        Catalog catalog2_ 
+            on product1_.catalogId=catalog2_.catalogId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product1_.productId=creatorpro3_.productId 
+    where
+        image0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [5] 
+2023-01-28 02:45:27 [http-nio-8080-exec-6] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver    - Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null] 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] DEBUG o.h.SQL                                            - 
+    select
+        product0_.productId as producti1_12_4_,
+        product0_.amount as amount2_12_4_,
+        product0_.catalogId as catalog11_12_4_,
+        product0_.`describe` as describe3_12_4_,
+        product0_.imageId as imageid12_12_4_,
+        product0_.productName as productn4_12_4_,
+        product0_.price as price5_12_4_,
+        product0_.purchase_Price as purchase6_12_4_,
+        product0_.review as review7_12_4_,
+        product0_.salePrice as salepric8_12_4_,
+        product0_.size as size9_12_4_,
+        product0_.updateDate as updated10_12_4_,
+        catalog1_.catalogId as catalogi1_7_0_,
+        catalog1_.image as image2_7_0_,
+        catalog1_.`name` as name3_7_0_,
+        image2_.imageId as imageid1_1_1_,
+        image2_.image1 as image2_1_1_,
+        image2_.image2 as image3_1_1_,
+        image2_.image3 as image4_1_1_,
+        image2_.image4 as image5_1_1_,
+        image2_.image5 as image6_1_1_,
+        image2_.image6 as image7_1_1_,
+        creatorpro3_.id as id1_8_2_,
+        creatorpro3_.createDate as createda2_8_2_,
+        creatorpro3_.productId as producti3_8_2_,
+        creatorpro3_.staffId as staffid4_8_2_,
+        user4_.userId as userid1_5_3_,
+        user4_.address as address2_5_3_,
+        user4_.email as email3_5_3_,
+        user4_.firstName as firstnam4_5_3_,
+        user4_.lastName as lastname5_5_3_,
+        user4_.`password` as password6_5_3_,
+        user4_.phoneNumber as phonenum7_5_3_,
+        user4_.roleId as roleid10_5_3_,
+        user4_.`status` as status8_5_3_,
+        user4_.userName as username9_5_3_,
+        concat(user4_.firstName,
+        ' ',
+        user4_.lastName) as formula1_3_ 
+    from
+        Product product0_ 
+    left outer join
+        Catalog catalog1_ 
+            on product0_.catalogId=catalog1_.catalogId 
+    left outer join
+        `Image` image2_ 
+            on product0_.imageId=image2_.imageId 
+    left outer join
+        CreatorProduct creatorpro3_ 
+            on product0_.productId=creatorpro3_.productId 
+    left outer join
+        `User` user4_ 
+            on creatorpro3_.staffId=user4_.userId 
+    where
+        product0_.imageId=? 
+2023-01-28 02:45:27 [http-nio-8080-exec-5] TRACE o.h.t.d.s.BasicBinder                              - binding parameter [1] as [INTEGER] - [5] 
+2023-01-28 02:45:27 [http-nio-8080-exec-7] ERROR c.v.s.j.JwtUtils                                   - Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted. 
+2023-01-28 02:45:27 [http-nio-8080-exec-7] WARN  o.s.w.s.PageNotFound                               - No mapping for GET /api/v1/carts/userId/null 
+2023-01-28 02:45:27 [http-nio-8080-exec-7] ERROR c.v.c.e.RestExceptionHandler                       - No handler found for GET /api/v1/carts/userId/null 
+org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null
+	at org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1275) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at com.vti.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:51) [classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_341]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_341]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_341]
+2023-01-28 02:45:27 [http-nio-8080-exec-7] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver    - Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null] 
+2023-01-28 02:45:27 [http-nio-8080-exec-8] ERROR c.v.s.j.JwtUtils                                   - Invalid JWT signature: JWT signature does not match locally computed signature. JWT validity cannot be asserted and should not be trusted. 
+2023-01-28 02:45:27 [http-nio-8080-exec-8] WARN  o.s.w.s.PageNotFound                               - No mapping for GET /api/v1/carts/userId/null 
+2023-01-28 02:45:27 [http-nio-8080-exec-8] ERROR c.v.c.e.RestExceptionHandler                       - No handler found for GET /api/v1/carts/userId/null 
+org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null
+	at org.springframework.web.servlet.DispatcherServlet.noHandlerFound(DispatcherServlet.java:1275) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) [spring-webmvc-5.3.3.jar:5.3.3]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) [spring-webmvc-5.3.3.jar:5.3.3]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) [tomcat-embed-core-9.0.41.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) [tomcat-embed-websocket-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:113) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:149) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at com.vti.security.jwt.AuthTokenFilter.doFilterInternal(AuthTokenFilter.java:51) [classes/:?]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) [spring-security-web-5.4.2.jar:5.4.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) [spring-web-5.3.3.jar:5.3.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) [spring-web-5.3.3.jar:5.3.3]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_341]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_341]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.41.jar:9.0.41]
+	at java.lang.Thread.run(Thread.java:750) [?:1.8.0_341]
+2023-01-28 02:45:27 [http-nio-8080-exec-8] WARN  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver    - Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /api/v1/carts/userId/null] 

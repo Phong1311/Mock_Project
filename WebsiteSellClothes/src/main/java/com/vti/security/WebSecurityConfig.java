@@ -71,12 +71,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/catalogs/create").hasAuthority("ADMIN")
                 .antMatchers("/api/v1/catalogs/update/**").hasAuthority("ADMIN")
                 .antMatchers("/api/v1/catalogs/delete/**").hasAuthority("ADMIN")
-                .antMatchers("/api/v1/catalogs/**").permitAll()
+                .antMatchers("/api/v1/catalogs/**").anonymous()
 
                 .antMatchers("/api/v1/products/create").hasAuthority("STAFF")
                 .antMatchers("/api/v1/products/update/**").hasAuthority("STAFF")
                 .antMatchers("/api/v1/products/delete/**").hasAuthority("STAFF")
-                .antMatchers("/api/v1/products/**").permitAll()
+                .antMatchers("/api/v1/products/**").anonymous()
 
                 .antMatchers("/api/v1/auth/signup").anonymous()
                 .antMatchers("/api/v1/auth/signin").permitAll()
@@ -104,7 +104,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/oderLists/**").hasAuthority("USER")
                 .antMatchers("/api/v1/oderDetails/**").hasAuthority("USER")
 
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .httpBasic()
                 .and()
