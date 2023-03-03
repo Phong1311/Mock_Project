@@ -45,8 +45,6 @@ public class ProductController {
 
         List<ProductDTO> dtos = modelMapper.map(product, new TypeToken<List<ProductDTO>>() {
         }.getType());
-
-
         return new ResponseEntity<>(dtos, HttpStatus.OK);
     }
 
@@ -56,7 +54,6 @@ public class ProductController {
         Product product = service.getProductByID(id);
 
         ProductDTO productDTO = modelMapper.map(product, ProductDTO.class);
-
 
         return new ResponseEntity<>(productDTO, HttpStatus.OK);
     }

@@ -150,7 +150,7 @@ public class ProductService implements IProductService {
     public void deleteProducts(String username, List<Integer> ids) {
         for (Integer id : ids) {
             boolean i = creatorProductRepository.existsCreatorProductByUserUsernameAndProductId(username, id);
-            if (i == true) {
+            if (i) {
                 creatorProductRepository.deleteCreatorProductByProductId(id);
                 productRepository.deleteById(id);
             } else {

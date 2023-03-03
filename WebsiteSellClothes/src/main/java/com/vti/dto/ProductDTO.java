@@ -45,7 +45,7 @@ public class ProductDTO {
     private LocalDateTime updateDate;
 
 //    @NonNull
-    private String catalogName;
+//    private String catalogName;
 
     @NonNull
     private String catalogId;

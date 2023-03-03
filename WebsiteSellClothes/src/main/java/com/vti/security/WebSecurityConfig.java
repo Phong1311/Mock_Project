@@ -88,7 +88,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/users/paymentProfile").hasAuthority("USER")
                 .antMatchers("/api/v1/users/**").permitAll()
 
-                .antMatchers("/api/v1/images/**").hasAuthority("STAFF")
+                .antMatchers("/api/v1/images/**").permitAll()
 
 
 

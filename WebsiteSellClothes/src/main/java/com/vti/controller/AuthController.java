@@ -57,6 +57,7 @@ public class AuthController {
 
     @Autowired
     private ApplicationEventPublisher eventPublisher;
+
     @Autowired
     PasswordEncoder encoder;
 
@@ -73,7 +74,6 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(signingRequest.getUsername(), signingRequest.getPassword()));
             SecurityContextHolder.getContext().setAuthentication(authentication);
             userDetails = (UserDetail) authentication.getPrincipal();
-
         } catch (Exception ex) {
             throw new Exception(ex);
         }
@@ -100,11 +100,9 @@ public class AuthController {
         if (userService.existsUserByEmail(signUpRequest.getEmail())) {
             return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
         }
-
         // Create new user's account
         User user = new User(signUpRequest.getUsername(), signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()), signUpRequest.getFirstName(), signUpRequest.getLastName());
-
 
         if (user.getRole() == null) {
             Role role = new Role();
@@ -112,7 +110,6 @@ public class AuthController {
             role.setERole(Role.ERole.USER);
             user.setRole(role);
         }
-
         userRepository.save(user);
         // create new user registration token
         userService.createNewRegistrationUserToken(user);

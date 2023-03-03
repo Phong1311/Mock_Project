@@ -29,6 +29,7 @@ public interface IProductRepository extends JpaRepository<Product, Integer>, Jpa
             "ORDER BY UPDATEDATE DESC\n" +
             "LIMIT 5 ", nativeQuery = true)
     List<Product> getProduct();
+
     boolean existsProductByCatalogId(int id);
 
 }
